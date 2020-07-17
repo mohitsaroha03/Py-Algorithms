@@ -7,7 +7,17 @@
 
 <h3>Plans: 
 </h2>
-Topics wise directory structure. Each topic will contain all auxiliary operation, all karumanchi problems, GFG implementations, medium and hard problems (which may include exact copied algorithms from 'common'(which has misc algorithms) folder, and vice-versa).
+   Topics wise directory structure. Each topic will contain all auxiliary operation, all karumanchi problems, GFG implementations, medium and hard problems (which may include        exact copied algorithms from 'common'(which has misc algorithms) folder, and vice-versa).
+   Each algo will possibly have:
+      Comments
+      Inputs
+      Ready to debug
+      Tags if possible(like companies, difficulty, topics covered)
+      
+      
+   
+   Each algo will have comments for:
+      isAlreadyExist & its refrence, each important line, reference link(question, answer), 
 
 
 Topics: 
