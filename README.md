@@ -1,6 +1,6 @@
    <h2>नमस्ते (Namaste)🙏🏻, I'm a Software Developer! <img src="https://media.giphy.com/media/12oufCB0MyZ1Go/giphy.gif" width="50"></h2>
 <img align='right' src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="230">
-<p><em>Software Engineer at <a href="http://www.policybazaar.com">Policybazaar.com</a><img src="https://twowheeler.policybazaar.com/images/pb-logo-home.png" width="80" height="50"> 
+<p><em>Software Engineer at <a href="http://www.policybazaar.com">Policybazaar.com</a><img src="https://twowheeler.policybazaar.com/images/pb-logo-home.png" width="80" height="20"> 
 </em></p>
 
 # DSA
