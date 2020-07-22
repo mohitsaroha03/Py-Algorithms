@@ -1,156 +1,168 @@
-# Copyright (c) Dec 22, 2014 CareerMonk Publications and others.
-# E-Mail           		: info@careermonk.com 
-# Creation Date    		: 2014-01-10 06:15:46 
-# Last modification		: 2008-10-31 
-#               by		: Narasimha Karumanchi 
-# Book Title			: Data Structures And Algorithmic Thinking With Python
-# Warranty         		: This software is provided "as is" without any 
-# 				   warranty; without even the implied warranty of 
-# 				    merchantability or fitness for a particular purpose. 
+# Python program to do inorder traversal without recursion 
 
-'''Binary Tree Class and its methods'''
-class BinaryTree:
-	def __init__(self, data):
-		self.data = data  # root node
-		self.left = None  # left child
-		self.right = None  # right child
-	# set data
-	def set_data(self, data):
-		self.data = data
-	# get data   
-	def get_data(self):
-		return self.data	
-	# get left child of a node
-	def getLeft(self):
-		return self.left
-	# get right child of a node
-	def getRight(self):
-		return self.right
-	# get left child of a node
-	def setLeft(self, left):
-		self.left = left
-	# get right child of a node
-	def setRight(self, right):
-		self.right = right
-	def insertLeft(self, newNode):
-		if self.left == None:
-			self.left = BinaryTree(newNode)
-		else:
-			temp = BinaryTree(newNode)
-			temp.left = self.left
-			self.left = temp
+# A binary tree node 
+class Node: 
+	
+	# Constructor to create a new node 
+	def __init__(self, data): 
+		self.data = data 
+		self.left = None
+		self.right = None
 
-	def insertRight(self, newNode):
-		if self.right == None:
-			self.right = BinaryTree(newNode)
-		else:
-			temp = BinaryTree(newNode)
-			temp.right = self.right
-			self.right = temp
-	    
-# Pre-order recursive traversal. The nodes' values are appended to the result list in traversal order
-def preorderRecursive(root, result):
+# Iterative function for inorder tree traversal 
+def inOrder(root): 
+	
+	# Set current to root of binary tree 
+	current = root 
+	stack = [] # initialize stack 
+	done = 0
+	
+	while True: 
+		
+		# Reach the left most Node of the current Node 
+		if current is not None: 
+			
+			# Place pointer to a tree node on the stack 
+			# before traversing the node's left subtree 
+			stack.append(current) 
+		
+			current = current.left 
+
+		
+		# BackTrack from the empty subtree and visit the Node 
+		# at the top of the stack; however, if the stack is 
+		# empty you are done 
+		elif(stack): 
+			current = stack.pop() 
+			print current.data, # Python 3 printing 
+		
+			# We have visited the node and its left 
+			# subtree. Now, it's right subtree's turn 
+			current = current.right 
+
+		else: 
+			break
+	
+	# print() 
+
+# This code is contributed by Nikhil Kumar Singh(nickzuck_007) 
+# An iterative process to print preorder traveral of BT 
+def iterativePreorder(root): 
+      
+    # Base CAse  
+    if root is None: 
+        return 
+  
+    # create an empty stack and push root to it 
+    nodeStack = [] 
+    nodeStack.append(root) 
+  
+    #  Pop all items one by one. Do following for every popped item 
+    #   a) print it 
+    #   b) push its right child 
+    #   c) push its left child 
+    # Note that right child is pushed first so that left 
+    # is processed first */ 
+    while(len(nodeStack) > 0): 
+          
+        # Pop the top item from stack and print it 
+        node = nodeStack.pop() 
+        print node.data, 
+          
+        # Push right and left children of the popped node 
+        # to stack 
+        if node.right is not None: 
+            nodeStack.append(node.right) 
+        if node.left is not None: 
+            nodeStack.append(node.left) 
+      
+# Driver program to test above function 
+# root = Node(10) 
+# root.left = Node(8) 
+# root.right = Node(2) 
+# root.left.left = Node(3) 
+# root.left.right = Node(5) 
+# root.right.left = Node(2) 
+
+
+def postOrderIterative(root):  
+  
+    if root is None: 
+        return        
+      
+    # Create two stacks  
+    s1 = [] 
+    s2 = [] 
+      
+    # Push root to first stack 
+    s1.append(root) 
+      
+    # Run while first stack is not empty 
+    while s1: 
+          
+        # Pop an item from s1 and  
+        # append it to s2 
+        node = s1.pop() 
+        s2.append(node) 
+      
+        # Push left and right children of  
+        # removed item to s1 
+        if node.left: 
+            s1.append(node.left) 
+        if node.right: 
+            s1.append(node.right) 
+  
+        # Print all elements of second stack 
+    while s2: 
+        node = s2.pop() 
+        print node.data, 
+  
+def preorderRecursive(root):
     if not root:
         return
     
-    result.append(root.data)
-    preorderRecursive(root.left, result)
-    preorderRecursive(root.right, result)
+    print root.data
+    preorderRecursive(root.left)
+    preorderRecursive(root.right)
 
 # In-order recursive traversal. The nodes' values are appended to the result list in traversal order
-def inorderRecursive(root, result):
+def inorderRecursive(root):
 	if not root:
 		return
 
-	inorderRecursive(root.left, result)
-	result.append(root.data)
-	inorderRecursive(root.right, result)
+	inorderRecursive(root.left)
+	print root.data
+	inorderRecursive(root.right)
 
 # Post-order recursive traversal. The nodes' values are appended to the result list in traversal order
-def postorderRecursive(root, result):
+def postorderRecursive(root):
     if not root:
         return
     
-    postorderRecursive(root.left, result)
-    postorderRecursive(root.right, result)
-    result.append(root.data)
+    postorderRecursive(root.left)
+    postorderRecursive(root.right)
+    print root.data
+# Driver program to test above function 
 
-# Pre-order iterative traversal. The nodes' values are appended to the result list in traversal order
-def preorderIterative(root, result):
-    if not root:
-        return
-
-    stack = []
-    stack.append(root)
-    while stack:
-        node = stack.pop()
-        result.append(node.data)
-        if node.right: stack.append(node.right)
-        if node.left: stack.append(node.left)    
-
-# In-order iterative traversal. The nodes' values are appended to the result list in traversal order
-def inorderIterative(root, result):
-	if not root:
-		return
-
-	stack = []
-	node = root
-	while stack or node:
-		if node:
-			stack.append(node)
-			node = node.left
-		else:
-			node = stack.pop()
-			result.append(node.data)
-			node = node.right
-
-# Post-order iterative traversal. The nodes' values are appended to the result list in traversal order
-def postorderIterative(root, result):
-    if not root:
-        return
-
-    visited = set()
-    stack = []
-    node = root
-    while stack or node:
-        if node:
-            stack.append(node)
-            node = node.left
-        else:
-            node = stack.pop()
-            if node.right and not node.right in visited:
-                stack.append(node)
-                node = node.right
-            else:
-                visited.add(node)
-                result.append(node.data)
-                node = None
-		
-def levelOrder(root, result):
-    if root is None:
-      return
- 
-    q = Queue.Queue()
-    q.put(self.root)
-    n = None
- 
-    while not q.empty():
-      n = q.get()  # dequeue FIFO
-      result.append(node.get_data())
-      if n.left is not None:
-        q.put(n.left)
- 
-      if n.right is not None:
-        q.put(n.right)	
-	
-root = BinaryTree(11)
-print(root.get_data())
-
-root.insertLeft(1)
-root.insertLeft(10)
-root.insertLeft(1100)
-print(root.getLeft().get_data())
-root.insertRight(5)
-print(root.getRight().get_data())
-root.getRight().set_data(2)
-print(root.getRight().get_data())	
+#         1
+#  	 2        3
+# 4     5  6     7
+root = Node(1) 
+root.left = Node(2) 
+root.right = Node(3) 
+root.left.left = Node(4) 
+root.left.right = Node(5) 
+root.right.left = Node(6) 
+root.right.right = Node(7) 
+print "\n pre-iterative :"
+iterativePreorder(root) 
+print "\n in-iterative :"
+inOrder(root) 
+print "\n post-iterative :"
+postOrderIterative(root) 
+print "\n pre-recursive :"
+preorderRecursive(root)
+print "\n in-recursive :"
+inorderRecursive(root)
+print "\n post-recursive :"
+postorderRecursive(root)

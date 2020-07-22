@@ -82,4 +82,6 @@ if __name__ == "__main__":
     linkedlst.insertAtEnd(2)
     linkedlst.insertAtEnd(3)
     linkedlst.insertAtEnd(4)
+    linkedlst.insertAtEnd(5)
+    linkedlst.modularNodeFromBegin(2)
     linkedlst.modular_node_from_end(4)

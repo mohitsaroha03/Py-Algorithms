@@ -93,6 +93,10 @@ if __name__ == "__main__":
 
  printBST(root)
 
+#      	 5
+# 	 3       6
+# 2     4        7
+
  print "\ncreating to double linked list"
  head = BSTToDLL(root)
  printList(head)

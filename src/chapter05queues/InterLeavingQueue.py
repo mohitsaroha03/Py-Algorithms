@@ -116,17 +116,25 @@ class Queue(object):
 def interLeavingQueue(que):
      stk = Stack()
      halfSize = que.size // 2
-     for i in range(0, halfSize):
+	#  12345678910
+	# 12345
+     for i in range(0, halfSize): 
           stk.push(que.deQueue())
      while not stk.isEmpty():
           que.enQueue(stk.pop())
+	#  67891054321
+	# 
      for i in range(0, halfSize):
           que.enQueue(que.deQueue())
+	#  54321678910
      for i in range(0, halfSize):
           stk.push(que.deQueue())
+	# 678910
+	# 54321
      while not stk.isEmpty():
           que.enQueue(stk.pop())
           que.enQueue(que.deQueue())
+	# 16273849510
 	  
 que = Queue()
 que.enQueue(11)
