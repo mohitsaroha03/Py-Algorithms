@@ -79,6 +79,10 @@ if __name__ == "__main__":
  e = Node(4)
  f = Node(7)
 
+#    5
+#   3   6
+# 2  4    7
+
  a.left, a.right = b, c
  b.left, b.right = d, e
  c.right = f

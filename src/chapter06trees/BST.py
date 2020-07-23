@@ -1,5 +1,5 @@
-# Python program to demonstrate delete operation 
-# in binary search tree 
+# isGFG: 1, Link: 
+# IsDone: 1
 
 # A Binary Tree Node 
 class Node: 

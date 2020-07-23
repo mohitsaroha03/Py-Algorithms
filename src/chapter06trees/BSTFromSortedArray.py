@@ -1,6 +1,5 @@
-# Python code to convert a sorted array 
-# to a balanced Binary Search Tree 
-
+# isGFG: , Link: 
+# IsDone: 1
 # binary tree node 
 class Node: 
 	def __init__(self, d): 
