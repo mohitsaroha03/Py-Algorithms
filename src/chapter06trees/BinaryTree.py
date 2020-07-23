@@ -141,6 +141,21 @@ def postorderRecursive(root):
     postorderRecursive(root.left)
     postorderRecursive(root.right)
     print root.data
+
+# TODO: not working fine levelorder
+def levelOrder (root):
+    	Q = Queue()
+	if(root == None): 
+		return None
+
+	Q.enQueue(root)
+	while(not Q.isEmpty()):
+		temp = Q.deQueue()
+		print temp.data
+		if(temp.left):
+			Q.enQueue(temp.left)
+		if(temp.right): 
+			Q.enQueue(temp.right)
 # Driver program to test above function 
 
 #         1
@@ -164,4 +179,6 @@ preorderRecursive(root)
 print "\n in-recursive :"
 inorderRecursive(root)
 print "\n post-recursive :"
+postorderRecursive(root)
+print "\n level-order :"
 postorderRecursive(root)
