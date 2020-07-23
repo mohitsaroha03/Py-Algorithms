@@ -18,6 +18,14 @@ def inorder(root):
 		print root.key, 
 		inorder(root.right) 
 
+# TODO: v: test
+def reverseinorder(root): 
+	if root is not None: 
+		inorder(root.right) 
+		print root.key, 
+		inorder(root.left) 
+
+
 
 # A utility function to insert a new node with given key in BST 
 def insert( node, key): 

@@ -1,94 +1,97 @@
-# isGFG: , Link: 
-# IsDone: 0
+# isGFG: 0 , Link: https://www.techiedelight.com/place-convert-given-binary-tree-to-doubly-linked-list/
+# IsDone: 1
+# Data structure to store a Binary Tree node
 class Node:
- ''' class to represent a Node of BST/ linked list'''
- def __init__(self, data):
-     self.data = data
-     self.left = None
-     self.right = None
-
-def printBST(root):
- '''prints the BST in an inorder sequence'''
- if not root:
-     return
- else:
-     printBST(root.left)
-     print root.data, " ",
-     printBST(root.right)
-
-def printList(head):
- '''prints the linked list in both directions
-  to test whether both the 'next' and 'previous' pointers are fine'''
- if not head:
-     return  
- if head: print head.data    
- # print forward direction
- h = head
- print '[%d]' % (h.data),
- h = h.right
- while h != head:
-     print '[%d]' % (h.data),
-     h = h.right
-
- print ""
- # print in reverse direction
- h = head.left
- print '[%d]' % (h.data),
- h = h.left
- while h != head.left:
-     print '[%d]' % (h.data),
-     h = h.left
+    def __init__(self, data, left=None, right=None):
+        self.data = data
+        self.left = left
+        self.right = right
 
 
-def BSTToDLL(root):
-	''' main function to take the root of the BST and return the head of the doubly linked list  '''
-	prev = None
-	head = None
-	BSTToDoublyList(root, prev, head)
-	return head
+# Function to print given doubly linked list
+def printDLL(head):
 
-def BSTToDoublyList(root, prev, head):
-	if (not root): return 
+    curr = head
+    while curr:
+        print curr.data
+        curr = curr.right
 
-	BSTToDoublyList(root.left, prev, head)
 
-	# current node's left points to previous node
-	root.left = prev
-	if (prev):
-		prev.right = root  # Previous node's right points to current node
-	else:
-		head = root  # If previous is NULL that current node is head
+# Function to in-place convert given Binary Tree to a Doubly Linked List
 
-	right = root.right  # Saving right node
+# root -> current node
+# head -> head of the doubly linked list
+# prev -> previous processed node
 
-	# Now we need to make list created till now as circular
-	head.left = root
-	root.right = head
+# """ Construct below tree
+#               1
+#            /     \
+#           2       3
+#          / \     / \
+#         4   5   6   7
+#     """
 
-	# For right-subtree/parent, current node is in-order predecessor
-	prev = root
-	BSTToDoublyList(right, prev, head)
-   
+def convert(curr, head, prev):
 
-if __name__ == "__main__":
- # create the sample BST
- root = a = Node(5)
- b = Node(3)
- c = Node(6)
- d = Node(2)
- e = Node(4)
- f = Node(7)
+    # base case: tree is empty
+    if curr is None:
+        return head, prev
 
-#    5
-#   3   6
-# 2  4    7
+    # recursively convert left subtree first
+    head, prev = convert(curr.left, head, prev)
 
- a.left, a.right = b, c
- b.left, b.right = d, e
- c.right = f
+    # adjust pointers
+    if prev:
 
- printBST(root)
+        # set current node's left child to prev
+        curr.left = prev
 
- print "\ncreating to double linked list"
- head = BSTToDLL(root)
- printList(head)
+        # make prev's right child as curr
+        prev.right = curr
+
+    # if prev is None, then update head of DLL as this is first node in inorder
+    else:
+        head = curr
+
+    # after current node is visited, update previous pointer to current node
+    prev = curr
+
+    # recursively convert right subtree
+    return convert(curr.right, head, prev)
+
+
+# In-place convert given Binary Tree to a Doubly Linked List
+def convertToDDL(root):
+
+    # prev - keep track of previous processed node in inorder traversal
+    prev = None
+
+    # convert above binary tree to DLL (using inorder traversal)
+    head, prev = convert(root, root, prev)
+    return head
+
+
+if __name__ == '__main__':
+
+    """ Construct below tree
+              1
+           /     \
+          2       3
+         / \     / \
+        4   5   6   7
+    """
+
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+    root.right.left = Node(6)
+    root.right.right = Node(7)
+
+    root = convertToDDL(root)
+
+    # root is now head of doubly linked list
+
+    # print list
+    printDLL(root)

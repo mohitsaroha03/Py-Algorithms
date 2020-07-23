@@ -1,82 +1,92 @@
-# isGFG: , Link: 
-# IsDone: 0
-'''Binary Tree Class and its methods'''
-class BinaryTree:
-	def __init__(self, data):
-		self.data = data  # root node
-		self.left = None  # left child
-		self.right = None  # right child
-	# set data
-	def set_data(self, data):
-		self.data = data
-	# get data   
-	def get_data(self):
-		return self.data	
-	# get left child of a node
-	def getLeft(self):
-		return self.left
-	# get right child of a node
-	def getRight(self):
-		return self.right
+# isGFG: , Link: https://www.geeksforgeeks.org/construct-a-special-tree-from-given-preorder-traversal/
+# IsDone: 1
+
+# A program to construct Binary 
+# Tree from preorder traversal 
+
+# Utility function to create a 
+# new Binary Tree node 
+class newNode: 
+	def __init__(self, data): 
+		self.data = data 
+		self.left = None
+		self.right = None
+
+# A recursive function to create a 
+# Binary Tree from given pre[] preLN[] 
+# arrays. The function returns root of 
+# tree. index_ptr is used to update 
+# index values in recursive calls. index 
+# must be initially passed as 0 
+def constructTreeUtil(pre, preLN, index_ptr, n): 
 	
-	def insertLeft(self, newNode):
-		if self.left == None:
-			self.left = BinaryTree(newNode)
-		else:
-			temp = BinaryTree(newNode)
-			temp.left = self.left
-			self.left = temp
+	index = index_ptr[0] # store the current value 
+						# of index in pre[] 
 
-	def insertRight(self, newNode):
-		if self.right == None:
-			self.right = BinaryTree(newNode)
-		else:
-			temp = BinaryTree(newNode)
-			temp.right = self.right
-			self.right = temp
-	    
+	# Base Case: All nodes are constructed 
+	if index == n: 
+		return None
 
-# Post-order recursive traversal. The nodes' values are appended to the result list in traversal order
-def postorderRecursive(root):
-	if not root:
+	# Allocate memory for this node and 
+	# increment index for subsequent 
+	# recursive calls 
+	temp = newNode(pre[index]) 
+	index_ptr[0] += 1
+
+	# If this is an internal node, construct left 
+	# and right subtrees and link the subtrees 
+	if preLN[index] == 'N': 
+		temp.left = constructTreeUtil(pre, preLN, 
+									index_ptr, n) 
+		temp.right = constructTreeUtil(pre, preLN, 
+									index_ptr, n) 
+
+	return temp 
+
+# A wrapper over constructTreeUtil() 
+def constructTree(pre, preLN, n): 
+	
+	# Initialize index as 0. Value of index is 
+	# used in recursion to maintain the current 
+	# index in pre[] and preLN[] arrays. 
+	index = [0] 
+
+	return constructTreeUtil(pre, preLN, index, n) 
+
+# This function is used only for testing 
+def printInorder (node): 
+	if node == None: 
 		return
 
-	postorderRecursive(root.left)
-	postorderRecursive(root.right)
-	print root.data
-    
-# Pre-order recursive traversal. The nodes' values are appended to the result list in traversal order
-def preorderRecursive(root):
-    if not root:
-        return
-    
-    print root.data
-    preorderRecursive(root.left)
-    preorderRecursive(root.right)
+	# first recur on left child 
+	printInorder (node.left) 
 
-i = 0      
-def buildTreeFromPreOrder(A):
-	global i
-     	if(A == None or i >= len(A)):  # Boundary Condition
-		return None
-	newNode = BinaryTree(A[i])
-	newNode.data = A[i]
-	newNode.left = newNode.right = None
+	# then print the data of node 
+	print(node.data,end=" ") 
 
+	# now recur on right child 
+	printInorder (node.right) 
+	
+# Driver Code 
+if __name__ == '__main__': 
+	root = None
 
-	if(A[i] == "L"):  # On reaching leaf node, return
-		return newNode
+	# Constructing tree given in 
+	# the above figure 
+	#	 10 
+	#	 / \ 
+	# 30 15 
+	# / \ 
+	# 20 5 
+	pre = [10, 30, 20, 5, 15] 
+	preLN = ['N', 'N', 'L', 'L', 'L'] 
+	n = len(pre) 
 
-	i += 1  # Populate left sub tree
-	newNode.left = buildTreeFromPreOrder(A)
+	# construct the above tree 
+	root = constructTree (pre, preLN, n) 
 
-	i += 1  # Populate right sub tree
-	newNode.right = buildTreeFromPreOrder(A)
-
-	return newNode
-
-root = buildTreeFromPreOrder(["I", "I", "L", "I", "L", "L", "I", "L", "L"])
-postorderRecursive(root)
-
-
+	# Test the constructed tree 
+	print("Following is Inorder Traversal of", 
+		"the Constructed Binary Tree:") 
+	printInorder (root) 
 	
