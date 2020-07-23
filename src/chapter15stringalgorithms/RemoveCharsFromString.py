@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def RemoveChars(str, removeTheseChars):
 	table = {}  # hash
 	temp = []

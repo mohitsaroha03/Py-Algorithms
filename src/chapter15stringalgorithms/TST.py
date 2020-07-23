@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 class TSTNode:
     def __init__ (self, x):
         self.data = x

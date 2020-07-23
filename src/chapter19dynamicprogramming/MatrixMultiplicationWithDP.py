@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 import sys, time
 gk = lambda i, j:str(i) + ',' + str(j)
 MAX = sys.maxint

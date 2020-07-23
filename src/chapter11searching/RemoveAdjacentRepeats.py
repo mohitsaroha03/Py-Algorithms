@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def removeAdjacentRepeats(nums):
   i = 1
   while i < len(nums):    

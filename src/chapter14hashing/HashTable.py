@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 class HashTable:
 	def __init__(self):
 		self.size = 11

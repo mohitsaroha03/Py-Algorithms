@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def secondSmallestInArray(A):
 	comparisonCount = 0
 	# indexes that are to be compared    

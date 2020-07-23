@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def moveZerosToEnd(A):
 	i = j = 0
 	while (i <= len(A) - 1):  

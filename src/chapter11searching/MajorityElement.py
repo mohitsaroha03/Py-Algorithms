@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def majorityElement(A):
 	count = 0
 	element = -1

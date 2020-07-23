@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 class Queue(object): 
 	def __init__(self): 
 		self.queue = [] 

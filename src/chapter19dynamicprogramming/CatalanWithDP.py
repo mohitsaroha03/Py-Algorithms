@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def CatalanNumber(n):
         catalan = [1, 1] + [0] * n
         for i in range(2, n + 1):

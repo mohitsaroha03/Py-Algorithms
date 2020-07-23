@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def findMinimumInRotatedSortedArray(A):
         mid, low, high = 0, 0, len(A) - 1
         while A[low] >= A[high]:

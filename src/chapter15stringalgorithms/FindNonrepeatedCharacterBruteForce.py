@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def findNonrepeated(A):
 	n = len(A)
 	for i in range(0, n):

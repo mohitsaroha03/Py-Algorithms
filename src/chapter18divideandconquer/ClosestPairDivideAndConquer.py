@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 from __future__ import generators
 
 def ClosestPairWithDivideAndConquer(L):

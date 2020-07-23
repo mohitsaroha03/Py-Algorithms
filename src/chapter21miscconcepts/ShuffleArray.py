@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 import random
 def shuffle_array(A):
 	n = len(A)

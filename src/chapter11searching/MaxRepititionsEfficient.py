@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def MaxRepititionsEfficient(A):
 	n = len(A)
 	max = 0

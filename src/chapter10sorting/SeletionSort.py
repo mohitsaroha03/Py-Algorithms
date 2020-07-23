@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def SelectionSort(A):
   for i in range(len(A)):
     least = i

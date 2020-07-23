@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def MaxRepititionsBruteForce(A):
 	n = len(A)
 	count = max = 0

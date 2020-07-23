@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 # Definition for singly-linked list.
 class ListNode:
 	def __init__(self, x):

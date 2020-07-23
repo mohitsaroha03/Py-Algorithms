@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 '''Threaded Binary Tree Class and its methods'''
 class ThreadedBinaryTree:
 	def __init__(self, data):

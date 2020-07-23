@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def shuffleArray(A, l, r):
 	# Array center
 	c = l + (r - l) / 2

@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def frequencyCounter(A):
 	table = {}  # hash
 	for element in A:

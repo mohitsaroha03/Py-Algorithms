@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 import heapq
 class Heap:
 	def __init__(self):

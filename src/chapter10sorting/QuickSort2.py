@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def quickSort(A,low,high):
    if low >= high:
     return

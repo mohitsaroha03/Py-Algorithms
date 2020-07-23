@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 # Implement simple generic tree which allows us to add children and also prints the path from root to leaves (nodes without children) for every node.
 
 import string

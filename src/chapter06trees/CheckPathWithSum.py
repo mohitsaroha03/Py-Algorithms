@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def pathFinder(root, val, path, paths):
     if not root:
         return False

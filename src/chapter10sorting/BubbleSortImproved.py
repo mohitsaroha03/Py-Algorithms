@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def BubbleSort(A):
 	swapped = 1 
 	for i in range(len(A)):

@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 fibTable = {1:1, 2:1}
 def Fibo(n):
    if n <= 2:

@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def threeElementsWithSumKWithSorting(A, K):
 	n = len(A)
 	left = 0

@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 class TreeNode:
      def __init__(self, data):
          self.val = data

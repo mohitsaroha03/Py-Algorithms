@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def prefixTable(pattern):
     m = len(pattern)
     F = [0] * m

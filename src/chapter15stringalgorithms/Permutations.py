@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def recursivePermutations(elems, soFar):
     if len(elems) == 0:
         yield soFar

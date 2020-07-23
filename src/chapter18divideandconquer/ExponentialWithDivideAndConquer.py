@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 import math
 def power_brute_force(k, n):
 	"""linear power algorithm"""

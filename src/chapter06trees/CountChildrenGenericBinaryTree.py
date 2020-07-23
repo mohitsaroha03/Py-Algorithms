@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 '''Generic Tree Class and its methods'''
 class GenericTreeNode:
 	def __init__(self, data):

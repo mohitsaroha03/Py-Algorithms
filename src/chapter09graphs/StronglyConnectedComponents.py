@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def stronglyConnectedComponents(G):
     indexCounter = [0]
     stack = []

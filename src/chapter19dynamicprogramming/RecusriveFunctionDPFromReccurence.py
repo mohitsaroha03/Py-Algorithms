@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def f(n) :
 	sum = 0
 	if(n == 0 or n == 1):

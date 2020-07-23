@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def FirstRepeatedChar (str):
 	size = len(str)
 	count = [0] * (256)

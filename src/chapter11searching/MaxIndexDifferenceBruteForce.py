@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def maxIndexDiff(A):
 	maxDiff = -1
 	maxJ = maxI = -1

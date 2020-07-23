@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 import heapq
 
 def KListsOneElementFromEach(Lst):

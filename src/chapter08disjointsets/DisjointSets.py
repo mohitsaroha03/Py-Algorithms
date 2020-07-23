@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 class DisjointSet:   
 	def __init__(self, n):
 		self.MAKESETUNIONBYSIZE(n)

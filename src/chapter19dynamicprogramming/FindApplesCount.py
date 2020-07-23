@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def find_maximum_apples_count(Apples, n, m):
 	S =[[0 for x in range(m)] for x in range(n)]
 

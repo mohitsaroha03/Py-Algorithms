@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def MirrorOfBinaryTree(root):
 	if(root != None):
 		MirrorOfBinaryTree(root.left)

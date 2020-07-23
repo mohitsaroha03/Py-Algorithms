@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 class Vertex:
     def __init__(self, node):
         self.id = node

@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def positiveSubsetSum(A, X):
 	# preliminary
 	if X < 0 or X > sum(A):  # T = sum(A)

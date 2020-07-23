@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 from collections import defaultdict
 
 def smallestWindow(INPUT, CHARS):

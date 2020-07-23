@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def checkPairwiseSorted(A):
 	n = len(A)
 	if (n == 0 or n == 1):

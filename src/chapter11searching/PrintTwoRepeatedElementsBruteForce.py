@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
   
 def PrintTwoRepeatedElementsBruteForce(A):
 	n = len(A)

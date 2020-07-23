@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def squareBlockWithAllOnesInMatrix(matrix, ZERO=0):
     nrows, ncols = len(matrix), (len(matrix[0]) if matrix else 0)
     if not (nrows and ncols): return 0  # empty matrix or rows

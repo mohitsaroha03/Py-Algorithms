@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def FindSmallestAndLargestInArray(A):
 	max = 0
 	min = 0

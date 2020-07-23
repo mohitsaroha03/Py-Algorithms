@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def maxIndexDiff(A):
 	n = len(A)
 	LeftMins = [0] * (n)

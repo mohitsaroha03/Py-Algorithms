@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def largestRectangleArea(self, height):
 	stack = []; i = 0; maxArea = 0
 	while i < len(height):

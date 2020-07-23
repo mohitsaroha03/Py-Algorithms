@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def PrintTwoRepeatedElementsHash2(A):
 	table = {}  # hash
 	for element in A:

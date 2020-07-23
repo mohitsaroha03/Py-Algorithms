@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 class CamptureRegions:
     # @param board, a 2D array
     # Capture all regions by modifying the input board in-place.

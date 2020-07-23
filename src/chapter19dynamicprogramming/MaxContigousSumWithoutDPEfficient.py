@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def MaxContigousSum(A):
 	sumSoFar = sumEndingHere = 0
 	n = len(A)

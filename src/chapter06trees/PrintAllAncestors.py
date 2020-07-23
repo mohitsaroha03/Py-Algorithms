@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def PrintAllAncestors(root, node):
 	if(root == NULL):
 		return 0

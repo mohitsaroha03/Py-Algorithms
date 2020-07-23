@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def frequencyCounter(A):
 	pos = 0
 	n = len(A)

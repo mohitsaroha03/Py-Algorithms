@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 import sys
 def preComputeMatrix(A, n):
 	global Aux

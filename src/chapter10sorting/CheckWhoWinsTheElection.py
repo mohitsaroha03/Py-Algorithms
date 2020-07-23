@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def CheckWhoWinsTheElection(A):
 	counter = maxCounter = 0
 	candidate = A[0]

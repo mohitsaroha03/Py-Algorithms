@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def moveSpacesToEnd(A):
 	n = len(A) - 1
 	datalist = list(A)

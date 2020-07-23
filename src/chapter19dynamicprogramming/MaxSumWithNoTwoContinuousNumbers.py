@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def maxSumWithNoTwoContinuousNumbers(A):
 	n = len(A)
 	M = [0] * (n + 1)

@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def findInRotatedSortedArray(A, target):
 	left = 0
 	right = len(A) - 1

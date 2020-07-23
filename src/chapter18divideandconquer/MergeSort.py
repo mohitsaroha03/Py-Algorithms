@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def MergeSort(A):
     if len(A) > 1:
         mid = len(A) // 2

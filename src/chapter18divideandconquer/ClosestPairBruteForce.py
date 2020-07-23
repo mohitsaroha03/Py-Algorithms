@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 from math import sqrt, pow
  
 def distance(a, b):

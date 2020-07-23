@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def SubsetSum(A, T):
 	n = len(A)
 	M = [[0 for x in range(T + 1)] for x in range(n + 1)]

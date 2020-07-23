@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 class Stack(object):
     def __init__(self, items=[]):
         self.stack = items

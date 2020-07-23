@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def linear_search_count(A, data):
 	count = 0
 	for i in range (0, len(A)): 

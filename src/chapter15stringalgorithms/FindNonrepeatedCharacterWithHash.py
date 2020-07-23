@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def findNonrepeated(A):
 	table = {}  # hash
 	for char in A.lower():

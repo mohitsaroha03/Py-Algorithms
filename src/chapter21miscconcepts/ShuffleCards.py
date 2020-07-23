@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 import random
 def shuffle(cards):
     max = len(cards) - 1

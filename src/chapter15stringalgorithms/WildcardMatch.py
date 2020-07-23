@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def wildcardMatch(inputString, pattern):
     if len(pattern) == 0: 
 	    return len(inputString) == 0

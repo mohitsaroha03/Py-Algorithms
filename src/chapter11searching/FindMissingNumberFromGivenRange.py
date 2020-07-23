@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 import sys
 def findMissingNumberFromGivenRange(A, X, Y):
 	n = len(A)

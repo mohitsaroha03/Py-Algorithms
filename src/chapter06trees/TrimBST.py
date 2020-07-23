@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def trimBST(root, minVal, maxVal): 
 	if not root: 
 		return 

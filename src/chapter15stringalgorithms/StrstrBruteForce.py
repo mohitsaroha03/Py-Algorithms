@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def strstrBruteForce(str, pattern):
     if not pattern: return 0
     for i in range(len(str) - len(pattern) + 1):

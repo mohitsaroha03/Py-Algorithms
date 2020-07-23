@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def minWindowSubstr(inputStr, pattern):
     if inputStr == '' or pattern == '': return ''
     last_seen = {}

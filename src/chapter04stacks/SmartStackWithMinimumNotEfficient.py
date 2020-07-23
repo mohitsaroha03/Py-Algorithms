@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 class SmartStack:
     def __init__(self):
         self.stack = []

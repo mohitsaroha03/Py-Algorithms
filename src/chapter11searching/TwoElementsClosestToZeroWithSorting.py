@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 import sys
 def TwoElementsClosestToZero(A):
 	n = len(A)

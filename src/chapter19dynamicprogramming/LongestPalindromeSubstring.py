@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def longestPalindromeSubstring(A):
     n = len(A)
     if n == 0: return ''

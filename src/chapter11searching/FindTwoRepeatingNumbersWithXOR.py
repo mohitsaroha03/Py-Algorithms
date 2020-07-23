@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 # Approach is same for two repeated and two missing numbers
 def findTwoRepeatingNumbersWithXOR (A):
 	XOR = A[0]

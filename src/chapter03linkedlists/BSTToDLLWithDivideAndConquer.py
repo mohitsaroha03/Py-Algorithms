@@ -47,8 +47,8 @@ def printList(head):
 
 
 def BSTToDLL(root):
- ''' main function to take the root of the BST and return the head of the doubly linked list  '''
-
+ ''' main function to take the root of the BST and return the head of the doubly linked list  '# isGFG: , Link: 
+# IsDone: 0
  # for leaf Node return itself
  if root.left == root and root.right == root:
      return root

@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def FindLargestInArray(A):
     max = 0
     for number in A:

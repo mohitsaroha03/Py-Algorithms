@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def threeElementsWithSumKBruteForce(A, K):
 	n = len(A)
     	for i in range(0, n - 2):

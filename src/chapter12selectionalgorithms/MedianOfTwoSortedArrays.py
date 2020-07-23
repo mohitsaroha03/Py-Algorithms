@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def findKthSmallest(A, B, k):
     if len(A) > len(B):             A, B = B, A
     # stepsA = (endIndex + beginIndex_as_0) / 2

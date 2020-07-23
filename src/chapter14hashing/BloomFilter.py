@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 class BloomFilter:
  """ Bloom Filter """
  def __init__(self, m, k, hashFun):

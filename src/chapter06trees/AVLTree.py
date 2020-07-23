@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 class AVLNode:
      def __init__(self, data, balanceFactor, left, right):
          self.data = data

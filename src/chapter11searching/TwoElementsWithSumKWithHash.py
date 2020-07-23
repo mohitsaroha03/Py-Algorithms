@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def twoElementsWithSumKWithHash(A, K):
 	table = {}  # hash
 	for element in A:

@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def reverse_number(n):
 	nReverse = n
 	s = n.bit_length()

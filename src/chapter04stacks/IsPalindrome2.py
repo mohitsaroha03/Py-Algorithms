@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def isPalindrome(A):
 	i = 0
 	j = len(A) - 1

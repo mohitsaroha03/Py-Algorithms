@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 # @param s, a string
 # @return a string
 def reverseWordsInSentence(self, s):

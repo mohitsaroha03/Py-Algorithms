@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 class BSTNode:
     def __init__(root, data):
         root.left = None

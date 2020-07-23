@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def replaceWithNearestGreaterElement(A):
 	nextNearestGreater = float("-inf")
 	i = j = 0

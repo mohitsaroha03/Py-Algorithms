@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def heapSort(A):
   # convert A to heap
   length = len(A) - 1

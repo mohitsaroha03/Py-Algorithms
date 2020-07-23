@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def MaxRepititionsWithSort(A):
 	A.sort()
 	print A

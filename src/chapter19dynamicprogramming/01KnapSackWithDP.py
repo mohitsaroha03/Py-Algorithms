@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def Knapsack(knapsackSize, itemsValue, itemsWeight):
 	numItems = len(itemsValue)
 	M = [[0 for x in range(knapsackSize + 1)] for x in range(len(itemsValue))]

@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 class OptimalBinarySearchTree(BSTNode):  # For BSTNode, refer Trees chapter
     def __init__(self):
         super(OptimalBinarySearchTree, self).__init__()

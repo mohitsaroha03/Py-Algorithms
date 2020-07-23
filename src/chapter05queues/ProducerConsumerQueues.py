@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 #!/usr/bin/env python
 
 from random import randint

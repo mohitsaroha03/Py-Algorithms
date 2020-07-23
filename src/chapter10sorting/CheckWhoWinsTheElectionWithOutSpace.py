@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def CheckWhoWinsTheElection(A):
 	A.sort()
 	counter = maxCounter = 0

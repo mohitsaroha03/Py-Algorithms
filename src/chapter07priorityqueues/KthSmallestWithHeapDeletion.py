@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def kthSmallest(collection, k):
     """Return kth smallest element in collection for valid k >=1 """
     A = collection[:k]

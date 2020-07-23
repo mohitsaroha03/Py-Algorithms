@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def findDepthInGenericTree(P):
 	maxDepth = -1
 	currentDepth = -1

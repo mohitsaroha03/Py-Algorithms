@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def KthSmallest (X, K):
      r = X.left.size + 1  # Assume size property is added to node
      if(K == r): 

@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def FindMissingNumber(A):
 	n = len(A)
 	for i in range(1, n + 1):

@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 import random
 def QuickSort(A, low, high):
     if low < high:

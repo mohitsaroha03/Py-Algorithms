@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 class Node:
  ''' class to represent a Node of BST/ linked list'''
  def __init__(self, data):

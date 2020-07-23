@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def LongestIncreasingSequence(numList):
     n = len(numList) 
     LISTable = [1]

@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def spiral(n):
     def spiralPart(x, y, n):
         if x == -1 and y == 0:

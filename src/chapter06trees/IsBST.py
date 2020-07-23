@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 '''Binary Tree Class and its methods'''
 class BinaryTree:
     def __init__(self, data):

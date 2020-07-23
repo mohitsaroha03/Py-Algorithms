@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def findingSpans(A):
 	s = [None] * len(A)
 	for i in range(0, len(A)):

@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 import math
 def CheckDuplicatesNegationTechnique(A):
 	for i in range(0, len(A)):

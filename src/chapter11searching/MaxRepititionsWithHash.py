@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def MaxRepititionsWithHash(A):
 	table = {}  # hash
 	max = 0

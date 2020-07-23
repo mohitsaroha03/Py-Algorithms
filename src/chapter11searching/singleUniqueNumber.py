@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 class Solution(object):
     def singleNumber(self, A):
         """

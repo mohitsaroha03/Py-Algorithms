@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 
 def function(n):
 	if (n < 2):  # Constant time

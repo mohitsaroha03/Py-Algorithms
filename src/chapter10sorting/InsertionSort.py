@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def Insertionsort(A):
   for i in range(1, len(A)):
     tmp = A[i]

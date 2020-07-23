@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def singleNumber(A):
 	i = res = 0
  	for i in range (0, len(A)): 

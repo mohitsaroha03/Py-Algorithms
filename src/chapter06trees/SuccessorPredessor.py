@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 # Successror of a node in BST
 def successorBST(root):
 	temp = None

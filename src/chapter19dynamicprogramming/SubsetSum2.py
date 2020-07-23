@@ -1,5 +1,5 @@
-''
-
+# isGFG: , Link: 
+# IsDone: 0
 def SubsetSum2(A):
 	n = len(A)
 	K = 0
