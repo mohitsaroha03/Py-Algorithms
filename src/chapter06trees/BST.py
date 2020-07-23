@@ -93,6 +93,14 @@ def deleteNode(root, key):
 
 	return root 
 
+def FindLCA(root, a, b):
+    	while(root):
+		if((a <= root.data and b > root.data) or (a > root.data and b <= root.data)): 
+			return root
+		if(a < root.data):	
+			root = root.left
+		else: root = root.right
+
 # Driver program to test above functions 
 """ Let us create following BST 
 			50 
@@ -128,4 +136,6 @@ root = deleteNode(root, 50)
 print "Inorder traversal of the modified tree"
 inorder(root) 
 
+print "\n Find LCA"
+print FindLCA(root, 2, 9).data
 # This code is contributed by Nikhil Kumar Singh(nickzuck_007) 
