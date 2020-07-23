@@ -44,8 +44,7 @@ def inOrder(root):
 			break
 	
 	# print() 
-
-# This code is contributed by Nikhil Kumar Singh(nickzuck_007) 
+ 
 # An iterative process to print preorder traveral of BT 
 def iterativePreorder(root): 
       

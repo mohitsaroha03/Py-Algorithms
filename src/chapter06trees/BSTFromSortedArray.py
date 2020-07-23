@@ -56,5 +56,3 @@ arr = [1, 2, 3, 4, 5, 6, 7]
 root = sortedArrayToBST(arr) 
 print "PreOrder Traversal of constructed BST ", 
 preOrder(root) 
-
-# This code is contributed by Ishita Tripathi 

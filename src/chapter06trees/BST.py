@@ -121,21 +121,20 @@ root = insert(root, 80)
 print "Inorder traversal of the given tree"
 inorder(root) 
 
-print "\nDelete 20"
+print "\nDelete 20: "
 root = deleteNode(root, 20) 
 print "Inorder traversal of the modified tree"
 inorder(root) 
 
-print "\nDelete 30"
+print "\nDelete 30: "
 root = deleteNode(root, 30) 
 print "Inorder traversal of the modified tree"
 inorder(root) 
 
-print "\nDelete 50"
+print "\nDelete 50: "
 root = deleteNode(root, 50) 
 print "Inorder traversal of the modified tree"
 inorder(root) 
 
-print "\n Find LCA"
+print "\n Find LCA: "
 print FindLCA(root, 2, 9).data
-# This code is contributed by Nikhil Kumar Singh(nickzuck_007) 
