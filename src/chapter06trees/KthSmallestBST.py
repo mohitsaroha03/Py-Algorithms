@@ -90,12 +90,16 @@ def kthSmallestInBST(root, k):
 	if(count == k): 
 		return root
 	return kthSmallestInBST(root.right, k)
-	
+
+	#    2
+	# 1    7
+	#    5   9
 root = BSTNode(3)
-insertNode(root, BSTNode(7))
-insertNode(root, BSTNode(1))
-insertNode(root, BSTNode(5))
 insertNode(root, BSTNode(2))
+insertNode(root, BSTNode(1))
+insertNode(root, BSTNode(7))
+insertNode(root, BSTNode(5))
+# insertNode(root, BSTNode(2))
 insertNode(root, BSTNode(9))
 # inOrderTraversal(root)
 print kthSmallestInBST(root, 3).data

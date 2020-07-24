@@ -1,104 +1,68 @@
-# isGFG: , Link: 
-# IsDone: 0
-operatorPrecedence = {
-    '(' : 0,
-    ')' : 0,
-    '+' : 1,
-    '-' : 1,
-    '*' : 2,
-    '/' : 2
-}
- 
-def postfixConvert(infix):
-    stack = []
-    postfix = [] 
-         
-    for char in infix:
-        if char not in operatorPrecedence:
-            postfix.append(char)
-        else:
-            if len(stack) == 0:
-                stack.append(char)
-            else:
-                if char == "(":
-                    stack.append(char)
-                elif char == ")":
-                    while stack[len(stack) - 1] != "(":
-                        postfix.append(stack.pop())
-                    stack.pop()
-                elif operatorPrecedence[char] > operatorPrecedence[stack[len(stack) - 1]]:
-                    stack.append(char)
-                else:
-                    while len(stack) != 0:
-                        if stack[len(stack) - 1] == '(':
-                            break
-                        postfix.append(stack.pop())
-                    stack.append(char)
-     
-    while len(stack) != 0:
-        postfix.append(stack.pop())
- 
-    return postfix
- 
-class Node(object):
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
- 
-class ExressionTree(object):
-    def __init__(self, root=None):
-        self.__root = root 
-     
-    def inorder(self):
-        self.__inorder_helper(self.__root)
-         
-    def __inorder_helper(self, node):
-        if node:
-            self.__inorder_helper(node.left)
-            print node.value
-            self.__inorder_helper(node.right)
- 
-    def preorder(self):
-        self.__preorderUtil(self.__root)
-         
-    def __preorderUtil(self, node):
-        if node:
-            print node.value
-            self.__preorderUtil(node.left)
-            self.__preorderUtil(node.right)
- 
-    def postorder(self):
-        self.__postorderUtil(self.__root)
-         
-    def __postorderUtil(self, node):
-        if node:
-            self.__postorderUtil(node.left)
-            self.__postorderUtil(node.right)
-            print node.value
- 
-def buildExpressionTree(infix):
-    postfix = postfixConvert(infix)
- 
-    stack = []
- 
-    for char in postfix:
-        if char not in operatorPrecedence:
-            node = Node(char)   
-            stack.append(node)
-        else:
-            node = Node(char)
-            right = stack.pop()
-            left = stack.pop()
-            node.right = right
-            node.left = left
-            stack.append(node)
-     
-    return ExressionTree(stack.pop())
- 
-print "In Order:"
-buildExpressionTree("(5+3)*6").inorder()
-print "Post Order:"
-buildExpressionTree("(5+3)*6").postorder()
-print "Pre Order:"
-buildExpressionTree("(5+3)*6").preorder()
+# isGFG: , Link: https://www.geeksforgeeks.org/expression-tree/
+# IsDone: 1
+
+# Python program for expression tree 
+
+# An expression tree node 
+class Et: 
+
+	# Constructor to create a node 
+	def __init__(self , value): 
+		self.value = value 
+		self.left = None
+		self.right = None
+
+# A utility function to check if 'c' 
+# is an operator 
+def isOperator(c): 
+	if (c == '+' or c == '-' or c == '*'
+		or c == '/' or c == '^'): 
+		return True
+	else: 
+		return False
+
+# A utility function to do inorder traversal 
+def inorder(t): 
+	if t is not None: 
+		inorder(t.left) 
+		print t.value, 
+		inorder(t.right) 
+
+# Returns root of constructed tree for 
+# given postfix expression 
+def constructTree(postfix): 
+	stack = [] 
+
+	# Traverse through every character of input expression 
+	for char in postfix : 
+
+		# if operand, simply push into stack 
+		if not isOperator(char): 
+			t = Et(char) 
+			stack.append(t) 
+
+		# Operator 
+		else: 
+
+			# Pop two top nodes 
+			t = Et(char) 
+			t1 = stack.pop() 
+			t2 = stack.pop() 
+				
+			# make them children 
+			t.right = t1 
+			t.left = t2 
+			
+			# Add this subexpression to stack 
+			stack.append(t) 
+
+	# Only element will be the root of expression tree 
+	t = stack.pop() 
+	
+	return t 
+
+# Driver program to test above 
+postfix = "ab+ef*g*-"
+r = constructTree(postfix) 
+print "Infix expression is"
+inorder(r) 

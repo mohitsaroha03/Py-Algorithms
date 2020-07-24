@@ -1,5 +1,5 @@
 # isGFG: , Link: 
-# IsDone: 0
+# IsDone: 1
 # Node of a Singly Linked List
 class Node:
 	# constructor
@@ -96,6 +96,9 @@ class Queue(object):
 
 	def size(self):
 		return self.size
+	
+	def size2(self):
+		return self.size
 		
 	def isEmpty(self):
 		return self.size == 0
@@ -179,6 +182,7 @@ def findLevelwithMaxSum(root):
 
 			currentSum = 0
 			# place the indicator for end of next level at the end of queue
+			print 'size', q.size2(), 'level: ', level
 			if not q.isEmpty():  
 				q.enQueue(None)
 				level += 1		

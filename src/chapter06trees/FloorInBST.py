@@ -107,4 +107,4 @@ insertNode(root, BSTNode(23))
 insertNode(root, BSTNode(99))
 # inOrderTraversal(root)
 for i  in range(100):
-	print i, "ceil is ", FloorInBSTUtil(root, i)
+	print i, "floor is ", FloorInBSTUtil(root, i)

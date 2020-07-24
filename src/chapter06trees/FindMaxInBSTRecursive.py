@@ -3,8 +3,7 @@
 class BSTNode(object):
     '''
     A binary search tree (BST) node
-    '# isGFG: , Link: 
-# IsDone: 0
+    '''
     def __init__(self, data):
         self.data = data
         self.left = None

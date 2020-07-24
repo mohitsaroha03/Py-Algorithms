@@ -3,7 +3,8 @@
 def DLLtoBalancedBST(head):
 	if(not head or not head.next): 
 		return head
-	temp = FindMiddleNode(head)  # Refer Linked Lists chapter for this function. We can use two-pointer logic to find the middle node
+	temp = FindMiddleNode(head)  # Refer Linked Lists chapter for this function. 
+	# We can use two-pointer logic to find the middle node
 	p = head
 	while(p.next != temp):
 		p = p.next

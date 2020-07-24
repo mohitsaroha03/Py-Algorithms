@@ -1,213 +1,121 @@
 # isGFG: , Link: 
-# IsDone: 0
-# Node of a Singly Linked List
-class Node:
-	# constructor
-	def __init__(self, data=None, next=None):
-		self.data = data
-		self.last = None
-		self.next = next
-	# method for setting the data field of the node    
-	def set_data(self, data):
-		self.data = data
-	# method for getting the data field of the node   
-	def get_data(self):
-		return self.data
-	# method for setting the next field of the node
-	def set_next(self, next):
-		self.next = next
-	# method for getting the next field of the node    
-	def get_next(self):
-		return self.next
-	# method for setting the last field of the node
-	def setLast(self, last):
-		self.last = last
-	# method for getting the last field of the node    
-	def getLast(self):
-		return self.last	
-	# returns true if the node points to another node
-	def has_next(self):
-		return self.next != None
+# IsDone: 1
+# Python3 program to count all nodes 
+# having k leaves in subtree rooted with them 
 
-    
-class Stack(object):
-    def __init__(self, data=None):
-        self.head = None
-        if data:
-            for data in data:
-                self.push(data)
+# A binary tree node has data, pointer to 
+# left child and a pointer to right child 
+# Helper function that allocates a new node 
+# with the given data and None left and 
+# right pointers 
+class newNode: 
+	def __init__(self, data): 
+		self.data = data 
+		self.left = None
+		self.right = None
 
-    def push(self, data):
-        temp = Node()
-        temp.set_data(data)
-        temp.set_next(self.head)
-        self.head = temp
-
-    def pop(self):
-        if self.head is None:
-            raise IndexError
-        temp = self.head.get_data()
-        self.head = self.head.get_next()
-        return temp
-	
-    def peek(self):
-        if self.head is None:
-            raise IndexError
-        return self.head.get_data()
-
-    def isEmpty(self):
-        return self.head == None
-	
-class Queue(object):
-	def __init__(self, data=None):
-		self.front = None
-		self.rear = None
-		self.size = 0
-
-	def enQueue(self, data):
-		self.lastNode = self.front
-		self.front = Node(data, self.front)
-		if self.lastNode:
-			self.lastNode.setLast(self.front)
-		if self.rear is None:
-			self.rear = self.front
-		self.size += 1
-
-	def queueRear(self):
-		if self.rear is None:
-			print "Sorry, the queue is empty!"
-			raise IndexError
-		return self.rear.get_data()
-
-	def queueFront(self):
-		if self.front is None:
-			print "Sorry, the queue is empty!"
-			raise IndexError
-		return self.front.get_data()
-
-	def deQueue(self):
-		if self.rear is None:
-			print "Sorry, the queue is empty!"
-			raise IndexError
-		result = self.rear.get_data()
-		self.rear = self.rear.last
-		self.size -= 1
-		return result
-
-	def size(self):
-		return self.size
-		
-	def isEmpty(self):
-		return self.size == 0
-		
-		
-'''Binary Tree Class and its methods'''
-class BinaryTree:
-	def __init__(self, data):
-		self.data = data  # root node
-		self.left = None  # left child
-		self.right = None  # right child
-	# set data
-	def set_data(self, data):
-		self.data = data
-	# get data   
-	def get_data(self):
-		return self.data	
-	# get left child of a node
-	def getLeft(self):
-		return self.left
-	# get right child of a node
-	def getRight(self):
-		return self.right
-	
-	def insertLeft(self, newNode):
-		if self.left == None:
-			self.left = BinaryTree(newNode)
-		else:
-			temp = BinaryTree(newNode)
-			temp.left = self.left
-			self.left = temp
-
-	def insertRight(self, newNode):
-		if self.right == None:
-			self.right = BinaryTree(newNode)
-		else:
-			temp = BinaryTree(newNode)
-			temp.right = self.right
-			self.right = temp
-
-def insertInBinaryTreeUsingLevelOrder(root, data):
-	newNode = BinaryTree(data)
-	if root is None:
-		root = newNode
-		return root
-
-	q = Queue()
-	q.enQueue(root)
-	node = None
-	while not q.isEmpty():
-		node = q.deQueue()  # dequeue FIFO
-
-		if data == node.get_data():
-			return root
-		if node.left is not None:
-			q.enQueue(node.left)
-		else:
-			node.left = newNode
-			return root	
-		if node.right is not None:
-			q.enQueue(node.right)
-		else:
-			node.right = newNode
-			return root
-
-def levelOrderTraversalInReverse(root):
-	if root is None:
-		return 0
-
-	q = Queue()
-	s = Stack()
-	q.enQueue(root)
-	node = None
-	count = 0
-	while not q.isEmpty():
-		node = q.deQueue()  # dequeue FIFO
-		if node.left is not None:
-			q.enQueue(node.left)
-
-		if node.right is not None:
-			q.enQueue(node.right)
-		s.push(node)
-		
-	while(not s.isEmpty()):
-		print s.pop().get_data()
-	
-		
-# In-order recursive traversal. The nodes' values are appended to the result list in traversal order
-def inorderRecursive(root):
-	if not root:
+''' This function is same as deleteTree() 
+in the previous program '''
+def _deleteTree(node): 
+	if (node == None): 
 		return
 
-	inorderRecursive(root.left)
-	print root.data
-	inorderRecursive(root.right)
+	# first delete both subtrees 
+	_deleteTree(node.left) 
+	_deleteTree(node.right) 
 
-def deleteBinaryTree(root):
-	if(root == None) :
-	       return
-	deleteBinaryTree(root.left);
-	deleteBinaryTree(root.right);
-	del root
+	# then delete the node 
+	print("Deleting node: ", 
+				node.data) 
+	node = None
+	
+# Deletes a tree and sets the root as NULL 
+def deleteTree(node_ref): 
+	_deleteTree(node_ref) 
+	node_ref = None
 
+# Inorder traversal of a binary tree 
+def inorder(temp): 
+    if(not temp): 
+        return
+    inorder(temp.left) 
+    print temp.data
+    inorder(temp.right) 
+   
+# function to delete the given deepest node (d_node) in binary tree  
+def deleteDeepest(root,d_node): 
+    q = [] 
+    q.append(root) 
+    while(len(q)): 
+        temp = q.pop(0) 
+        if temp is d_node: 
+            temp = None
+            return
+        if temp.right: 
+            if temp.right is d_node: 
+                temp.right = None
+                return
+            else: 
+                q.append(temp.right) 
+        if temp.left: 
+            if temp.left is d_node: 
+                temp.left = None
+                return
+            else: 
+                q.append(temp.left) 
+   
+# function to delete element in binary tree  
+def deletion(root, key): 
+    if root == None : 
+        return None
+    if root.left == None and root.right == None: 
+        if root.key == key :  
+            return None
+        else : 
+            return root 
+    key_node = None
+    q = [] 
+    q.append(root) 
+    while(len(q)): 
+        temp = q.pop(0) 
+        if temp.data == key: 
+            key_node = temp 
+        if temp.left: 
+            q.append(temp.left) 
+        if temp.right: 
+            q.append(temp.right) 
+    if key_node :  
+        x = temp.data 
+        deleteDeepest(root,temp) 
+        key_node.data = x 
+    return root 
+   
+# Driver code 
+root = newNode(10) 
+root.left = newNode(11) 
+root.left.left = newNode(7) 
+root.left.right = newNode(12) 
+root.right = newNode(9) 
+root.right.left = newNode(15) 
+root.right.right = newNode(8) 
+print("The tree before the deletion:") 
+inorder(root) 
+key = 11
+root = deletion(root, key) 
+print() 
+print("The tree after the deletion;") 
+inorder(root) 
 
+# Driver code 
+# root = [0] 
 
-root = BinaryTree(11)
-print(root.get_data())
-root = insertInBinaryTreeUsingLevelOrder(root, 1)
-root = insertInBinaryTreeUsingLevelOrder(root, 2)
-root = insertInBinaryTreeUsingLevelOrder(root, 3)
-root = insertInBinaryTreeUsingLevelOrder(root, 4)
-root = insertInBinaryTreeUsingLevelOrder(root, 125)
-root = insertInBinaryTreeUsingLevelOrder(root, 225)
-deleteBinaryTree(root)
-inorderRecursive(root)
+root1 = newNode(1) 
+root1.left = newNode(2) 
+root1.right = newNode(3) 
+root1.left.left = newNode(4) 
+root1.left.right = newNode(5) 
+
+# Note that we pass the address 
+# of root1 here 
+print("Tree deleted : ") 
+deleteTree(root1)
