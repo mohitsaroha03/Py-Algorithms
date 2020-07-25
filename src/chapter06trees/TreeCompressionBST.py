@@ -1,5 +1,5 @@
 # isGFG: , Link: 
-# IsDone: 0
+# IsDone: 1
 import sys
 def TreeCompression(root, previousNodeData):
 	if(not root): 

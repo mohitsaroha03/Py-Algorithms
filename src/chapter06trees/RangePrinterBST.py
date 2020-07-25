@@ -1,32 +1,45 @@
-# isGFG: , Link: 
-# IsDone: 0
-def rangePrinter(root, K1, K2): 
-	if not root: 
-		return 
-	if K1 <= root.get_data() <= K2: 
-		print(root.get_data())
-	if root.get_data() < K1: 
-		return rangePrinter(root.getRight(), K1, K2) 
-	if root.get_data() > K2: 
-		return rangePrinter(root.getLeft(), K1, K2)
+# isGFG: 1, Link: https://www.geeksforgeeks.org/print-bst-keys-in-the-given-range/
+# IsDone: 1
+# Python program to find BST keys in given range 
 
+# A binary tree node 
+class Node: 
 
-import Queue
-def rangePrinter(root):
-	if root is None:
+	# Constructor to create a new node 
+	def __init__(self, data): 
+		self.data = data 
+		self.left = None
+		self.right = None
+
+# The function prints all the keys in the gicven range 
+# [k1..k2]. Assumes that k1 < k2 
+def Print(root, k1, k2): 
+	
+	# Base Case 
+	if root is None: 
 		return
 
-	q = Queue.Queue()
-	q.put(root)
-	temp = None
+	# Since the desired o/p is sorted, recurse for left 
+	# subtree first. If root.data is greater than k1, then 
+	# only we can get o/p keys in left subtree 
+	if k1 < root.data : 
+		Print(root.left, k1, k2) 
 
-	while not q.empty():
-		temp = q.get()  # dequeue FIFO
-		if K1 <= root.get_data() <= K2: 
-			print(root.get_data())
-		if temp.getLeft() is not None and temp.get_data() >= K1:
-			q.put(temp.getLeft())
-		if temp.getRight() is not None and temp.get_data() <= K2:
-			q.put(temp.getRight())	
+	# If root's data lies in range, then prints root's data 
+	if k1 <= root.data and k2 >= root.data: 
+		print root.data, 
 
-	
+	# If root.data is smaller than k2, then only we can get 
+	# o/p keys in right subtree 
+	if k2 > root.data: 
+		Print(root.right, k1, k2) 
+
+# Driver function to test above function 
+k1 = 10 ; k2 = 25 ; 
+root = Node(20) 
+root.left = Node(8) 
+root.right = Node(22) 
+root.left.left = Node(4) 
+root.left.right = Node(12) 
+
+Print(root, k1, k2) 

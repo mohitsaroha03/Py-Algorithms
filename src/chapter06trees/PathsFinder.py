@@ -213,6 +213,7 @@ def pathsFinder(root):
     pathsAppender(root, [], paths)
     print 'paths:', paths
 
+
 root = BinaryTree(11)
 print(root.get_data())
 root = insertInBinaryTreeUsingLevelOrder(root, 1)

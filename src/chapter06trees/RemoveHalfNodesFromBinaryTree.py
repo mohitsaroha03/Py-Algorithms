@@ -1,5 +1,5 @@
-# isGFG: , Link: 
-# IsDone: 0
+# isGFG: 1, Link: 
+# IsDone: 1
 # Node of a Singly Linked List
 class Node:
 	# constructor

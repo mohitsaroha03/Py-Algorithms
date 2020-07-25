@@ -1,145 +1,60 @@
-# isGFG: , Link: 
-# IsDone: 0
-'''Binary Tree Class and its methods'''
-class BinaryTree:
-	def __init__(self, data):
-		self.data = data  # root node
-		self.left = None  # left child
-		self.right = None  # right child
-	# set data
-	def set_data(self, data):
-		self.data = data
-	# get data   
-	def get_data(self):
-		return self.data	
-	# get left child of a node
-	def getLeft(self):
-		return self.left
-	# get right child of a node
-	def getRight(self):
-		return self.right
-	# get left child of a node
-	def setLeft(self, left):
-		self.left = left
-	# get right child of a node
-	def setRight(self, right):
-		self.right = right
-	def insertLeft(self, newNode):
-		if self.left == None:
-			self.left = BinaryTree(newNode)
-		else:
-			temp = BinaryTree(newNode)
-			temp.left = self.left
-			self.left = temp
+# isGFG: 1, Link: https://www.geeksforgeeks.org/tree-isomorphism-problem/
+# IsDone: 1
 
-	def insertRight(self, newNode):
-		if self.right == None:
-			self.right = BinaryTree(newNode)
-		else:
-			temp = BinaryTree(newNode)
-			temp.right = self.right
-			self.right = temp
-	    
-# Pre-order recursive traversal. The nodes' values are appended to the result list in traversal order
-def preorderRecursive(root, result):
-    if not root:
-        return
-    
-    result.append(root.data)
-    preorderRecursive(root.left, result)
-    preorderRecursive(root.right, result)
+# Python program to check if two given trees are isomorphic 
 
-# In-order recursive traversal. The nodes' values are appended to the result list in traversal order
-def inorderRecursive(root, result):
-	if not root:
-		return
-
-	inorderRecursive(root.left, result)
-	result.append(root.data)
-	inorderRecursive(root.right, result)
-
-# Post-order recursive traversal. The nodes' values are appended to the result list in traversal order
-def postorderRecursive(root, result):
-    if not root:
-        return
-    
-    postorderRecursive(root.left, result)
-    postorderRecursive(root.right, result)
-    result.append(root.data)
-
-# Pre-order iterative traversal. The nodes' values are appended to the result list in traversal order
-def preorderIterative(root, result):
-    if not root:
-        return
-
-    stack = []
-    stack.append(root)
-    while stack:
-        node = stack.pop()
-        result.append(node.data)
-        if node.right: stack.append(node.right)
-        if node.left: stack.append(node.left)    
-
-# In-order iterative traversal. The nodes' values are appended to the result list in traversal order
-def inorderIterative(root):
-	if not root:
-		return
-
-	stack = []
-	node = root
-	while stack or node:
-		if node:
-			stack.append(node)
-			node = node.left
-		else:
-			node = stack.pop()
-			print node.data
-			node = node.right
-
-# Post-order iterative traversal. The nodes' values are appended to the result list in traversal order
-def postorderIterative(root):
-    if not root:
-        return
-
-    visited = set()
-    stack = []
-    node = root
-    while stack or node:
-        if node:
-            stack.append(node)
-            node = node.left
-        else:
-            node = stack.pop()
-            if node.right and not node.right in visited:
-                stack.append(node)
-                node = node.right
-            else:
-                visited.add(node)
-                print node.data
-                node = None
-
-def quasiIsomorphic(root1, root2):
-	if(not root1 and not root2): 
-		return 1
-	if((not root1 and root2) or (root1 and not root2)):
-	        return 0
-	return (quasiIsomorphic(root1.left, root2.left) and quasiIsomorphic(root1.right, root2.right)
-	         or quasiIsomorphic(root1.right, root2.left) and quasiIsomorphic(root1.left, root2.right))
+# A Binary tree node 
+class Node: 
+	# Constructor to create the node of binary tree 
+	def __init__(self, data): 
+		self.data = data 
+		self.left = None
+		self.right = None
 	
+# Check if the binary tree is isomorphic or not 
+def isIsomorphic(n1, n2): 
+	
+	# Both roots are None, trees isomorphic by definition 
+	if n1 is None and n2 is None: 
+		return True
 
-root1 = BinaryTree(11)
-root1.insertLeft(1)
-root1.insertLeft(10)
-root1.insertLeft(1100)
-root1.insertRight(5)
-root1.getRight().set_data(2)
-postorderIterative(root1)
+	# Exactly one of the n1 and n2 is None, trees are not 
+	# isomorphic 
+	if n1 is None or n2 is None: 
+		return False
 
-root2 = BinaryTree(99)
-root2.insertLeft(9)
-root2.insertLeft(910)
-root2.insertLeft(9900)
-root2.insertRight(8)
-root2.getRight().set_data(2)
-postorderIterative(root2)
-print "QuasiIsomorphic:", quasiIsomorphic(root1, root2)
+	if n1.data != n2.data : 
+		return False
+	# There are two possible cases for n1 and n2 to be isomorphic 
+	# Case 1: The subtrees rooted at these nodes have NOT 
+	# been "Flipped". 
+	# Both of these subtrees have to be isomorphic, hence the && 
+	# Case 2: The subtrees rooted at these nodes have 
+	# been "Flipped" 
+	return ((isIsomorphic(n1.left, n2.left)and
+			isIsomorphic(n1.right, n2.right)) or
+			(isIsomorphic(n1.left, n2.right) and
+			isIsomorphic(n1.right, n2.left)) 
+			) 
+
+
+# Driver program to test above function 
+n1 = Node(1) 
+n1.left = Node(2) 
+n1.right = Node(3) 
+n1.left.left = Node(4) 
+n1.left.right = Node(5) 
+n1.right.left = Node(6) 
+n1.left.right.left = Node(7) 
+n1.left.right.right = Node(8) 
+
+n2 = Node(1) 
+n2.left = Node(3) 
+n2.right = Node(2) 
+n2.right.left = Node(4) 
+n2.right.right = Node(5) 
+n2.left.right = Node(6) 
+n2.right.right.left = Node(8) 
+n2.right.right.right = Node(7) 
+
+print "Yes" if (isIsomorphic(n1, n2) == True) else "No"
