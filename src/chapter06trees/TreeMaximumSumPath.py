@@ -1,38 +1,62 @@
-# isGFG: , Link: 
-# IsDone: 0
-def treeMaximumSumPath(node, is_left=True, Lpath={}, Rpath={}):
-    if is_left:
-        # left sub-tree
-        if not node.left:
-            Lpath[node.id] = 0
-            return 0
-        else:
-            Lpath[node.id] = node.data + max(
-                treeMaximumSumPath(node.left, True, Lpath, Rpath),
-                treeMaximumSumPath(node.left, False, Lpath, Rpath)
-            )
-            return Lpath[node.id]
-    else:
-        # right sub-tree
-        if not node.right:
-            Rpath[node.id] = 0
-            return 0
-        else:
-            Rpath[node.id] = node.data + max(
-                treeMaximumSumPath(node.right, True, Lpath, Rpath),
-                treeMaximumSumPath(node.right, False, Lpath, Rpath)
-            )
-            return Rpath[node.id]
+# Link: https://www.geeksforgeeks.org/find-maximum-path-sum-in-a-binary-tree/
+# IsDone: 1
 
+# Python program to find maximum path sum in Binary Tree 
 
-def maxsum_path(root):
-    Lpath = {}
-    Rpath = {}
-    treeMaximumSumPath(root, True, Lpath, Rpath)
-    treeMaximumSumPath(root, False, Lpath, Rpath)
-    print 'Left-path:', Lpath
-    print 'Right-path:', Rpath
-    path2sum = dict((i, Lpath[i] + Rpath[i]) for i in Lpath.keys())
-    i = max(path2sum, key=path2sum.get)
-    print 'The path going through node', i, 'with max sum', path2sum[i]
-    return path2sum[i]
+# A Binary Tree Node 
+class Node: 
+	
+	# Contructor to create a new node 
+	def __init__(self, data): 
+		self.data = data 
+		self.left = None
+		self.right = None
+
+# This function returns overall maximum path sum in 'res' 
+# And returns max path sum going through root 
+def findMaxUtil(root): 
+	
+	# Base Case 
+	if root is None: 
+		return 0
+
+	# l and r store maximum path sum going through left 
+	# and right child of root respetively 
+	l = findMaxUtil(root.left) 
+	r = findMaxUtil(root.right) 
+	
+	# Max path for parent call of root. This path 
+	# must include at most one child of root 
+	max_single = max(max(l, r) + root.data, root.data) 
+	
+	# Max top represents the sum when the node under 
+	# consideration is the root of the maxSum path and 
+	# no ancestor of root are there in max sum path 
+	max_top = max(max_single, l+r+ root.data) 
+
+	# Static variable to store the changes 
+	# Store the maximum result 
+	findMaxUtil.res = max(findMaxUtil.res, max_top) 
+
+	return max_single 
+
+# Return maximum path sum in tree with given root 
+def findMaxSum(root): 
+	
+	# Initialize result 
+	findMaxUtil.res = float("-inf") 
+	
+	# Compute and return result 
+	findMaxUtil(root) 
+	return findMaxUtil.res 
+
+# Driver program 
+root = Node(10) 
+root.left = Node(2) 
+root.right = Node(10); 
+root.left.left = Node(20); 
+root.left.right = Node(1); 
+root.right.right = Node(-25); 
+root.right.right.left = Node(3); 
+root.right.right.right = Node(4); 
+print "Max path sum is " ,findMaxSum(root); 

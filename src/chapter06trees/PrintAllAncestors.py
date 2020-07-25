@@ -1,4 +1,4 @@
-# isGFG: 1, Link: https://www.geeksforgeeks.org/print-ancestors-of-a-given-node-in-binary-tree/
+# Link: https://www.geeksforgeeks.org/print-ancestors-of-a-given-node-in-binary-tree/
 # IsDone: 1
 
 # Python program to print ancestors of given node in 

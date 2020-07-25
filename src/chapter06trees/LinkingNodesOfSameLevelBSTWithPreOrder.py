@@ -1,4 +1,4 @@
-# isGFG: 1, Link: https://www.geeksforgeeks.org/connect-nodes-at-same-level/
+# Link: https://www.geeksforgeeks.org/connect-nodes-at-same-level/
 # IsDone: 1
 # Python3 program to connect nodes at same 
 # level using extended pre-order traversal 

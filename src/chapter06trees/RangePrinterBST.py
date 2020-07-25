@@ -1,4 +1,4 @@
-# isGFG: 1, Link: https://www.geeksforgeeks.org/print-bst-keys-in-the-given-range/
+# Link: https://www.geeksforgeeks.org/print-bst-keys-in-the-given-range/
 # IsDone: 1
 # Python program to find BST keys in given range 
 

@@ -1,4 +1,4 @@
-# isGFG: 1, Link: https://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-a-tree-into-its-mirror-tree/
+# Link: https://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-a-tree-into-its-mirror-tree/
 # IsDone: 1
 
 # Utility function to create a new 

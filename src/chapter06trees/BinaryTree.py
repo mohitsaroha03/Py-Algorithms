@@ -1,4 +1,4 @@
-# isGFG: 1, Link: 
+# Link: 
 # IsDone: 1
 
 # A binary tree node 

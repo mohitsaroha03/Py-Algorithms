@@ -1,4 +1,4 @@
-# isGFG: 1, Link: https://www.geeksforgeeks.org/find-minimum-depth-of-a-binary-tree/
+# Link: https://www.geeksforgeeks.org/find-minimum-depth-of-a-binary-tree/
 # IsDone: 1
 # Python program to find minimum depth of a given Binary Tree 
 

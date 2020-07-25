@@ -1,4 +1,4 @@
-# isGFG: 1, Link: https://www.geeksforgeeks.org/find-maximum-path-sum-in-a-binary-tree/
+# Link: https://www.geeksforgeeks.org/find-maximum-path-sum-in-a-binary-tree/
 # IsDone: 1  
 
 # A Binary Tree Node 

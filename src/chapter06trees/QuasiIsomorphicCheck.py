@@ -1,4 +1,4 @@
-# isGFG: 1, Link: https://www.geeksforgeeks.org/tree-isomorphism-problem/
+# Link: https://www.geeksforgeeks.org/tree-isomorphism-problem/
 # IsDone: 1
 
 # Python program to check if two given trees are isomorphic 
