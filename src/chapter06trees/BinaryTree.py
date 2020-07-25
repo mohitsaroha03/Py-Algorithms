@@ -1,4 +1,5 @@
-# Python program to do inorder traversal without recursion 
+# isGFG: 1, Link: 
+# IsDone: 1
 
 # A binary tree node 
 class Node: 
@@ -10,7 +11,7 @@ class Node:
 		self.right = None
 
 # Iterative function for inorder tree traversal 
-def inOrder(root): 
+def iterativeInOrder(root): 
 	
 	# Set current to root of binary tree 
 	current = root 
@@ -84,7 +85,7 @@ def iterativePreorder(root):
 # root.right.left = Node(2) 
 
 
-def postOrderIterative(root):  
+def iterativePostOrder(root):  
   
     if root is None: 
         return        
@@ -171,9 +172,9 @@ root.right.right = Node(7)
 print "\n pre-iterative :"
 iterativePreorder(root) 
 print "\n in-iterative :"
-inOrder(root) 
+iterativeInOrder(root) 
 print "\n post-iterative :"
-postOrderIterative(root) 
+iterativePostOrder(root) 
 print "\n pre-recursive :"
 preorderRecursive(root)
 print "\n in-recursive :"

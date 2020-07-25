@@ -57,6 +57,7 @@ def minValueNode( node):
 
 # Given a binary search tree and a key, this function 
 # delete the key and returns the new root 
+# link: https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/
 def deleteNode(root, key): 
 
 	# Base Case 
@@ -101,21 +102,33 @@ def deleteNode(root, key):
 
 	return root 
 
-def FindLCA(root, a, b):
-    	while(root):
-		if((a <= root.data and b > root.data) or (a > root.data and b <= root.data)): 
-			return root
-		if(a < root.data):	
-			root = root.left
-		else: root = root.right
+
+# link: https://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/
+def lca(root, n1, n2): 
+      
+    # Base Case 
+    if root is None: 
+        return None
+  
+    # If both n1 and n2 are smaller than root, then LCA 
+    # lies in left 
+    if(root.key > n1 and root.key > n2): 
+        return lca(root.left, n1, n2) 
+  
+    # If both n1 and n2 are greater than root, then LCA 
+    # lies in right  
+    if(root.key < n1 and root.key < n2): 
+        return lca(root.right, n1, n2) 
+  
+    return root 
 
 # Driver program to test above functions 
 """ Let us create following BST 
 			50 
 		/	 \ 
-		30	 70 
-		/ \ / \ 
-	20 40 60 80 """
+	  30	 70 
+	  / \   / \ 
+	20  40 60 80 """
 
 root = None
 root = insert(root, 50) 
@@ -129,20 +142,21 @@ root = insert(root, 80)
 print "Inorder traversal of the given tree"
 inorder(root) 
 
-print "\nDelete 20: "
-root = deleteNode(root, 20) 
 print "Inorder traversal of the modified tree"
 inorder(root) 
 
-print "\nDelete 30: "
-root = deleteNode(root, 30) 
 print "Inorder traversal of the modified tree"
 inorder(root) 
 
-print "\nDelete 50: "
-root = deleteNode(root, 50) 
 print "Inorder traversal of the modified tree"
 inorder(root) 
 
 print "\n Find LCA: "
-print FindLCA(root, 2, 9).data
+print lca(root, 70, 20).key
+
+print "\nDelete 20: "
+root = deleteNode(root, 30) 
+print "\nDelete 30: "
+root = deleteNode(root, 30) 
+print "\nDelete 50: "
+root = deleteNode(root, 50) 
