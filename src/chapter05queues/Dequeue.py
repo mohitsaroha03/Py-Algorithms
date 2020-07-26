@@ -10,13 +10,13 @@ class Deque:
     def addFront(self, item): # push
         self.items.append(item)
 
-    def addRear(self, item): # pushing from front
+    def addRear(self, item): # pushing at index 0
         self.items.insert(0, item)
 
     def removeFront(self): # pop
         return self.items.pop()
 
-    def removeRear(self): # poping from front
+    def removeRear(self): # poping at index 0
         return self.items.pop(0)
 
     def size(self):
