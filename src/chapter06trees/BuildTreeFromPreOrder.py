@@ -62,7 +62,7 @@ def printInorder (node):
 	printInorder (node.left) 
 
 	# then print the data of node 
-	print(node.data,end=" ") 
+	print(node.data) 
 
 	# now recur on right child 
 	printInorder (node.right) 
