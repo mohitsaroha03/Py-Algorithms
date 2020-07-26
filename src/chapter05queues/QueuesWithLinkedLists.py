@@ -1,84 +1,61 @@
-# Link: 
-# IsDone: 0
-# Node of a Singly Linked List
-class Node:
-	# constructor
-	def __init__(self, data=None, next=None):
-		self.data = data
-		self.last = None
-		self.next = next
-	# method for setting the data field of the node    
-	def set_data(self, data):
-		self.data = data
-	# method for getting the data field of the node   
-	def get_data(self):
-		return self.data
-	# method for setting the next field of the node
-	def set_next(self, next):
-		self.next = next
-	# method for getting the next field of the node    
-	def get_next(self):
-		return self.next
-	# method for setting the last field of the node
-	def setLast(self, last):
-		self.last = last
-	# method for getting the last field of the node    
-	def getLast(self):
-		return self.last	
-	# returns true if the node points to another node
-	def has_next(self):
-		return self.next != None
+# Link: https://www.geeksforgeeks.org/queue-linked-list-implementation/
+# IsDone: 1
 
 
-class Queue(object):
-	def __init__(self, data=None):
-		self.front = None
-		self.rear = None
-		self.size = 0
-
-	def enQueue(self, data):
-		self.lastNode = self.front
-		self.front = Node(data, self.front)
-		if self.lastNode:
-			self.lastNode.setLast(self.front)
-		if self.rear is None:
-			self.rear = self.front
-		self.size += 1
-
-	def queueRear(self):
-		if self.rear is None:
-			print "Sorry, the queue is empty!"
-			raise IndexError
-		return self.rear.get_data()
-
-	def queueFront(self):
-		if self.front is None:
-			print "Sorry, the queue is empty!"
-			raise IndexError
-		return self.front.get_data()
-
-	def deQueue(self):
-		if self.rear is None:
-			print "Sorry, the queue is empty!"
-			raise IndexError
-		result = self.rear.get_data()
-		self.rear = self.rear.last
-		self.size -= 1
-		return result
-
-	def size(self):
-		return self.size
+# A linked list (LL) node 
+# to store a queue entry 
+class Node: 
 	
-que = Queue()
-que.enQueue("first")
-print "Front: " + que.queueFront()
-print "Rear: " + que.queueRear()
-que.enQueue("second")
-print "Front: " + que.queueFront()
-print "Rear: " + que.queueRear()
-que.enQueue("third")
-print "Front: " + que.queueFront()
-print "Rear: " + que.queueRear()
-print "Dequeuing: " + que.deQueue()
-print "Front: " + que.queueFront()
-print "Rear: " + que.queueRear()
+	def __init__(self, data): 
+		self.data = data 
+		self.next = None
+
+# A class to represent a queue 
+
+# The queue, front stores the front node 
+# of LL and rear stores the last node of LL 
+class Queue: 
+	
+	def __init__(self): 
+		self.front = self.rear = None
+
+	def isEmpty(self): 
+		return self.front == None
+	
+	# Method to add an item to the queue 
+	def EnQueue(self, item): 
+		temp = Node(item) 
+		# 10-20-30
+		if self.rear == None: 
+			self.front = self.rear = temp 
+			return
+		self.rear.next = temp 
+		self.rear = temp 
+
+	# Method to remove an item from queue 
+	def DeQueue(self): 
+		
+		if self.isEmpty(): 
+			return
+		# 10-20-30
+		temp = self.front 
+		self.front = temp.next
+
+		if(self.front == None): 
+			self.rear = None
+
+# Driver Code 
+if __name__== '__main__': 
+	q = Queue() 
+	q.EnQueue(10) 
+	q.EnQueue(20) 
+	q.EnQueue(21) 
+	q.DeQueue() 
+	q.DeQueue() 
+	q.EnQueue(30) 
+	q.EnQueue(40) 
+	q.EnQueue(50) 
+	q.DeQueue() 
+	print("Queue Front " + str(q.front.data)) 
+	print("Queue Rear " + str(q.rear.data)) 
+	
