@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def findKthSmallest(A, B, k):
     if len(A) > len(B):             A, B = B, A

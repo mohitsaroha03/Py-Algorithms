@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def recursivePermutations(elems, soFar):
     if len(elems) == 0:

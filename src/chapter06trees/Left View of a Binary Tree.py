@@ -1,4 +1,4 @@
-# isGFG: , Link: https://www.geeksforgeeks.org/print-left-view-binary-tree/
+# Link: https://www.geeksforgeeks.org/print-left-view-binary-tree/
 # IsDone: 1
 # Python program to print left view of Binary Tree 
 

@@ -1,4 +1,4 @@
-# isGFG: , Link: https://www.geeksforgeeks.org/floor-and-ceil-from-a-bst/ 
+# Link: https://www.geeksforgeeks.org/floor-and-ceil-from-a-bst/ 
 # IsDone: 1
 
 # Python program to find ceil of a given value in BST 

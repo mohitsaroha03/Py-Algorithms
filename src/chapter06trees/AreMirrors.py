@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def AreMirrors(root1, root2):
 	if(root1 == None and root2 == None): 	

@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def Merge(A, m, B, n):
 	i = n - 1

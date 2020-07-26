@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def findMaxLen(root):
 	nMaxLen = 0

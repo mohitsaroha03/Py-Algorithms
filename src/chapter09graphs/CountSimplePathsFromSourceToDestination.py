@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 class Graph(object):
     def __init__(self, graph_dict={}):

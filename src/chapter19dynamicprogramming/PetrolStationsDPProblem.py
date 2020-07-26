@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def canCompleteTour(self, petrol, cost):
 	minVal = float("inf")

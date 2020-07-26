@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 class CamptureRegions:
     # @param board, a 2D array

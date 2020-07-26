@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def exchangeEvenOddList(head):
 	# initializing the odd and even list headers

@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 # Definition for a binary tree node.
 class TreeNode:

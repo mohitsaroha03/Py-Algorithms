@@ -1,4 +1,4 @@
-# isGFG: , Link: https://www.geeksforgeeks.org/find-maximum-path-sum-two-leaves-binary-tree/
+# Link: https://www.geeksforgeeks.org/find-maximum-path-sum-two-leaves-binary-tree/
 # IsDone: 1
 # Python program to find maximumpath sum between two leaves 
 # of a binary tree 

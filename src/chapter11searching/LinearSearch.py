@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 key = "Data Structure and Algorithmic Thinking with Python"
  

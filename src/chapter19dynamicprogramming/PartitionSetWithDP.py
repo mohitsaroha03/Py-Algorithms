@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 # Returns 1 if A[] can be partitioned in two subsets of equal sum, otherwise 0
 def findPartition(A):

@@ -1,4 +1,4 @@
-# isGFG: , Link: https://www.geeksforgeeks.org/connect-leaves-doubly-linked-list/
+# Link: https://www.geeksforgeeks.org/connect-leaves-doubly-linked-list/
 # IsDone: 0
 # Python program to extract leaf nodes from binary tree 
 # using double linked list 

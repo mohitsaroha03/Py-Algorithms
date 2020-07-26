@@ -1,4 +1,4 @@
-# isGFG: , Link: https://www.geeksforgeeks.org/root-to-leaf-path-sum-equal-to-a-given-number/
+# Link: https://www.geeksforgeeks.org/root-to-leaf-path-sum-equal-to-a-given-number/
 # IsDone: 1
 def pathFinder(root, val, path, paths):
     if not root:

@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: -1
 '''Threaded Binary Tree Class and its methods'''
 class ThreadedBinaryTree:

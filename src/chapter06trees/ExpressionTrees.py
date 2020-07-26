@@ -1,4 +1,4 @@
-# isGFG: , Link: https://www.geeksforgeeks.org/expression-tree/
+# Link: https://www.geeksforgeeks.org/expression-tree/
 # IsDone: 1
 
 # Python program for expression tree 

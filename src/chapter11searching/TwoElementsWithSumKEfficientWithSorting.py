@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def pair_sum_k_sorting(A, K):
     left = 0

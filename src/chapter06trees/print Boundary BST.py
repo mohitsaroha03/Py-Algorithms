@@ -1,4 +1,4 @@
-# isGFG: , Link: https://www.geeksforgeeks.org/boundary-traversal-of-binary-tree/
+# Link: https://www.geeksforgeeks.org/boundary-traversal-of-binary-tree/
 # IsDone: 1
 # A binary tree node 
 class Node: 

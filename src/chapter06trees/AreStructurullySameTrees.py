@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def areStructurullySameTrees(root1, root2):
 	if (not root1.left) and not (root1.right) and (not root2.left) and \

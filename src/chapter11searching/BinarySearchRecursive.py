@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def BinarySearchRecursive(numbersList, value, low=0, high=-1):
     if not numbersList: return -1

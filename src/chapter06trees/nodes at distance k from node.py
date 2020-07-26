@@ -1,4 +1,4 @@
-# isGFG: , Link: https://www.geeksforgeeks.org/print-nodes-distance-k-given-node-binary-tree/
+# Link: https://www.geeksforgeeks.org/print-nodes-distance-k-given-node-binary-tree/
 # IsDone: 0
 
 # Python program to print nodes at distance k from a given node 

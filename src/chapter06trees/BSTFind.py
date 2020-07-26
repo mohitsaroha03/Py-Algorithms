@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 1
 # Search the key from node, iteratively
 def Find(self, root, data):

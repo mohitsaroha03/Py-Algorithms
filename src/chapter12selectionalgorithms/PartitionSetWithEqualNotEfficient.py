@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 # A utility function that returns 1 if there is a subset of A[] with sum equal to given sum
 def subsetSum (A, n, sum):

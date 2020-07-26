@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def insertionSort(A):
   for i in range(1, len(A)):

@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 1
 # Python3 program to count all nodes 
 # having k leaves in subtree rooted with them 

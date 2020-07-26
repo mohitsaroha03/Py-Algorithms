@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def number_of_trailing_zeros_of_factorial_number(n):
 	count = 0

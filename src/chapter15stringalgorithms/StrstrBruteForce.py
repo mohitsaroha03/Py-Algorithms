@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def strstrBruteForce(str, pattern):
     if not pattern: return 0

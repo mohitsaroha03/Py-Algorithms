@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 1
 # Node of a Singly Linked List
 class Node:

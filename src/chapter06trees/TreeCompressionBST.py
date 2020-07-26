@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 1
 import sys
 def TreeCompression(root, previousNodeData):

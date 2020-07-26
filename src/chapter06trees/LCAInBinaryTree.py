@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def lca(root, alpha, beta):
     if not root: return None

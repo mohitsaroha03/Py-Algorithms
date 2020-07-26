@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def DetectCycle(G) :
 	for i in range(0, G.numVertices):

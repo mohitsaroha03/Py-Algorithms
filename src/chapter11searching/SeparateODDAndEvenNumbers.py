@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def separateEvenOdd(A):
 	left = 0; right = len(A) - 1

@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def Fibo(n):
    fibTable = [0, 1]

@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def getval(A, i, j, L, H):
 	if (i < 0 or i >= L or j < 0 or j >= H):

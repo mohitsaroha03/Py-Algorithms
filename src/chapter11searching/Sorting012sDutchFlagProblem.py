@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def sorting012sDutchFlagProblem(A):
     n = len(A)

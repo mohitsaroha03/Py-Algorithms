@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def rearrangeArrayElementsA1B1A2B2(A):
 	n = len(A) // 2

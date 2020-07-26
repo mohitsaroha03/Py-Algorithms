@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def DLLtoBalancedBST(head):
 	if(not head or not head.next): 

@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def CheckDuplicatesBruteForce(A):
 	for i in range(0, len(A)):

@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def maxSumWithDivideAndConquer(A, low, hi):
 	# run MCS algorithm on condensed list

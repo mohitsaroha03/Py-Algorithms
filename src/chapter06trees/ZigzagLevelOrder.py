@@ -1,4 +1,4 @@
-# isGFG: , Link: https://www.geeksforgeeks.org/zigzag-tree-traversal/
+# Link: https://www.geeksforgeeks.org/zigzag-tree-traversal/
 # IsDone: 1
 
 # Python Program to print zigzag traversal 

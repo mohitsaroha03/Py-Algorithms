@@ -1,4 +1,4 @@
-# isGFG: , Link: https://www.geeksforgeeks.org/convert-a-binary-tree-to-a-circular-doubly-link-list/
+# Link: https://www.geeksforgeeks.org/convert-a-binary-tree-to-a-circular-doubly-link-list/
 # IsDone: 1
 # Python3 Program to convert a Binary 
 # Tree to a Circular Doubly Linked List 

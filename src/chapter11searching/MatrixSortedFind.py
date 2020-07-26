@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def matrixFind(matrix, value):
     m = len(matrix)

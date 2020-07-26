@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def spiral_iterative(n):
     dx, dy = 1, 0  # Starting increments

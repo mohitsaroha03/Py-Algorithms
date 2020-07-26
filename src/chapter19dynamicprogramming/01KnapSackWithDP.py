@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def Knapsack(knapsackSize, itemsValue, itemsWeight):
 	numItems = len(itemsValue)

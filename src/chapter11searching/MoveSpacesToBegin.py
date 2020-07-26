@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def moveSpacesToBegin(A):
      i = len(A) - 1

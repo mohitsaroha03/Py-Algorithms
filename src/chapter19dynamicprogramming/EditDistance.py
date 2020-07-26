@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def editDistance(A, B):
     m = len(A) + 1

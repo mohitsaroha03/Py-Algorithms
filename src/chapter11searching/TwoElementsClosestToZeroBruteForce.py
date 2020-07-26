@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def TwoElementsClosestToZero(A):
 	n = len(A)

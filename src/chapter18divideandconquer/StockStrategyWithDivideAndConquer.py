@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def StockStrategy(A, start, stop):
     n = stop - start

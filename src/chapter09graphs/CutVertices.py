@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 import math
 adjMatrix = [[0 for x in G.numVertices] for x in G.numVertices]

@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def CatalanNumber(n):
         catalan = [1, 1] + [0] * n

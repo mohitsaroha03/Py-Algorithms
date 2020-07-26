@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 myString = "We want to get the counts for each letter in this sentence"
 counts = {}

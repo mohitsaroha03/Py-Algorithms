@@ -1,4 +1,4 @@
-# isGFG: , Link: https://www.geeksforgeeks.org/shortest-distance-between-two-nodes-in-bst/
+# Link: https://www.geeksforgeeks.org/shortest-distance-between-two-nodes-in-bst/
 # IsDone: 1
 # Python3 program to find distance between 
 # two nodes in BST 

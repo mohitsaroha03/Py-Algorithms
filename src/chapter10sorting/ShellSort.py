@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def ShellSort(A):
     sublistcount = len(A) // 2

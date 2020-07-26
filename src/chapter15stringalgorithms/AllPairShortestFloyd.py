@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 # script for Floyd Warshall Algorithm- All Pair Shortest Path
 INF = 999999999

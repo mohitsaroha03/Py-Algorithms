@@ -1,4 +1,4 @@
-# isGFG: , Link: https://www.geeksforgeeks.org/construct-a-special-tree-from-given-preorder-traversal/
+# Link: https://www.geeksforgeeks.org/construct-a-special-tree-from-given-preorder-traversal/
 # IsDone: 1
 
 # A program to construct Binary 

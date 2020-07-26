@@ -1,4 +1,4 @@
-# isGFG: , Link: https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
+# Link: https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
 # IsDone: 1
 class Node: 
 	# constructor to create new node 

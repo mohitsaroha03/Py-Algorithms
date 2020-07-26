@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def RobinKarp(text, pattern):
         if pattern == None or text == None:

@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def SubsetSum(A, T):
 	n = len(A)

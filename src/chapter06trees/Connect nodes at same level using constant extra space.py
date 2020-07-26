@@ -1,4 +1,4 @@
-# isGFG: , Link: https://www.geeksforgeeks.org/connect-nodes-at-same-level-with-o1-extra-space/
+# Link: https://www.geeksforgeeks.org/connect-nodes-at-same-level-with-o1-extra-space/
 # IsDone: 0
 class newnode: 
 	def __init__(self,data): 

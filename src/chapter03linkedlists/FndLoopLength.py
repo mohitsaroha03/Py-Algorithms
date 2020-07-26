@@ -9,7 +9,7 @@
 # 				    merchantability or fitness for a particular purpose.
 
 '''Complexity
-Space : O(n) Time: O(1)'# isGFG: , Link: 
+Space : O(n) Time: O(1)'# Link: 
 # IsDone: 0
 
 class Node:

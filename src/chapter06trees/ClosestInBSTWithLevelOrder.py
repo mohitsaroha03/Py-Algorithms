@@ -1,4 +1,4 @@
-# isGFG: , Link: https://www.geeksforgeeks.org/find-closest-element-binary-search-tree/ 
+# Link: https://www.geeksforgeeks.org/find-closest-element-binary-search-tree/ 
 # IsDone: 1
 
 # Recursive Python program to find key 

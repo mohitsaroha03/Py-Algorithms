@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 class Queue(object):
 	def __init__(self, limit=5):

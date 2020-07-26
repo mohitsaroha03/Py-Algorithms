@@ -1,4 +1,4 @@
-# isGFG: , Link: 
+# Link: 
 # IsDone: 0
 def findTheDifference1(s, t):
     for i in range(len(t)):
