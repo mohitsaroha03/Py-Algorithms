@@ -48,5 +48,5 @@ def countMinReversals(expr):
 # Driver Code 
 if __name__ == '__main__': 
 
-	expr = "}}{{"
+	expr = " }}}{{{ "
 	print(countMinReversals(expr.strip())) 
