@@ -81,6 +81,10 @@ def printkDistanceNode(root, target, k):
 	# If target was neither present in left nor in right subtree 
 	return -1
 
+#         20
+#      8       22
+#   4    12
+#      10  14
 # Driver program to test above function 
 root = Node(20) 
 root.left = Node(8) 
