@@ -67,5 +67,3 @@ root.right = Node(3)
 root.left.left = Node(4) 
 root.left.right = Node(5) 
 print(diameter(root)) 
-
-# This code is contributed by Nikhil Kumar Singh(nickzuck_007) 
