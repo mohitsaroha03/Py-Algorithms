@@ -1,58 +1,71 @@
 # Link: 
 # IsDone: 0
-def findMaxLen(root):
-	nMaxLen = 0
-	if (root == None):
-		return 0
-	if (root.left == None):
-		root.nMaxLeft = 0
-	if (root.right == None):
-		root.nMaxRight = 0
-	if (root.left != None):
-		findMaxLen(root.left)
-	if (root.right != None):
-		findMaxLen(root.right)
-	if (root.left != None):
-		nTempMaxLen = 0
-		nTempMaxLen = max(root.left.nMaxLeft, root.left.nMaxRight)
-		root.nMaxLeft = nTempMaxLen + 1
 
-	if (root.right != None):
-		nTempMaxLen = 0
-		nTempMaxLen = max(root.right.nMaxLeft, root.right.nMaxRight)
-		root.nMaxRight = nTempMaxLen + 1
+# Python program to find the diameter of binary tree 
+
+# A binary tree node 
+class Node: 
+
+	# Constructor to create a new node 
+	def __init__(self, data): 
+		self.data = data 
+		self.left = None
+		self.right = None
+
+
+""" 
+The function Compute the "height" of a tree. Height is the 
+number f nodes along the longest path from the root node 
+down to the farthest leaf node. 
+"""
+def height(node): 
 	
-	if (root.nMaxLeft + root.nMaxRight > nMaxLen):
-		nMaxLen = root.nMaxLeft + root.nMaxRight
-	return nMaxLen
+	# Base Case : Tree is empty 
+	if node is None: 
+		return 0 ; 
+	
+	# If tree is not empty then height = 1 + max of left 
+	# height and right heights 
+	return 1 + max(height(node.left) ,height(node.right)) 
 
-ptr = 0
-def diameterOfTree(root):
-	global ptr
-	if(not root) :
-		return 0
-	left = diameterOfTree(root.left);
-	right = diameterOfTree(root.right);
+# Function to get the diamtere of a binary tree 
+def diameter(root): 
+	
+	# Base Case when tree is empty 
+	if root is None: 
+		return 0; 
 
-	if(left + right > ptr):
-	      ptr = left + right
-	return max(left, right) + 1
- 
+	# Get the height of left and right sub-trees 
+	lheight = height(root.left) 
+	rheight = height(root.right) 
 
-# Alternative Coding
-def diameter(root):
-	if (root == None): 
-		return 0
+	# Get the diameter of left and irgh sub-trees 
+	ldiameter = diameter(root.left) 
+	rdiameter = diameter(root.right) 
 
-	lHeight = height(root.eft)
-	rHeight = height(root.right)
-	lDiameter = diameter(root.left)
-	rDiameter = diameter(root.right)
-	return max(lHeight + rHeight + 1, max(lDiameter, rDiameter))
+	# Return max of the following tree: 
+	# 1) Diameter of left subtree 
+	# 2) Diameter of right subtree 
+	# 3) Height of left subtree + height of right subtree +1 
+	return max(lheight + rheight + 1, max(ldiameter, rdiameter)) 
+	
 
-# The function Compute the "height" of a tree. Height is the number f nodes along 
-# the longest path from the root node down to the farthest leaf node.
-def height(root):
-	if (root == None) :
-		return 0
-	return 1 + max(height(root.left), height(root.right))
+# Driver program to test above functions 
+
+""" 
+Constructed binary tree is 
+			1 
+		/ \ 
+		2	 3 
+	/ \ 
+	4	 5 
+"""
+
+root = Node(1) 
+root.left = Node(2) 
+root.right = Node(3) 
+root.left.left = Node(4) 
+root.left.right = Node(5) 
+print(diameter(root)) 
+
+# This code is contributed by Nikhil Kumar Singh(nickzuck_007) 
