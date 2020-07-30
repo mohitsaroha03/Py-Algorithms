@@ -1,8 +1,14 @@
-# Link: https://www.geeksforgeeks.org/convert-a-binary-tree-to-a-circular-doubly-link-list/
 # IsDone: 1
+# Link: https://www.geeksforgeeks.org/convert-a-binary-tree-to-a-circular-doubly-link-list/
+# https://www.geeksforgeeks.org/convert-a-given-binary-tree-to-circular-doubly-linked-list-set-2/?ref=rp
+
+# Notes:
+# second one link is simple but taking extra space  O(n)
+# creating a array of inorder and converting that array into a CDLL
+
+
 # Python3 Program to convert a Binary 
 # Tree to a Circular Doubly Linked List 
-
 class newNode: 
 	def __init__(self, data): 
 		self.data = data 

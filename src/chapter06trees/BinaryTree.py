@@ -127,7 +127,7 @@ def preorderRecursive(root):
 
 # In-order recursive traversal. The nodes' values are appended to the result list in traversal order
 def inorderRecursive(root):
-	if not root:
+    	if not root:
 		return
 
 	inorderRecursive(root.left)

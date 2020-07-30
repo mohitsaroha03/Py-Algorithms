@@ -41,7 +41,8 @@ def isSubtree(T, S):
 		return False
 
 	# Check the tree with root as current node 
-	if (areIdentical(T, S)): 
+
+	if T.data == S.data and areIdentical(T, S): 
 		return True
 
 	# IF the tree with root as current node doesn't match 
