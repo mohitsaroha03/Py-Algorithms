@@ -1,50 +1,26 @@
 # Link: https://www.geeksforgeeks.org/print-a-pattern-without-using-any-loop/
 # IsDone: 1
 
-# Python program to print permutations of a given string with 
-# spaces. 
+# Python3 program to print pattern that 
+# first reduces 5 one by one, then adds 5. 
+# Without any loop an extra variable. 
 
-# Utility function 
-def toString(List): 
-	s = "" 
-	for x in List: 
-		if x == '\0': 
-			break
-		s += x 
-	return s 
+# Recursive function to print the pattern 
+# without any extra variable 
+def printPattern(n): 
 
-# Function recursively prints the strings having space pattern. 
-# i and j are indices in 'str[]' and 'buff[]' respectively 
-def printPatternUtil(string, buff, i, j, n): 
-	if i == n: 
-		buff[j] = '\0'
-		print toString(buff) 
+	# Base case (When n becomes 0 or negative) 
+	if (n == 0 or n < 0): 
+		print(n,) 
 		return
+	
+	# First print decreasing order 
+	print(n,) 
+	printPattern(n - 5) 
 
-	# Either put the character 
-	buff[j] = string[i] 
-	printPatternUtil(string, buff, i+1, j+1, n) 
+	# Then print increasing order 
+	print(n,) 
 
-	# Or put a space followed by next character 
-	buff[j] = ' '
-	buff[j+1] = string[i] 
-
-	printPatternUtil(string, buff, i+1, j+2, n) 
-
-# This function creates buf[] to store individual output string 
-# and uses printPatternUtil() to print all permutations. 
-def printPattern(string): 
-	n = len(string) 
-
-	# Buffer to hold the string containing spaces 
-	buff = [0] * (2*n) # 2n-1 characters and 1 string terminator 
-
-	# Copy the first character as it is, since it will be always 
-	# at first position 
-	buff[0] = string[0] 
-
-	printPatternUtil(string, buff, 1, 1, n) 
-
-# Driver program 
-string = "ABCD"
-printPattern(string) 
+# Driver Code 
+n = 16
+printPattern(n) 
