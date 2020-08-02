@@ -16,8 +16,9 @@ def countWaysUtil(x,n,num):
 
 	# Consider two possibilities, num is 
 	# included and num is not included. 
-	return countWaysUtil(val, n, num + 1) +\ 
-		countWaysUtil(x, n, num + 1) 
+	l = countWaysUtil(val, n, num + 1)
+	r = countWaysUtil(x, n, num + 1) 
+	return l + r
 
 
 # Returns number of ways to express 
@@ -27,7 +28,7 @@ def countWays(x,n):
 
 	
 # Driver code 
-x = 100
+x = 8
 n = 2
 
 print(countWays(x, n)) 
