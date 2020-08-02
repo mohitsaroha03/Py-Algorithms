@@ -16,7 +16,7 @@ def traverseMatrix(arr, current_row, current_col) :
 
 	# Print the value of the current 
 	# cell of the matrix 
-	print(arr[current_row][current_col],end= ", "); 
+	print(arr[current_row][current_col]); 
 
 	# Recursive call to traverse the matrix 
 	# in the Horizontal direction 
