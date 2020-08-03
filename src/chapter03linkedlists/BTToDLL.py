@@ -1,94 +1,70 @@
 # Link: https://www.javatpoint.com/python-program-to-convert-a-given-binary-tree-to-doubly-linked-list
-
-class Node:
- ''' class to represent a Node of BST/ linked list'''
- def __init__(self, data):
-     self.data = data
-     self.left = None
-     self.right = None
-
-def printBST(root):
- '''prints the BST in an inorder sequence'''
- if not root:
-     return
- else:
-     printBST(root.left)
-     print root.data, " ",
-     printBST(root.right)
-
-def printList(head):
- '''prints the linked list in both directions
-  to test whether both the 'next' and 'previous' pointers are fine'''
- if not head:
-     return  
- if head: print head.data    
- # print forward direction
- h = head
- print '[%d]' % (h.data),
- h = h.right
- while h != head:
-     print '[%d]' % (h.data),
-     h = h.right
-
- print ""
- # print in reverse direction
- h = head.left
- print '[%d]' % (h.data),
- h = h.left
- while h != head.left:
-     print '[%d]' % (h.data),
-     h = h.left
-
-
-def BSTToDLL(root):
-	''' main function to take the root of the BST and return the head of the doubly linked list  '''
-	prev = None
-	head = None
-	BSTToDoublyList(root, prev, head)
-	return head
-
-def BSTToDoublyList(root, prev, head):
-	if (not root): return 
-
-	BSTToDoublyList(root.left, prev, head)
-
-	# current node's left points to previous node
-	root.left = prev
-	if (prev):
-		prev.right = root  # Previous node's right points to current node
-	else:
-		head = root  # If previous is NULL that current node is head
-
-	right = root.right  # Saving right node
-
-	# Now we need to make list created till now as circular
-	head.left = root
-	root.right = head
-
-	# For right-subtree/parent, current node is in-order predecessor
-	prev = root
-	BSTToDoublyList(right, prev, head)
-   
-
-if __name__ == "__main__":
- # create the sample BST
- root = a = Node(5)
- b = Node(3)
- c = Node(6)
- d = Node(2)
- e = Node(4)
- f = Node(7)
-
- a.left, a.right = b, c
- b.left, b.right = d, e
- c.right = f
-
- printBST(root)
-
-#      	 5
-# 	 3       6
-# 2     4        7
-
- print "\ncreating to double linked list"
- head = BSTToDLL(root)
- printList(head)
+#Represent a node of binary tree    
+class Node:    
+    def __init__(self,data):    
+        self.data = data;    
+        self.left = None;    
+        self.right = None;    
+            
+class BinaryTreeToDLL:    
+    def __init__(self):    
+        #Represent the root of binary tree    
+        self.root = None;    
+        #Represent the head and tail of the doubly linked list    
+        self.head = None;    
+        self.tail = None;    
+            
+    #convertbtToDLL() will convert the given binary tree to corresponding doubly linked list    
+    def convertbtToDLL(self, node):    
+        #Checks whether node is None    
+        if(node == None):    
+            return;    
+                
+        #Convert left subtree to doubly linked list    
+        self.convertbtToDLL(node.left);    
+            
+        #If list is empty, add node as head of the list    
+        if(self.head == None):    
+            #Both head and tail will point to node    
+            self.head = self.tail = node;    
+        #Otherwise, add node to the end of the list    
+        else:    
+            #node will be added after tail such that tail's right will point to node    
+            self.tail.right = node;    
+            #node's left will point to tail    
+            node.left = self.tail;    
+            #node will become new tail    
+            self.tail = node;    
+                
+        #Convert right subtree to doubly linked list    
+        self.convertbtToDLL(node.right);    
+        
+    #display() will print out the nodes of the list    
+    def display(self):    
+        #Node current will point to head    
+        current = self.head;    
+        if(self.head == None):    
+            print("List is empty");    
+            return;    
+        print("Nodes of generated doubly linked list: ");    
+        while(current != None):    
+            #Prints each node by incrementing pointer.    
+            print(current.data),    
+            current = current.right;    
+            
+           
+bt = BinaryTreeToDLL();    
+#Add nodes to the binary tree    
+bt.root = Node(1);    
+bt.root.left = Node(2);    
+bt.root.right = Node(3);    
+bt.root.left.left = Node(4);    
+bt.root.left.right = Node(5);    
+bt.root.right.left = Node(6);    
+bt.root.right.right = Node(7);    
+     
+#Converts the given binary tree to doubly linked list    
+bt.convertbtToDLL(bt.root);    
+     
+#Displays the nodes present in the list    
+bt.display();    
