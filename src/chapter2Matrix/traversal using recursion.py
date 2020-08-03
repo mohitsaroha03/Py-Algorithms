@@ -1,4 +1,4 @@
-# https://www.geeksforgeeks.org/traverse-a-given-matrix-using-recursion/?ref=rp
+# link: https://www.geeksforgeeks.org/traverse-a-given-matrix-using-recursion/?ref=rp
 # Python3 program to traverse the matrix recursively 
 N = 2
 M = 3
