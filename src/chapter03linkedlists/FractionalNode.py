@@ -1,4 +1,5 @@
-#
+# Link: https://www.youtube.com/watch?v=ycMaIp8ynpI
+# https://www.geeksforgeeks.org/find-fractional-nk-th-node-linked-list/
 
 class Node:
     def __init__(self, data):
@@ -60,4 +61,12 @@ if __name__ == "__main__":
     linkedlst.insertAtEnd(2)
     linkedlst.insertAtEnd(3)
     linkedlst.insertAtEnd(4)
+    linkedlst.insertAtEnd(5)
+    linkedlst.insertAtEnd(6)
+    linkedlst.insertAtEnd(7)
+    linkedlst.insertAtEnd(8)
+    linkedlst.insertAtEnd(9)
+    linkedlst.insertAtEnd(10)
+    linkedlst.fractionalNode(2)
+    linkedlst.fractionalNode(3)
     linkedlst.fractionalNode(4)
