@@ -1,59 +1,49 @@
 #
-
+# A linked list node
 class Node:
-	def __init__(self, data):
-		self.set_data(data)
-		self.set_next(None)
-		self.set_rand(None)
-	# method for setting the data field of the node    
-	def set_data(self, data):
+	def __init__(self, data=None, next=None):
 		self.data = data
-	# method for getting the data field of the node   
-	def get_data(self):
-		return self.data
-	# method for setting the next field of the node
-	def set_next(self, nextV):
-		self.next = nextV
-	# method for setting the next field of the node
-	def set_rand(self, rand):
-		self.rand = rand	
-	# method for getting the next field of the node
-	def get_rand(self):
-		return self.rand	
-	# method for getting the next field of the node    
-	def get_next(self):
-		return self.next
-	# returns true if the node points to another node
-	def has_next(self):
-	    return self.next != None
-	    
-	def clone_linked_list(old):
-	    if not old:
-		return
+		self.next = next
 
-	    old_copy = old
-	    root = Node(old.get_data())
-	    prev = root
-	    temp = None
 
-	    old = old.get_next()
+# Helper function to print given linked list
+def printList(head):
 
-	    mapping = {}
-	    
-	    while old:
-		temp = Node(old.get_data())
-		mapping[old] = temp
-		
-		prev.set_next(temp)
-		prev = temp
-		old = old.get_next()
+	ptr = head
+	while ptr:
+		print(ptr.data)
+		ptr = ptr.next
 
-	    old = old_copy
-	    temp = root
+	print("None")
 
-	    while old:
-		temp.set_rand(mapping[old.rand])
-		temp = temp.get_next()
-		old = old.get_next()
 
-	    return root
+# Function that takes a linked list and returns a complete copy of that
+# list using dummy node
+def copyList(head):
+
+	current = head  # used to iterate over the original list
+	dummy = Node()  # build the list off this dummy node
+
+	# point to the last node in the list
+	tail = dummy	# start the tail pointing at the dummy
+
+	while current:
+		tail.next = Node(current.data, tail.next)  # add each node at the tail
+		tail = tail.next  # advance the tail to the last node
+		current = current.next
+
+	return dummy.next
+
+
+if __name__ == '__main__':
+
+	# construct linked list
+	head = None
+	for i in reversed(range(4)):
+		head = Node(i + 1, head)
+
+	# copy linked list
+	dup = copyList(head)
+
+	# print duplicate linked list
+	printList(dup)
