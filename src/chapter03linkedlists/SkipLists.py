@@ -1,4 +1,9 @@
-#
+# Link: https://www.geeksforgeeks.org/skip-list/
+# https://www.geeksforgeeks.org/skip-list-set-2-insertion/?ref=rp
+# https://www.geeksforgeeks.org/skip-list-set-3-searching-deletion/?ref=rp
+# https://www.geeksforgeeks.org/skip-list-set-2-insertion/
+
+# TODO: skiplist and so on rhta hai
 
 import random
 import math

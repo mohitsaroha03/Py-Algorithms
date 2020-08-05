@@ -1,5 +1,3 @@
-#
-
 # Splits in place a list in two halves, the first half is >= in size than the second.
 # @return A tuple containing the heads of the two halves
 # Node of a Singly Linked List
