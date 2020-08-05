@@ -1,17 +1,30 @@
-#
+# Link: https://www.geeksforgeeks.org/odd-even-sort-brick-sort/ 
+# Python Program to implement 
+# Odd-Even / Brick Sort 
 
-def oddeven(A):
-    "Odd-Even sort implementation"
-    sorted = False
-    while(not sorted):
-        sorted = True
-        for i in range(1, len(A) - 1, 2):
-            if A[i] > A[i + 1]:
-                A[i], A[i + 1] = A[i + 1], A[i]
-                sorted = False
-        for i in range(0, len(A) - 1, 2):
-            if A[i] > A[i + 1]:
-                A[i], A[i + 1] = A[i + 1], A[i]
-                sorted = False
-        if not sorted:
-            print A
+def oddEvenSort(arr, n): 
+	# Initially array is unsorted 
+	isSorted = 0
+	while isSorted == 0: 
+		isSorted = 1
+		temp = 0
+		for i in range(1, n-1, 2): 
+			if arr[i] > arr[i+1]: 
+				arr[i], arr[i+1] = arr[i+1], arr[i] 
+				isSorted = 0
+				
+		for i in range(0, n-1, 2): 
+			if arr[i] > arr[i+1]: 
+				arr[i], arr[i+1] = arr[i+1], arr[i] 
+				isSorted = 0
+	
+	return
+
+
+arr = [34, 2, 10, -9] 
+n = len(arr) 
+
+oddEvenSort(arr, n); 
+for i in range(0, n): 
+	print(arr[i]) 
+	
