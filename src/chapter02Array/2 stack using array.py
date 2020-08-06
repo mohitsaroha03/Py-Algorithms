@@ -1,7 +1,7 @@
 # Link: https://www.geeksforgeeks.org/implement-two-stacks-in-an-array/
 # Python Script to Implement two stacks in a list 
 class twoStacks: 
-	
+	# TODO: rename all files with right serial numbers
 	def __init__(self, n):	 # constructor 
 		self.size = n 
 		self.arr = [None] * n 
