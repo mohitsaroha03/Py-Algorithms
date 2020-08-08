@@ -13,8 +13,9 @@ class Node:
 
 
 # function to print zigzag traversal of 
-# binary tree 
-def zizagtraversal(root): 
+# binary tree  
+
+def zizagtraversal(root): # Iterative solution
 
 	# Base Case 
 	if root is None: 
@@ -73,6 +74,16 @@ def heightOfTree(root):
 	
 	return max(lheight + 1, rheight + 1) 
 
+def heightOfTree2(root, H): # another variationof height of tree root, 0
+
+	if root == None: 
+		return H
+	
+	lheight = heightOfTree(root.left, H+1) 
+	rheight = heightOfTree(root.right, H+1) 
+	
+	return max(lheight , rheight) 
+
 # Function to print nodes from right to left 
 def printRightToLeft(root, level): 
 
@@ -103,7 +114,7 @@ def printLeftToRight(root, level):
 
 # Function to print Reverse ZigZag of 
 # a Binary tree 
-def printZigZag(root): 
+def printZigZag(root): # recursive solution
 
 	# Flag is used to mark the 
 	# change in level 

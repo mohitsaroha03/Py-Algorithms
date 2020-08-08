@@ -65,8 +65,7 @@ def bTreeToCList(root):
 	#		 node, i.e., current node) 
 	# Step 2 (concatenate the returned list 
 	#		 with the right List) 
-	return concatenate(concatenate(left, 
-							root), right) 
+	return concatenate(concatenate(left, root), right) 
 
 # Display Circular Link List 
 def displayCList(head): 
