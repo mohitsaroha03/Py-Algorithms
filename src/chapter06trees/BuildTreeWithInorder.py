@@ -20,26 +20,26 @@ class newNode:
 # size len from Inorder traversal inorder[]. 
 # Initial values of start and end should be 
 # 0 and len -1. 
-def buildTree (inorder, start, end): 
+def buildTree (arr, start, end): 
 	if start > end: 
 		return None
 
 	# Find index of the maximum element 
 	# from Binary Tree 
-	i = Max (inorder, start, end) 
+	i = Max (arr, start, end) 
 
 	# Pick the maximum value and make it root 
-	root = newNode(inorder[i]) 
+	root = newNode(arr[i]) 
 
 	# If this is the only element in 
-	# inorder[start..end], then return it 
+	# arr[start..end], then return it 
 	if start == end: 
 		return root 
 
 	# Using index in Inorder traversal, 
 	# construct left and right subtress 
-	root.left = buildTree (inorder, start, i - 1) 
-	root.right = buildTree (inorder, i + 1, end) 
+	root.left = buildTree (arr, start, i - 1) 
+	root.right = buildTree (arr, i + 1, end) 
 
 	return root 
 

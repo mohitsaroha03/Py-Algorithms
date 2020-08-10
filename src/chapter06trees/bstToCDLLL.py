@@ -5,10 +5,8 @@
 # Notes:
 # second one link is simple but taking extra space  O(n)
 # creating a array of inorder and converting that array into a CDLL
+# Same as binary tree conversion 
 
-
-# Python3 Program to convert a Binary 
-# Tree to a Circular Doubly Linked List 
 class newNode: 
 	def __init__(self, data): 
 		self.data = data 

@@ -104,21 +104,21 @@ def deleteNode(root, key):
 
 
 # link: https://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/
-def lca(root, n1, n2): 
+def LowestCommonAncestor(root, n1, n2): 
       
     # Base Case 
     if root is None: 
         return None
   
-    # If both n1 and n2 are smaller than root, then LCA 
+    # If both n1 and n2 are smaller than root, then LowestCommonAncestor 
     # lies in left 
     if(root.key > n1 and root.key > n2): 
-        return lca(root.left, n1, n2) 
+        return LowestCommonAncestor(root.left, n1, n2) 
   
-    # If both n1 and n2 are greater than root, then LCA 
+    # If both n1 and n2 are greater than root, then LowestCommonAncestor 
     # lies in right  
     if(root.key < n1 and root.key < n2): 
-        return lca(root.right, n1, n2) 
+        return LowestCommonAncestor(root.right, n1, n2) 
   
     return root 
 
@@ -151,8 +151,8 @@ inorder(root)
 print "Inorder traversal of the modified tree"
 inorder(root) 
 
-print "\n Find LCA: "
-print lca(root, 70, 20).key
+print "\n Find LowestCommonAncestor: "
+print LowestCommonAncestor(root, 70, 20).key
 
 print "\nDelete 20: "
 root = deleteNode(root, 30) 

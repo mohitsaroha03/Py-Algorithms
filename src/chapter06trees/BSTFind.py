@@ -5,7 +5,7 @@ def Find(self, root, data):
 	currentNode = root
 	while currentNode:
 	    if data == currentNode.get_data():
-		return currentNode
+			return currentNode
 	    if key < currentNode.get_data():
 		currentNode = currentNode.getLeft()
 	    else:
