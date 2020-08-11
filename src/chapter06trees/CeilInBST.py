@@ -1,53 +1,77 @@
-# Link: https://www.geeksforgeeks.org/floor-and-ceil-from-a-bst/ 
+# Link: https://www.techiedelight.com/floor-ceil-bst-iterative-recursive/
 # IsDone: 1
-
-# Python program to find ceil of a given value in BST 
-
-# A Binary tree node 
+# Data structure to store a Binary Search Tree node
 class Node:
-
-    # Constructor to create a new node
-    def __init__(self, data):
-        self.key = data
-        self.left = None
-        self.right = None
+    def __init__(self, data, left=None, right=None):
+        self.data = data
+        self.left = left
+        self.right = right
 
 
-# Function to find ceil of a given input in BST. If input
-# is more than the max key in BST, return -1 
-def ceil(root, inp):
-    # Base Case
-    if root == None:
-        return -1
+# Recursive function to insert a key into BST
+def insert(root, key):
 
-    # We found equal key
-    if root.key == inp:
-        return root.key
+    # if the root is None, create a node and return it
+    if root is None:
+        return Node(key)
 
-    # If root's key is smaller, ceil must be in right subtree
-    if root.key < inp:
-        return ceil(root.right, inp)
+    # if given key is less than the root node, recur for left subtree
+    if key < root.data:
+        root.left = insert(root.left, key)
 
-    # Else, either left subtre or root has the ceil value
-    val = ceil(root.left, inp)
-    return val if val >= inp else root.key
+    # if given key is more than the root node, recur for right subtree
+    else:
+        root.right = insert(root.right, key)
+
+    return root
 
 
-# Driver program to test above function 
-root = Node(8)
+# Recursive function to find floor and ceil of a given key in a BST
+# using a Wrapper
+def findFloorCeil(root, floor, ceil, key):
 
-root.left = Node(4)
-root.right = Node(12)
+    # base case
+    if root is None:
+        return floor, ceil
 
-root.left.left = Node(2)
-root.left.right = Node(6)
+    # if node with key's value is found, both floor and ceil is equal
+    # to the current node
+    if root.data == key:
+        return root, root
 
-root.right.left = Node(10)
-root.right.right = Node(14)
-ceil(root, 3)
-ceil(root, 5)
-ceil(root, 13)
-ceil(root, 15)
-# for i in range(16):
-#     print "% d % d" % (i, ceil(root, 15))
+    # if given key is less than the root node, recur for left subtree
+    elif key < root.data:
+        # update ceil to current node before visiting left subtree
+        return findFloorCeil(root.left, floor, root, key)
 
+    # if given key is more than the root node, recur for right subtree
+    else:
+        # update floor to current node before visiting right subtree
+        return findFloorCeil(root.right, root, ceil, key)
+
+
+if __name__ == '__main__':
+
+    """ Construct below tree
+               8
+             /   \
+            /     \
+           4       10
+          / \     /  \
+         /   \   /    \
+        2     6 9     12
+    """
+
+    keys = [2, 4, 6, 8, 9, 10, 12]
+
+    root = None
+    for key in keys:
+        root = insert(root, key)
+
+    # calculate ceil and floor for each key
+    for i in range(15):
+        floor, ceil = findFloorCeil(root, None, None, i)
+
+        print(i, )
+        print("Floor is", floor.data if floor else None,)
+        print("Ceil is", ceil.data if ceil else None)
