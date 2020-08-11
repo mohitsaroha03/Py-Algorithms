@@ -44,7 +44,10 @@ root.left.right = Node(6)
 
 root.right.left = Node(10)
 root.right.right = Node(14)
-
-for i in range(16):
-    print "% d % d" % (i, ceil(root, i))
+ceil(root, 3)
+ceil(root, 5)
+ceil(root, 13)
+ceil(root, 15)
+# for i in range(16):
+#     print "% d % d" % (i, ceil(root, 15))
 
