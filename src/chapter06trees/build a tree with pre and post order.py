@@ -14,7 +14,7 @@ def inorder(root):
 		return
 
 	inorder(root.left)
-	print(root.data, end=' ')
+	print(root.data,)
 	inorder(root.right)
 
 
