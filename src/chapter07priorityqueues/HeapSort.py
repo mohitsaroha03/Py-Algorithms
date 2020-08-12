@@ -1,40 +1,48 @@
-# Link: 
+# Link: https://www.geeksforgeeks.org/heap-sort/
 # IsDone: 0
-def heapSort(A):
-  # convert A to heap
-  length = len(A) - 1
-  leastParent = length / 2
-  for i in range (leastParent, -1, -1):
-    percolateDown(A, i, length)
+# Python program for implementation of heap Sort 
 
-  # flatten heap into sorted array
-  for i in range (length, 0, -1):
-    if A[0] > A[i]:
-      swap(A, 0, i)
-      percolateDown(A, 0, i - 1)
+# To heapify subtree rooted at index i. 
+# n is size of heap 
+def heapify(arr, n, i): 
+	largest = i # Initialize largest as root 
+	l = 2 * i + 1	 # left = 2*i + 1 
+	r = 2 * i + 2	 # right = 2*i + 2 
 
- # Modfied percolateDown to skip the sorted elements
-def percolateDown(A, first, last):
-  largest = 2 * first + 1
-  while largest <= last:
-    # right child exists and is larger than left child
-    if (largest < last) and (A[largest] < A[largest + 1]):
-      largest += 1
-  
-    # right child is larger than parent
-    if A[largest] > A[first]:
-      swap(A, largest, first)
-      # move down to largest child
-      first = largest;
-      largest = 2 * first + 1
-    else:
-      return  # force exit
-  
-def swap(A, x, y):
-  temp = A[x]
-  A[x] = A[y]
-  A[y] = temp
+	# See if left child of root exists and is 
+	# greater than root 
+	if l < n and arr[i] < arr[l]: 
+		largest = l 
 
-A = [534, 246, 933, 127, 277, 321, 454, 565, 220]
-print(heapSort(A))
-print A
+	# See if right child of root exists and is 
+	# greater than root 
+	if r < n and arr[largest] < arr[r]: 
+		largest = r 
+
+	# Change root, if needed 
+	if largest != i: 
+		arr[i],arr[largest] = arr[largest],arr[i] # swap 
+
+		# Heapify the root. 
+		heapify(arr, n, largest) 
+
+# The main function to sort an array of given size 
+def heapSort(arr): 
+	n = len(arr) 
+
+	# Build a maxheap. 
+	for i in range(n//2 - 1, -1, -1): 
+		heapify(arr, n, i) 
+
+	# One by one extract elements 
+	for i in range(n-1, 0, -1): 
+		arr[i], arr[0] = arr[0], arr[i] # swap 
+		heapify(arr, i, 0) 
+
+# Driver code to test above 
+arr = [ 12, 11, 13, 5, 6, 7] 
+heapSort(arr) 
+n = len(arr) 
+print ("Sorted array is") 
+for i in range(n): 
+	print ("%d" %arr[i]), 
