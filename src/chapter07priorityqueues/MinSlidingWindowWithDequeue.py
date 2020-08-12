@@ -1,7 +1,8 @@
 # Link: 
 # IsDone: 0
 from collections import deque
- 
+# TOOD: what are abstract data type from wikipedia
+# priorityqueue vs heap
 def MinSlidingWindow(A, k):
     D = deque()
     res, i = [], 0
