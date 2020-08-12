@@ -122,7 +122,7 @@ def isIsomorphic(root1, root2):
 	if(not root1 and not root2): 
 		return 1
 	if((not root1 and root2) or (root1 and not root2)):
-	        return 0
+	    return 0
 	return (isIsomorphic(root1.left, root2.left) and isIsomorphic(root1.right, root2.right))
 		
 

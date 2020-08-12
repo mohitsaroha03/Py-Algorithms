@@ -163,7 +163,7 @@ if __name__ == "__main__":
 	# root.left.right = Node(6) 
 	# root.right.left = Node(5) 
 	# root.right.right = Node(4) 
-	print("Zigzag Order traversal") 
+	print("Zigzag Order traversal iterative") 
 	zizagtraversal(root) 
-	print("Zigzag traversal") 
-	printZigZag(root) 
+	print("Zigzag traversal recursive") 
+	printZigZag(root) # recursive
