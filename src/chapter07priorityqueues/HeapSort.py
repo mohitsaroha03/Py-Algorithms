@@ -1,4 +1,6 @@
 # Link: https://www.geeksforgeeks.org/heap-sort/
+# https://www.geeksforgeeks.org/building-heap-from-array/
+# https://www.geeksforgeeks.org/binary-tree-set-3-types-of-binary-tree/
 # IsDone: 0
 # Python program for implementation of heap Sort 
 
