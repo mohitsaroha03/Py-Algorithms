@@ -12,17 +12,17 @@ def KListsOneElementFromEach(Lst):
             
     while not end:
         elem = heapq.heappop(heap)
-        print elem
+        print(elem)
         for l in Lst :            
             if elem in l:
-                # print l                
+                # print(l)
                 l.remove(elem)
-                # print l
+                # print(l)
                 if len(l) == 0:
                     end = True
                     break
                 heapq.heappush(heap, l[0])
-    print heap
+    print(heap)
     
 def minL(l):
     m = min(float(s) for s in l)

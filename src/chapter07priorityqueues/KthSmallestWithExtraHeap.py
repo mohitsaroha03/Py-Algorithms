@@ -1,4 +1,5 @@
-# Link: 
+# Link: https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/
+# https://www.techiedelight.com/find-kth-smallest-largest-element-bst/
 # IsDone: 0
 import heapq
 class Heap:
@@ -115,3 +116,16 @@ HOrig.insert(16)
 
 print FindKthLargestEle(HOrig, 6)
 print FindKthLargestEle(HOrig, 3)
+
+# https://medium.com/analytics-vidhya/how-to-find-k-th-smallest-largest-element-in-an-unsorted-array-4ab7015d802a
+import heapq
+def kthSmallest(arr, k):
+    smallest = []
+    for value in arr:
+        if (len(smallest) < k):
+            heapq.heappush(smallest, -value)
+        else:
+            heapq.heappushpop(smallest, -value)
+    if (len(smallest) < k):
+        return None
+    return -smallest[0]

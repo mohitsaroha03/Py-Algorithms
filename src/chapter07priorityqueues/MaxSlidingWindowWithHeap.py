@@ -1,16 +1,30 @@
-# Link: 
+# Link: https://leetcode.com/problems/sliding-window-maximum/discuss/65957/python-solution-with-detailed-explanation
 # IsDone: 0
-from collections import deque
- 
-def MaxSlidingWindow(A, k):
-    D = deque()
-    res, i = [], 0
-    for i in xrange(len(A)):
-        while D and D[-1][0] <= A[i]:
-            D.pop()
-        D.append((A[i], i + k - 1))
-        if i >= k - 1: res.append(D[0][0])
-        if i == D[0][1]: D.popleft()
-    return res
- 
-print MaxSlidingWindow([4, 3, 2, 1, 5, 7, 6, 8, 9], 3)
+import heapq as h
+class Solution(object):
+    def get_next_max(self, heap, start):
+        while True:
+            x,idx = h.heappop(heap)
+            if idx >= start:
+                return x*-1, idx
+    
+    def maxSlidingWindow(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        if k == 0:
+            return []
+        heap = []
+        for i in range(k):
+            h.heappush(heap, (nums[i]*-1, i))
+        result, start, end = [], 0, k-1
+        while end < len(nums):
+            x, idx = self.get_next_max(heap, start)
+            result.append(x)
+            h.heappush(heap, (x*-1, idx)) 
+            start, end = start + 1, end + 1
+            if end < len(nums):
+                h.heappush(heap, (nums[end]*-1, end))
+        return result
