@@ -5,6 +5,9 @@
 
 class Graph(): 
 # TODO: https://www.geeksforgeeks.org/subset-sum-backtracking-4/
+
+# TODO2:https://www.geeksforgeeks.org/bipartite-graph/  using DFS 
+# Can DFS algorithm be used to check the bipartite-ness of a graph? If yes, how?
 	def __init__(self, vertices): 
 		self.V = vertices 
 		self.graph = [[0 for column in range(vertices)]\ 

@@ -1,77 +1,111 @@
-# Link: 
+# Link: https://www.geeksforgeeks.org/hamiltonian-cycle-backtracking-6/
 # IsDone: 0
-class Vertex(object):
-    def __init__(self, node, *nodeList):
-        self.i = node
-        self.nodeList = list(nodeList)
- 
-    def __hash__(self):
-        return self.i
- 
-    def reaches(self, vertex):
-        ''' Can receive an integer or a Vertex
-        '''
-        if isinstance(vertex, int):
-            return vertex in self.nodeList
- 
-        return self.reaches(vertex.i)
- 
-    def __str__(self):
-        return '< ' + str(self.i) + '>'
- 
-    def __repr__(self):
-        return self.__str__()
- 
- 
-class Graph(object):
-    def __init__(self):
-        self.vList = {}
- 
-    def add(self, node, *nodeList):
-        vertex = Vertex(node, *nodeList)
-        self.vList[node] = vertex
- 
-    def hamiltonian(self, current=None, pending=None, destiny=None):
-        ''' Returns a list of nodes which represent
-        a hamiltonian path, or None if not found
-        ''' 
-        if pending is None:
-            pending = self.vList.values()
- 
-        result = None
- 
-        if current is None:
-            for current in pending:
-                result = self.hamiltonian(current, [x for x in pending if x is not current], current)
-                if result is not None:
-                    break
-        else:
-            if pending == []: 
-                if current.reaches(destiny):
-                    return [current]
-                else:
-                    return None
- 
-            for x in [self.vList[v] for v in current.nodeList]:
-                if x in pending:
-                    result = self.hamiltonian(x, [y for y in pending if y is not x], destiny)
-                    if result is not None:
-                        result = [current] + result
-                        break    
- 
-        return result
- 
-if __name__ == '__main__':
-    G = Graph() 
-    G.add(1, 2, 8, 11)
-    G.add(2, 1, 6, 9)
-    G.add(3, 6, 7, 9, 10)
-    G.add(4, 5, 7, 10)
-    G.add(5, 4, 8, 11)
-    G.add(6, 2, 3, 8)
-    G.add(7, 3, 4, 8)
-    G.add(8, 1, 6, 7, 5)
-    G.add(9, 2, 3, 11)
-    G.add(10, 3, 4, 11)
-    G.add(11, 1, 9, 10, 5)
-    print G.hamiltonian()
+# Python program for solution of 
+# hamiltonian cycle problem 
+
+class Graph(): 
+	def __init__(self, vertices): 
+		self.graph = [[0 for column in range(vertices)] 
+							for row in range(vertices)] 
+		self.V = vertices 
+
+	''' Check if this vertex is an adjacent vertex 
+		of the previously added vertex and is not 
+		included in the path earlier '''
+	def isSafe(self, v, pos, path): 
+		# Check if current vertex and last vertex 
+		# in path are adjacent 
+		if self.graph[ path[pos-1] ][v] == 0: 
+			return False
+
+		# Check if current vertex not already in path 
+		for vertex in path: 
+			if vertex == v: 
+				return False
+
+		return True
+
+	# A recursive utility function to solve 
+	# hamiltonian cycle problem 
+	def hamCycleUtil(self, path, pos): 
+
+		# base case: if all vertices are 
+		# included in the path 
+		if pos == self.V: 
+			# Last vertex must be adjacent to the 
+			# first vertex in path to make a cyle 
+			if self.graph[ path[pos-1] ][ path[0] ] == 1: 
+				return True
+			else: 
+				return False
+
+		# Try different vertices as a next candidate 
+		# in Hamiltonian Cycle. We don't try for 0 as 
+		# we included 0 as starting point in hamCycle() 
+		for v in range(1,self.V): 
+
+			if self.isSafe(v, pos, path) == True: 
+
+				path[pos] = v 
+
+				if self.hamCycleUtil(path, pos+1) == True: 
+					return True
+
+				# Remove current vertex if it doesn't 
+				# lead to a solution 
+				path[pos] = -1
+
+		return False
+
+	def hamCycle(self): 
+		path = [-1] * self.V 
+
+		''' Let us put vertex 0 as the first vertex 
+			in the path. If there is a Hamiltonian Cycle, 
+			then the path can be started from any point 
+			of the cycle as the graph is undirected '''
+		path[0] = 0
+
+		if self.hamCycleUtil(path,1) == False: 
+			print ("Solution does not exist\n") 
+			return False
+
+		self.printSolution(path) 
+		return True
+
+	def printSolution(self, path): 
+		print ("Solution Exists: Following", 
+				"is one Hamiltonian Cycle") 
+		for vertex in path: 
+			print (vertex,) 
+		print (path[0], "\n") 
+
+# Driver Code 
+
+''' Let us create the following graph 
+	(0)--(1)--(2) 
+	| / \ | 
+	| / \ | 
+	| / \ | 
+	(3)-------(4) '''
+g1 = Graph(5) 
+g1.graph = [ [0, 1, 0, 1, 0], [1, 0, 1, 1, 1], 
+			[0, 1, 0, 0, 1,],[1, 1, 0, 0, 1], 
+			[0, 1, 1, 1, 0], ] 
+
+# Print the solution 
+g1.hamCycle(); 
+
+''' Let us create the following graph 
+	(0)--(1)--(2) 
+	| / \ | 
+	| / \ | 
+	| / \ | 
+	(3) (4) '''
+g2 = Graph(5) 
+g2.graph = [ [0, 1, 0, 1, 0], [1, 0, 1, 1, 1], 
+		[0, 1, 0, 0, 1,], [1, 1, 0, 0, 0], 
+		[0, 1, 1, 0, 0], ] 
+
+# Print the solution 
+g2.hamCycle(); 
