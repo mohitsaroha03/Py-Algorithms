@@ -1,35 +1,70 @@
-# Link: 
+# Link: https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/
+# https://www.youtube.com/watch?v=FtN3BYH2Zes
 # IsDone: 0
-import sys
-def BellmanFord(G, source):
-    destination = {} 
-    predecessor = {} 
-    for node in G:
-        destination[node] = sys.maxint  # We start admiting that the rest of nodes are very very far
-        predecessor[node] = None
-    destination[source] = 0  # For the source we know how to reach
-    for i in range(len(G) - 1): 
-        for u in G:
-            for v in G[u]:  # For each neighbour of u
-		# If the distance between the node and the neighbour is lower than the one I have now
-		if destination[v] > destination[u] + G[u][v]:
-			# Record this lower distance
-			destination[v] = destination[u] + G[u][v]
-			predecessor[v] = u		
- 
-    # Step 3: check for negative-weight cycles
-    for u in G:
-        for v in G[u]:
-            assert destination[v] <= destination[u] + G[u][v]
- 
-    return destination, predecessor	
-    
-if __name__ == '__main__':
-	G = {
-		'A': {'B':-1, 'C':  4},
-		'B': {'C':  3, 'D':  2, 'E':  2},
-		'C': {},
-		'D': {'B':  1, 'C':  5},
-		'E': {'D':-3}
-	}
-	print BellmanFord(G, 'A')
+# Python3 program for Bellman-Ford's single source 
+# shortest path algorithm. 
+
+# Class to represent a graph 
+class Graph: 
+
+	def __init__(self, vertices): 
+		self.V = vertices # No. of vertices 
+		self.graph = [] 
+
+	# function to add an edge to graph 
+	def addEdge(self, u, v, w): 
+		self.graph.append([u, v, w]) 
+		
+	# utility function used to print the solution 
+	def printArr(self, dist): 
+		print("Vertex Distance from Source") 
+		for i in range(self.V): 
+			print("{0}\t\t{1}".format(i, dist[i])) 
+	
+	# The main function that finds shortest distances from src to 
+	# all other vertices using Bellman-Ford algorithm. The function 
+	# also detects negative weight cycle 
+	def BellmanFord(self, src): 
+
+		# Step 1: Initialize distances from src to all other vertices 
+		# as INFINITE 
+		dist = [float("Inf")] * self.V 
+		dist[src] = 0
+
+
+		# Step 2: Relax all edges |V| - 1 times. A simple shortest 
+		# path from src to any other vertex can have at-most |V| - 1 
+		# edges 
+		for _ in range(self.V - 1): 
+			# Update dist value and parent index of the adjacent vertices of 
+			# the picked vertex. Consider only those vertices which are still in 
+			# queue 
+			for u, v, w in self.graph: 
+				if dist[u] != float("Inf") and dist[u] + w < dist[v]: 
+						dist[v] = dist[u] + w 
+
+		# Step 3: check for negative-weight cycles. The above step 
+		# guarantees shortest distances if graph doesn't contain 
+		# negative weight cycle. If we get a shorter path, then there 
+		# is a cycle. 
+
+		for u, v, w in self.graph: 
+				if dist[u] != float("Inf") and dist[u] + w < dist[v]: 
+						print("Graph contains negative weight cycle") 
+						return
+						
+		# print all distance 
+		self.printArr(dist) 
+
+g = Graph(5) 
+g.addEdge(0, 1, -1) 
+g.addEdge(0, 2, 4) 
+g.addEdge(1, 2, 3) 
+g.addEdge(1, 3, 2) 
+g.addEdge(1, 4, 2) 
+g.addEdge(3, 2, 5) 
+g.addEdge(3, 1, 1) 
+g.addEdge(4, 3, -3) 
+
+# Print the DP solution 
+g.BellmanFord(0) 

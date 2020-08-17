@@ -1,160 +1,83 @@
-# Link: 
+# Link: https://www.youtube.com/watch?v=XB4MIexjvY0&t=214s
+# https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
 # IsDone: 0
-import sys
+# Python program for Dijkstra's single 
+# source shortest path algorithm. The program is 
+# for adjacency matrix representation of the graph 
 
-class Vertex:
-    def __init__(self, node):
-        self.id = node
-        self.adjacent = {}
-        # Set distance to infinity for all nodes
-        self.distance = sys.maxint
-        # Mark all nodes unvisited        
-        self.visited = False  
-        # Predecessor
-        self.previous = None
+# Library for INT_MAX 
+import sys 
 
-    def addNeighbor(self, neighbor, weight=0):
-        self.adjacent[neighbor] = weight
+class Graph(): 
 
-    def getConnections(self):
-        return self.adjacent.keys()  
+	def __init__(self, vertices): 
+		self.V = vertices 
+		self.graph = [[0 for column in range(vertices)] 
+					for row in range(vertices)] 
 
-    def getVertexID(self):
-        return self.id
+	def printSolution(self, dist): 
+		print "Vertex \tDistance from Source"
+		for node in range(self.V): 
+			print node, "\t", dist[node] 
 
-    def getWeight(self, neighbor):
-        return self.adjacent[neighbor]
+	# A utility function to find the vertex with 
+	# minimum distance value, from the set of vertices 
+	# not yet included in shortest path tree 
+	def minDistance(self, dist, sptSet): 
 
-    def setDistance(self, dist):
-        self.distance = dist
+		# Initilaize minimum distance for next node 
+		min = sys.maxint 
 
-    def getDistance(self):
-        return self.distance
+		# Search not nearest vertex not in the 
+		# shortest path tree 
+		for v in range(self.V): 
+			if dist[v] < min and sptSet[v] == False: 
+				min = dist[v] 
+				min_index = v 
 
-    def setPrevious(self, prev):
-        self.previous = prev
+		return min_index 
 
-    def setVisited(self):
-        self.visited = True
+	# Funtion that implements Dijkstra's single source 
+	# shortest path algorithm for a graph represented 
+	# using adjacency matrix representation 
+	def dijkstra(self, src): 
 
-    def __str__(self):
-        return str(self.id) + ' adjacent: ' + str([x.id for x in self.adjacent])
+		dist = [sys.maxint] * self.V 
+		dist[src] = 0
+		sptSet = [False] * self.V 
 
-class Graph:
-    def __init__(self):
-        self.vertDictionary = {}
-        self.numVertices = 0
+		for cout in range(self.V): 
 
-    def __iter__(self):
-        return iter(self.vertDictionary.values())
+			# Pick the minimum distance vertex from 
+			# the set of vertices not yet processed. 
+			# u is always equal to src in first iteration 
+			u = self.minDistance(dist, sptSet) 
 
-    def addVertex(self, node):
-        self.numVertices = self.numVertices + 1
-        newVertex = Vertex(node)
-        self.vertDictionary[node] = newVertex
-        return newVertex
+			# Put the minimum distance vertex in the 
+			# shotest path tree 
+			sptSet[u] = True
 
-    def getVertex(self, n):
-        if n in self.vertDictionary:
-            return self.vertDictionary[n]
-        else:
-            return None
+			# Update dist value of the adjacent vertices 
+			# of the picked vertex only if the current 
+			# distance is greater than new distance and 
+			# the vertex in not in the shotest path tree 
+			for v in range(self.V): 
+				if self.graph[u][v] > 0 and sptSet[v] == False and dist[v] > dist[u] + self.graph[u][v]: 
+						dist[v] = dist[u] + self.graph[u][v] 
 
-    def addEdge(self, frm, to, cost=0):
-        if frm not in self.vertDictionary:
-            self.addVertex(frm)
-        if to not in self.vertDictionary:
-            self.addVertex(to)
+		self.printSolution(dist) 
 
-        self.vertDictionary[frm].addNeighbor(self.vertDictionary[to], cost)
-        self.vertDictionary[to].addNeighbor(self.vertDictionary[frm], cost)
+# Driver program 
+g = Graph(9) 
+g.graph = [[0, 4, 0, 0, 0, 0, 0, 8, 0], 
+		[4, 0, 8, 0, 0, 0, 0, 11, 0], 
+		[0, 8, 0, 7, 0, 4, 0, 0, 2], 
+		[0, 0, 7, 0, 9, 14, 0, 0, 0], 
+		[0, 0, 0, 9, 0, 10, 0, 0, 0], 
+		[0, 0, 4, 14, 10, 0, 2, 0, 0], 
+		[0, 0, 0, 0, 0, 2, 0, 1, 6], 
+		[8, 11, 0, 0, 0, 0, 1, 0, 7], 
+		[0, 0, 2, 0, 0, 0, 6, 7, 0] 
+		]
 
-    def getVertices(self):
-        return self.vertDictionary.keys()
-
-    def setPrevious(self, current):
-        self.previous = current
-
-    def getPrevious(self, current):
-        return self.previous
-
-def shortest(v, path):
-    ''' make shortest path from v.previous'''
-    if v.previous:
-        path.append(v.previous.getVertexID())
-        shortest(v.previous, path)
-    return
-
-import heapq
-
-def dijkstra(G, source, destination):
-    print '''Dijkstra's shortest path'''
-    # Set the distance for the source node to zero 
-    source.setDistance(0)
-
-    # Put tuple pair into the priority queue
-    unvisitedQueue = [(v.getDistance(), v) for v in G]
-    heapq.heapify(unvisitedQueue)
-
-    while len(unvisitedQueue):
-        # Pops a vertex with the smallest distance 
-        uv = heapq.heappop(unvisitedQueue)
-        current = uv[1]
-        current.setVisited()
-
-        # for next in v.adjacent:
-        for next in current.adjacent:
-            # if visited, skip
-            if next.visited:
-                continue
-            newDist = current.getDistance() + current.getWeight(next)
-            
-            if newDist < next.getDistance():
-                next.setDistance(newDist)
-                next.setPrevious(current)
-                print 'Updated : current = %s next = %s newDist = %s' \
-                        % (current.getVertexID(), next.getVertexID(), next.getDistance())
-            else:
-                print 'Not updated : current = %s next = %s newDist = %s' \
-                        % (current.getVertexID(), next.getVertexID(), next.getDistance())
-
-        # Rebuild heap
-        # 1. Pop every item
-        while len(unvisitedQueue):
-            heapq.heappop(unvisitedQueue)
-        # 2. Put all vertices not visited into the queue
-        unvisitedQueue = [(v.getDistance(), v) for v in G if not v.visited]
-	heapq.heapify(unvisitedQueue)
-    
-if __name__ == '__main__':
-
-    G = Graph()
-    G.addVertex('a')
-    G.addVertex('b')
-    G.addVertex('c')
-    G.addVertex('d')
-    G.addVertex('e')
-    G.addEdge('a', 'b', 4)  
-    G.addEdge('a', 'c', 1)
-    G.addEdge('c', 'b', 2)
-    G.addEdge('b', 'e', 4)
-    G.addEdge('c', 'd', 4)
-    G.addEdge('d', 'e', 4)
-
-    print 'Graph data:'
-    for v in G:
-        for w in v.getConnections():
-            vid = v.getVertexID()
-            wid = w.getVertexID()
-            print '( %s , %s, %3d)' % (vid, wid, v.getWeight(w))
-	    
-    source = G.getVertex('a')
-    destination = G.getVertex('e')    
-    dijkstra(G, source, destination) 
-    
-    for v in G.vertDictionary.values():
-	print source.getVertexID(), " to ", v.getVertexID(), "-->", v.getDistance()
-	
-    path = [destination.getVertexID()]
-    shortest(destination, path)
-    print 'The shortest path from a to e is: %s' % (path[::-1])
+g.dijkstra(0) 

@@ -1,170 +1,104 @@
 # Link: 
 # IsDone: 0
-import sys
-class Vertex:
-    def __init__(self, node):
-        self.id = node
-        self.adjacent = {}
-        # Set distance to infinity for all nodes
-        self.distance = sys.maxint - 10
-        # Mark all nodes unvisited        
-        self.visited = False  
-        # Predecessor
-        self.previous = None
 
-    def addNeighbor(self, neighbor, weight=0):
-        self.adjacent[neighbor] = weight
+# Python program for Kruskal's algorithm to find 
+# Minimum Spanning Tree of a given connected, 
+# undirected and weighted graph 
 
-    def getConnections(self):
-        return self.adjacent.keys()  
+from collections import defaultdict 
 
-    def getVertexID(self):
-        return self.id
+#Class to represent a graph 
+class Graph: 
 
-    def getWeight(self, neighbor):
-        return self.adjacent[neighbor]
+	def __init__(self,vertices): 
+		self.V= vertices #No. of vertices 
+		self.graph = [] # default dictionary 
+								# to store graph 
+		
 
-    def setDistance(self, dist):
-        self.distance = dist
+	# function to add an edge to graph 
+	def addEdge(self,u,v,w): 
+		self.graph.append([u,v,w]) 
 
-    def getDistance(self):
-        return self.distance
+	# A utility function to find set of an element i 
+	# (uses path compression technique) 
+	def find(self, parent, i): 
+		if parent[i] == i: 
+			return i 
+		return self.find(parent, parent[i]) 
 
-    def setPrevious(self, prev):
-        self.previous = prev
+	# A function that does union of two sets of x and y 
+	# (uses union by rank) 
+	def union(self, parent, rank, x, y): 
+		xroot = self.find(parent, x) 
+		yroot = self.find(parent, y) 
 
-    def setVisited(self):
-        self.visited = True
+		# Attach smaller rank tree under root of 
+		# high rank tree (Union by Rank) 
+		if rank[xroot] < rank[yroot]: 
+			parent[xroot] = yroot 
+		elif rank[xroot] > rank[yroot]: 
+			parent[yroot] = xroot 
 
-    def __str__(self):
-        return str(self.id) + ' adjacent: ' + str([x.id for x in self.adjacent])
+		# If ranks are same, then make one as root 
+		# and increment its rank by one 
+		else : 
+			parent[yroot] = xroot 
+			rank[xroot] += 1
 
-class Graph:
-    def __init__(self):
-        self.vertDictionary = {}
-        self.numVertices = 0
+	# The main function to construct MST using Kruskal's 
+		# algorithm 
+	def KruskalMST(self): 
 
-    def __iter__(self):
-        return iter(self.vertDictionary.values())
+		result =[] #This will store the resultant MST 
 
-    def addVertex(self, node):
-        self.numVertices = self.numVertices + 1
-        newVertex = Vertex(node)
-        self.vertDictionary[node] = newVertex
-        return newVertex
+		i = 0 # An index variable, used for sorted edges 
+		e = 0 # An index variable, used for result[] 
 
-    def getVertex(self, n):
-        if n in self.vertDictionary:
-            return self.vertDictionary[n]
-        else:
-            return None
+			# Step 1: Sort all the edges in non-decreasing 
+				# order of their 
+				# weight. If we are not allowed to change the 
+				# given graph, we can create a copy of graph 
+		self.graph = sorted(self.graph,key=lambda item: item[2]) 
 
-    def addEdge(self, frm, to, cost=0):
-        if frm not in self.vertDictionary:
-            self.addVertex(frm)
-        if to not in self.vertDictionary:
-            self.addVertex(to)
+		parent = [] ; rank = [] 
 
-        self.vertDictionary[frm].addNeighbor(self.vertDictionary[to], cost)
-        self.vertDictionary[to].addNeighbor(self.vertDictionary[frm], cost)
-
-    def getVertices(self):
-        return self.vertDictionary.keys()
-
-    def setPrevious(self, current):
-        self.previous = current
-
-    def getPrevious(self, current):
-        return self.previous
-
-def shortest(v, path):
-    ''' make shortest path from v.previous'''
-    if v.previous:
-        path.append(v.previous.getVertexID())
-        shortest(v.previous, path)
-    return
-
-parent = dict()
-rank = dict()
-
-def makeSet(vertice):
-    parent[vertice] = vertice
-    rank[vertice] = 0
-
-def find(vertice):
-    if parent[vertice] != vertice:
-        parent[vertice] = find(parent[vertice])
-    return parent[vertice]
-
-def union(vertice1, vertice2):
-    root1 = find(vertice1)
-    root2 = find(vertice2)
-    if root1 != root2:
-        if rank[root1] > rank[root2]:
-            parent[root2] = root1
-        else:
-            parent[root1] = root2
-            if rank[root1] == rank[root2]: rank[root2] += 1
-		    
-parent = dict()
-rank = dict()
-
-def make_set(vertice):
-    parent[vertice] = vertice
-    rank[vertice] = 0
-
-def find(vertice):
-    if parent[vertice] != vertice:
-        parent[vertice] = find(parent[vertice])
-    return parent[vertice]
-
-def union(vertice1, vertice2):
-    root1 = find(vertice1)
-    root2 = find(vertice2)
-    if root1 != root2:
-        if rank[root1] > rank[root2]:
-            parent[root2] = root1
-        else:
-            parent[root1] = root2
-            if rank[root1] == rank[root2]: rank[root2] += 1
-
-def kruskal(G):
-	edges = []
-	for v in G:
-		makeSet(v.getVertexID())
-		for w in v.getConnections():
-			vid = v.getVertexID()
-			wid = w.getVertexID()
-			edges.append((v.getWeight(w), vid, wid))
-	edges.sort()
-	minimumSpanningTree = set()	
-	for edge in edges:
-		weight, vertice1, vertice2 = edge
-		if find(vertice1) != find(vertice2):
-		    union(vertice1, vertice2)
-		    minimumSpanningTree.add(edge)
-	return minimumSpanningTree
+		# Create V subsets with single elements 
+		for node in range(self.V): 
+			parent.append(node) 
+			rank.append(0) 
 	
-if __name__ == '__main__':
-    G = Graph()
-    G.addVertex('A')
-    G.addVertex('B')
-    G.addVertex('C')
-    G.addVertex('D')
-    G.addVertex('E')
-    G.addVertex('F')
-    G.addEdge('A', 'B', 1)
-    G.addEdge('A', 'C', 5)
-    G.addEdge('A', 'D', 3)
-    G.addEdge('B', 'C', 4)
-    G.addEdge('B', 'D', 2)
-    G.addEdge('C', 'D', 1)
-    
-    print 'Graph data:'
-    for v in G:
-        for w in v.getConnections():
-            vid = v.getVertexID()
-            wid = w.getVertexID()
-            print '( %s , %s, %3d)' % (vid, wid, v.getWeight(w))
+		# Number of edges to be taken is equal to V-1 
+		while e < self.V -1 : 
 
-    print kruskal(G)
+			# Step 2: Pick the smallest edge and increment 
+					# the index for next iteration 
+			u,v,w = self.graph[i] 
+			i = i + 1
+			x = self.find(parent, u) 
+			y = self.find(parent ,v) 
+
+			# If including this edge does't cause cycle, 
+						# include it in result and increment the index 
+						# of result for next edge 
+			if x != y: 
+				e = e + 1	
+				result.append([u,v,w]) 
+				self.union(parent, rank, x, y)			 
+			# Else discard the edge 
+
+		# print the contents of result[] to display the built MST 
+		print "Following are the edges in the constructed MST"
+		for u,v,weight in result: 
+			#print str(u) + " -- " + str(v) + " == " + str(weight) 
+			print ("%d -- %d == %d" % (u,v,weight)) 
+
+# Driver code 
+g = Graph(4) 
+g.addEdge(0, 1, 10) 
+g.addEdge(0, 2, 6) 
+g.addEdge(0, 3, 5) 
+g.addEdge(1, 3, 15) 
+g.addEdge(2, 3, 4) 
+
+g.KruskalMST() 
