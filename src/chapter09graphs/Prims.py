@@ -1,161 +1,83 @@
-# Link: 
+# Link: https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/
+# https://www.geeksforgeeks.org/difference-between-prims-and-kruskals-algorithm-for-mst/
 # IsDone: 0
-import sys
-class Vertex:
-    def __init__(self, node):
-        self.id = node
-        self.adjacent = {}
-        # Set distance to infinity for all nodes
-        self.distance = sys.maxint - 10
-        # Mark all nodes unvisited        
-        self.visited = False  
-        # Predecessor
-        self.previous = None
+# A Python program for Prim's Minimum Spanning Tree (MST) algorithm.
+# The program is for adjacency matrix representation of the graph
 
-    def addNeighbor(self, neighbor, weight=0):
-        self.adjacent[neighbor] = weight
+import sys # Library for INT_MAX
 
-    def getConnections(self):
-        return self.adjacent.keys()  
+class Graph():
 
-    def getVertexID(self):
-        return self.id
+	def __init__(self, vertices):
+		self.V = vertices
+		self.graph = [[0 for column in range(vertices)] 
+					for row in range(vertices)]
 
-    def getWeight(self, neighbor):
-        return self.adjacent[neighbor]
+	# A utility function to print the constructed MST stored in parent[]
+	def printMST(self, parent):
+		print "Edge \tWeight"
+		for i in range(1, self.V):
+			print parent[i], "-", i, "\t", self.graph[i][ parent[i] ]
 
-    def setDistance(self, dist):
-        self.distance = dist
+	# A utility function to find the vertex with 
+	# minimum distance value, from the set of vertices 
+	# not yet included in shortest path tree
+	def minKey(self, key, mstSet):
 
-    def getDistance(self):
-        return self.distance
+		# Initilaize min value
+		min = sys.maxint
 
-    def setPrevious(self, prev):
-        self.previous = prev
+		for v in range(self.V):
+			if key[v] < min and mstSet[v] == False:
+				min = key[v]
+				min_index = v
 
-    def setVisited(self):
-        self.visited = True
+		return min_index
 
-    def __str__(self):
-        return str(self.id) + ' adjacent: ' + str([x.id for x in self.adjacent])
+	# Function to construct and print MST for a graph 
+	# represented using adjacency matrix representation
+	def primMST(self):
 
-class Graph:
-    def __init__(self):
-        self.vertDictionary = {}
-        self.numVertices = 0
+		# Key values used to pick minimum weight edge in cut
+		key = [sys.maxint] * self.V
+		parent = [None] * self.V # Array to store constructed MST
+		# Make key 0 so that this vertex is picked as first vertex
+		key[0] = 0
+		mstSet = [False] * self.V
 
-    def __iter__(self):
-        return iter(self.vertDictionary.values())
+		parent[0] = -1 # First node is always the root of
 
-    def addVertex(self, node):
-        self.numVertices = self.numVertices + 1
-        newVertex = Vertex(node)
-        self.vertDictionary[node] = newVertex
-        return newVertex
+		for cout in range(self.V):
 
-    def getVertex(self, n):
-        if n in self.vertDictionary:
-            return self.vertDictionary[n]
-        else:
-            return None
+			# Pick the minimum distance vertex from 
+			# the set of vertices not yet processed. 
+			# u is always equal to src in first iteration
+			u = self.minKey(key, mstSet)
 
-    def addEdge(self, frm, to, cost=0):
-        if frm not in self.vertDictionary:
-            self.addVertex(frm)
-        if to not in self.vertDictionary:
-            self.addVertex(to)
+			# Put the minimum distance vertex in 
+			# the shortest path tree
+			mstSet[u] = True
 
-        self.vertDictionary[frm].addNeighbor(self.vertDictionary[to], cost)
-        self.vertDictionary[to].addNeighbor(self.vertDictionary[frm], cost)
+			# Update dist value of the adjacent vertices 
+			# of the picked vertex only if the current 
+			# distance is greater than new distance and
+			# the vertex in not in the shotest path tree
+			for v in range(self.V):
 
-    def getVertices(self):
-        return self.vertDictionary.keys()
+				# graph[u][v] is non zero only for adjacent vertices of m
+				# mstSet[v] is false for vertices not yet included in MST
+				# Update the key only if graph[u][v] is smaller than key[v]
+				if self.graph[u][v] > 0 and mstSet[v] == False and key[v] > self.graph[u][v]:
+						key[v] = self.graph[u][v]
+						parent[v] = u
 
-    def setPrevious(self, current):
-        self.previous = current
+		self.printMST(parent)
 
-    def getPrevious(self, current):
-        return self.previous
+g = Graph(5)
+g.graph = [ [0, 2, 0, 6, 0],
+			[2, 0, 3, 8, 5],
+			[0, 3, 0, 0, 7],
+			[6, 8, 0, 0, 9],
+			[0, 5, 7, 9, 0]]
 
-def shortest(v, path):
-    ''' make shortest path from v.previous'''
-    if v.previous:
-        path.append(v.previous.getVertexID())
-        shortest(v.previous, path)
-    return
-
-import heapq
-
-def dijkstraModifiedForPrims(G, source):
-    print '''Dijkstra Modified for Prim'''
-    # Set the distance for the source node to zero 
-    source.setDistance(0)
-
-    # Put tuple pair into the priority queue
-    unvisitedQueue = [(v.getDistance(), v) for v in G]
-    heapq.heapify(unvisitedQueue)
-
-    while len(unvisitedQueue):
-        # Pops a vertex with the smallest distance 
-        uv = heapq.heappop(unvisitedQueue)
-        current = uv[1]
-        current.setVisited()
-        # for next in v.adjacent:
-        for next in current.adjacent:
-            # if visited, skip
-            if next.visited:
-                continue
-            newCost = current.getWeight(next)
-            
-            if newCost < next.getDistance():
-                next.setDistance(current.getWeight(next))
-                next.setPrevious(current)
-                print 'Updated : current = %s next = %s newCost = %s' \
-                        % (current.getVertexID(), next.getVertexID(), next.getDistance())
-            else:
-                print 'Not updated : current = %s next = %s newCost = %s' \
-                        % (current.getVertexID(), next.getVertexID(), next.getDistance())
-
-        # Rebuild heap
-        # 1. Pop every item
-        while len(unvisitedQueue):
-            heapq.heappop(unvisitedQueue)
-        # 2. Put all vertices not visited into the queue
-        unvisitedQueue = [(v.getDistance(), v) for v in G if not v.visited]
-	heapq.heapify(unvisitedQueue)
-    
-if __name__ == '__main__':
-
-    G = Graph()
-    G.addVertex('A')
-    G.addVertex('B')
-    G.addVertex('C')
-    G.addVertex('D')
-    G.addVertex('E')
-    G.addEdge("A", "B", 7)
-    G.addEdge("A", "D", 5)
-    G.addEdge("B", "C", 8)
-    G.addEdge("B", "D", 9)
-    G.addEdge("B", "E", 7)
-    G.addEdge("C", "E", 5)
-    G.addEdge("D", "E", 15)
-    G.addEdge("D", "F", 6)
-    G.addEdge("E", "F", 8)
-    G.addEdge("E", "G", 9)
-    G.addEdge("F", "G", 11)
-    
-    print 'Graph data:'
-    for v in G:
-        for w in v.getConnections():
-            vid = v.getVertexID()
-            wid = w.getVertexID()
-            print '( %s , %s, %3d)' % (vid, wid, v.getWeight(w))
-	    
-    source = G.getVertex('A')
-    dijkstraModifiedForPrims(G, source) 
-    
-    for v in G.vertDictionary.values():
-	if v.previous:
-		print v.getVertexID(), " to ", v.previous.getVertexID(), "-->", v.getDistance()
-	else:
-		print v.getVertexID(), " to None -->", v.getDistance()
+g.primMST();

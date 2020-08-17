@@ -1,4 +1,4 @@
-# Link: 
+# Link: https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/
 # IsDone: 0
 
 # Python program for Kruskal's algorithm to find 
