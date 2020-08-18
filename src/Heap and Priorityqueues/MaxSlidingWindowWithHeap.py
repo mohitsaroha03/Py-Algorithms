@@ -1,30 +1,31 @@
-# Link: https://leetcode.com/problems/sliding-window-maximum/discuss/65957/python-solution-with-detailed-explanation
+# Link: https://leetcode.com/problems/sliding-window-maximum/
+# solution:  https://leetcode.com/problems/sliding-window-maximum/discuss/65957/python-solution-with-detailed-explanation
 # IsDone: 0
-import heapq as h
-class Solution(object):
-    def get_next_max(self, heap, start):
+# convert -n to n for min sliding window
+import heapq
+
+class Solution:
+    def maxSlidingWindow(self, nums, k) :
+        pq = []
+        res = []
+        
+        for i,n in enumerate(nums):
+            if i+1 < k:
+                heapq.heappush(pq, (-n, i))
+            else:
+                heapq.heappush(pq, (-n, i))
+                x, idx = self.find_max(pq, i-k+1)
+                res.append(-x)
+                heapq.heappush(pq, (x, idx))
+                
+        return res
+                
+                
+    def find_max(self, pq, start):
         while True:
-            x,idx = h.heappop(heap)
+            x, idx = heapq.heappop(pq)
+            
             if idx >= start:
-                return x*-1, idx
-    
-    def maxSlidingWindow(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: List[int]
-        """
-        if k == 0:
-            return []
-        heap = []
-        for i in range(k):
-            h.heappush(heap, (nums[i]*-1, i))
-        result, start, end = [], 0, k-1
-        while end < len(nums):
-            x, idx = self.get_next_max(heap, start)
-            result.append(x)
-            h.heappush(heap, (x*-1, idx)) 
-            start, end = start + 1, end + 1
-            if end < len(nums):
-                h.heappush(heap, (nums[end]*-1, end))
-        return result
+                return x, idx
+s = Solution()
+print s.maxSlidingWindow([5,4,3,14],2)

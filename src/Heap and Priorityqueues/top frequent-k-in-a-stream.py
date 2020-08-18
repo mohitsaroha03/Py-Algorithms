@@ -19,7 +19,7 @@ def kTop(a, n, k):
 		else: 
 			freq[a[m]] = 1
 
-		# store that element in top vector 
+		# store that element in top array 
 		top[k] = a[m] 
 
 		i = top.index(a[m]) 
