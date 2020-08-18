@@ -23,9 +23,12 @@ class Graph:
 	# A utility function to find set of an element i 
 	# (uses path compression technique) 
 	def find(self, parent, i): 
-		if parent[i] == i: 
+		if parent[i] == -1:
 			return i 
-		return self.find(parent, parent[i]) 
+		if parent[i]!= -1:
+			return self.find(parent,parent[i]) 
+        # if parent[i]!= -1:
+		# 	return self.find(parent,parent[i]) 
 
 	# A function that does union of two sets of x and y 
 	# (uses union by rank) 
@@ -61,12 +64,13 @@ class Graph:
 				# given graph, we can create a copy of graph 
 		self.graph = sorted(self.graph,key=lambda item: item[2]) 
 
-		parent = [] ; rank = [] 
+		parent = [-1]*(self.V)
+		rank = [0]*(self.V)
 
 		# Create V subsets with single elements 
-		for node in range(self.V): 
-			parent.append(node) 
-			rank.append(0) 
+		# for node in range(self.V): 
+		# 	parent.append(node) 
+		# 	rank.append(0) 
 	
 		# Number of edges to be taken is equal to V-1 
 		while e < self.V -1 : 
