@@ -89,7 +89,7 @@ def merge_k_sorted_arrays(arr: Matrix, k: int):
 			root.element = sys.maxsize 
 		min_heap.replace_min(root) 
 	for x in result: 
-		print(x, end=' ') 
+		print(x, ) 
 	print() 
 
 
