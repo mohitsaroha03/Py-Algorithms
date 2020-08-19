@@ -14,6 +14,9 @@
       Inputs
       Ready to debug
       Tags if possible(like companies, difficulty, topics covered)
+
+      find resource(video channel, book, website,) for theory better than karumanchi
+      find a resource so that we can copare this repo to google microsoft amazon interview rounds(including dsa and systemsdesign)
       
       
    

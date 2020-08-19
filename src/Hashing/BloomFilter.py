@@ -36,4 +36,13 @@ def hashFunction(x):
 b = BloomFilter(100, 10, hashFunction)
 b.insert('this is a test key', 'this is a new value')
 print b.get('this is a key')    
-print b.get('this is a test key')    
+print b.get('this is a test key')
+
+
+# TODO: https://practice.geeksforgeeks.org/problems/nuts-and-bolts-problem/0
+# TODO: https://www.geeksforgeeks.org/sort-elements-frequency-set-4-efficient-approach-using-hash/
+# TODO: https://www.geeksforgeeks.org/sort-elements-frequency-set-4-efficient-approach-using-hash/
+# TODO: https://www.geeksforgeeks.org/check-if-an-array-can-be-divided-into-pairs-whose-sum-is-divisible-by-k/
+# TODO: https://practice.geeksforgeeks.org/problems/a-simple-fraction/0
+# TODO: 
+# TODO: 

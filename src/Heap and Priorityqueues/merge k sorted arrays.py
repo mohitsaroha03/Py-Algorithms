@@ -69,7 +69,7 @@ def swap(arr: List[MinHeapNode], i, j):
 	arr[j] = temp 
 
 
-def merge_k_sorted_arrays(arr: Matrix, k: int): 
+def merge_k_sorted_arrays(arr, k): 
 	h_arr = [] 
 	result_size = 0
 	for i in range(len(arr)): 
