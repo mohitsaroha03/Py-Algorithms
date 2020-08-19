@@ -1,11 +1,12 @@
 # Link: https://www.geeksforgeeks.org/count-of-longest-possible-subarrays-with-sum-not-divisible-by-k/
+# https://www.youtube.com/watch?v=ufXxc8Vty9A
 # IsDone: 0
 # Python3 program for the above problem 
 
 # Function to find the count of 
 # longest subarrays with sum not 
 # divisible by K 
-def CountLongestSubarrays(arr, n, k): 
+def CountSubarrays(arr, n, k): 
 
 	# Sum of all elements in 
 	# an array 
@@ -61,9 +62,9 @@ def CountLongestSubarrays(arr, n, k):
 # Driver Code 
 if __name__ == '__main__': 
 
-	arr = [ 3, 2, 2, 2, 3 ] 
+	arr = [ 4,5,0,-2,-3,1 ] 
 	n = len(arr) 
-	k = 3
+	k = 5
 
-	print(CountLongestSubarrays(arr, n, k)) 
+	print(CountSubarrays(arr, n, k)) 
 	
