@@ -1,5 +1,6 @@
 # Link: https://www.geeksforgeeks.org/find-elements-present-first-array-not-second/
 # IsDone: 0
+
 # Python3 efficient program to find elements 
 # which are not present in second array 
 
@@ -17,7 +18,7 @@ def findMissing(a, b, n, m):
 	# that are not present in hash table 
 	for i in range(n): 
 		if a[i] not in s.keys(): 
-			print(a[i], end = " ") 
+			print(a[i]) 
 
 # Driver code 
 a = [ 1, 2, 6, 3, 4, 5 ] 
