@@ -4,7 +4,11 @@
 </em></p>
 
 # DSA
+<h3>About Repo: 
+</h2>
+      serial: 0.0(chapter priority. topic of topic priority)
 
+Topics: 
 <h3>Plans: 
 </h2>
       find resource(video channel, book, website,) for theory better than karumanchi

@@ -1,4 +1,5 @@
 # Link: 
+# https://www.geeksforgeeks.org/bloom-filters-introduction-and-python-implementation/
 # IsDone: 0
 class HashTable:
 	def __init__(self):
@@ -69,3 +70,9 @@ H[20] = "Lion"
 print H.slots
 print H.data
 print H[20]
+
+# TODO: https://practice.geeksforgeeks.org/problems/nuts-and-bolts-problem/0
+# TODO: https://www.geeksforgeeks.org/sort-elements-frequency-set-4-efficient-approach-using-hash/
+# TODO: https://www.geeksforgeeks.org/sort-elements-frequency-set-4-efficient-approach-using-hash/
+# TODO: https://www.geeksforgeeks.org/check-if-an-array-can-be-divided-into-pairs-whose-sum-is-divisible-by-k/
+# TODO: https://practice.geeksforgeeks.org/problems/a-simple-fraction/0
