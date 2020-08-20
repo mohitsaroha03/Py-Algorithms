@@ -1,0 +1,24 @@
+GFG
+https://www.geeksforgeeks.org/top-10-system-design-interview-questions-and-answers/
+
+Interview Bit Course
+https://www.interviewbit.com/courses/system-design/
+
+Grokking
+https://www.educative.io/courses/grokking-the-system-design-interview
+
+Concepts You Should Know
+https://www.freecodecamp.org/news/systems-design-for-interviews/
+
+donnemartin - #1 on github
+https://github.com/donnemartin/system-design-primer
+
+Approach a System Design Interview
+https://medium.com/system-designing-interviews/approach-a-system-design-interview-f3594e243730
+
+Books
+1) Martin Fowler
+https://github.com/himanshugpt/ebooks-1/blob/master/Patterns%20of%20Enterprise%20Application%20Architecture%20-%20Martin%20Fowler.pdf
+
+2) Martin Kleppmann
+https://github.com/Yang-Yanxiang/Designing-Data-Intensive-Applications/blob/master/Designing%20Data%20Intensive%20Applications.pdf
