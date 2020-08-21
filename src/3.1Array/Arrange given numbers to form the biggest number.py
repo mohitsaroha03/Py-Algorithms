@@ -9,6 +9,7 @@
 def comparator(a, b): 
 	ab = str(a) + str(b) 
 	ba = str(b) + str(a) 
+	print ab, ba
 	return ((int(ba) > int(ab)) - (int(ba) < int(ab))) 
 	
 def myCompare(mycmp): 
@@ -32,7 +33,9 @@ def myCompare(mycmp):
 	return K 
 # driver code 
 if __name__ == "__main__": 
-	a = [54, 546, 548, 60, ] 
-	sorted_array = sorted(a, key=myCompare(comparator)) 
+	a1 = [54, 546, 548, 60, ] 
+	a = [1, 3, 2, 4, ] 
+	oj = myCompare(comparator)
+	sorted_array = sorted(a, key=oj) 
 	number = "".join([str(i) for i in sorted_array]) 
 	print(number) 
