@@ -1,4 +1,7 @@
 # Link: https://www.geeksforgeeks.org/given-an-array-of-numbers-arrange-the-numbers-to-form-the-biggest-number/
+# https://leetcode.com/problems/largest-number/discuss/802170/Python-Easy-Solution
+# https://leetcode.com/problems/largest-number/discuss/769614/python-quick-and-simple-solution-with-comments
+# https://leetcode.com/problems/largest-number/discuss/769039/Python-3-custom-comparator-at-least-80
 # Python3 Program to get the maximum 
 # possible integer from given array 
 # of integers... 
