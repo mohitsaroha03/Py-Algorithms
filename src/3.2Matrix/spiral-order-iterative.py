@@ -1,4 +1,5 @@
 # https://www.techiedelight.com/print-matrix-spiral-order/
+# Python 3 program to print matrix downward 
 def printSpiralOrder(mat):
     
 	top = left = 0
@@ -11,7 +12,7 @@ def printSpiralOrder(mat):
 
 		# print top row
 		for i in range(left, right + 1):
-			print(mat[top][i])
+			print(mat[top][i],)
 		top = top + 1
 
 		if top > bottom:
@@ -19,7 +20,7 @@ def printSpiralOrder(mat):
 
 		# print right column
 		for i in range(top, bottom + 1):
-			print(mat[i][right])
+			print(mat[i][right],)
 		right = right - 1
 
 		if left > right:
@@ -27,7 +28,7 @@ def printSpiralOrder(mat):
 
 		# print bottom row
 		for i in range(right, left - 1, -1):
-			print(mat[bottom][i])
+			print(mat[bottom][i],)
 		bottom = bottom - 1
 
 		if top > bottom:
@@ -35,7 +36,7 @@ def printSpiralOrder(mat):
 
 		# print left column
 		for i in range(bottom, top - 1, -1):
-			print(mat[i][left])
+			print(mat[i][left],)
 		left = left + 1
 
 

@@ -1,5 +1,4 @@
-# Link: https://www.geeksforgeeks.org/zigzag-tree-traversal/
-# IsDone: 1
+# https://www.geeksforgeeks.org/zigzag-or-diagonal-traversal-of-matrix/
 # Python3 program to print all elements 
 # of given matrix in diagonal order 
 ROW = 5
@@ -50,5 +49,3 @@ printMatrix(M)
 
 print ("\nDiagonal printing of matrix is ") 
 diagonalOrder(M) 
-
-

@@ -45,12 +45,12 @@ def printMatrix(mat) :
 	
 	for i in range(0, len(mat)) : 
 		for j in range(0, len(mat) + 1) : 
-			print( mat[i][j], end = "" ) 
+			print( mat[i][j],  ) 
 		
 		print() 
 		
 # Driver Code 
-mat = [ [1, 0, 0, 1], 
+mat = [ [0, 0, 0, 0], 
 		[0, 0, 1, 0], 
 		[0, 0, 0, 0] ] 
 		

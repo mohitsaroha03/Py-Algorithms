@@ -1,5 +1,6 @@
 # https://www.geeksforgeeks.org/print-matrix-in-zig-zag-fashion-from-the-last-column/?ref=rp
 # Python program for traversing a matrix from column n-1 
+# Python program for traversing a matrix from column n-1 
 import sys; 
 
 # Function used for traversing over the given matrix 
@@ -15,7 +16,7 @@ def traverseMatrix(mat, n):
 	# of cells traversed till next move 
 	move_cnt = 1 
 	cell_cnt = 1 
-	print(mat[cur_x][cur_y]) 
+	print(mat[cur_x][cur_y],) 
 
 	while cell_cnt < n * n: 
 
@@ -48,7 +49,7 @@ def traverseMatrix(mat, n):
 					cur_y -= 1 
 					prev_move = "LEFT" 
 			
-			print(mat[cur_x][cur_y]) 
+			print(mat[cur_x][cur_y],) 
 			cell_cnt += 1 
 
 		# even numbered move / s [DIAGONAL / S] 
@@ -59,7 +60,7 @@ def traverseMatrix(mat, n):
 				while cur_x < n - 1 and cur_y < n - 1: 
 					cur_x += 1; cur_y += 1 
 					prev_move = "SOUTH_EAST" 
-					print(mat[cur_x][cur_y]) 
+					print(mat[cur_x][cur_y],) 
 					cell_cnt += 1 
 				
 			else : 
@@ -68,7 +69,7 @@ def traverseMatrix(mat, n):
 				while cur_x > 0 and cur_y > 0: 
 					cur_x -= 1 ; cur_y -= 1 
 					prev_move = "NORTH_WEST"; 
-					print(mat[cur_x][cur_y]) 
+					print(mat[cur_x][cur_y],) 
 					cell_cnt += 1 
 				
 		move_cnt += 1 
