@@ -1,4 +1,4 @@
-# https://www.geeksforgeeks.org/print-matrix-in-zig-zag-fashion-from-the-last-column/?ref=rp
+# https://www.geeksforgeeks.org/print-given-matrix-zigzag-form/
 # Python 3 program to print 
 # matrix in zig-zag form 
 
