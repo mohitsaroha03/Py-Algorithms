@@ -18,9 +18,9 @@ def alternateSort(arr, n):
 	
 	while (i < j): 
 	
-		print(arr[j], end =" ") 
+		print(arr[j]) 
 		j-= 1
-		print(arr[i], end =" ") 
+		print(arr[i]) 
 		i+= 1
 
 	# If the total element in array is odd 

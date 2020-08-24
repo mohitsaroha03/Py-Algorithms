@@ -1,5 +1,4 @@
 # Link: https://www.geeksforgeeks.org/sort-even-placed-elements-increasing-odd-placed-decreasing-order/
-
 # Python3 Program to sort even-placed elements in increasing and
 # odd-placed in decreasing order with constant space complexity
 def bitonicGenerator(arr, n):

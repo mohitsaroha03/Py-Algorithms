@@ -2,7 +2,7 @@
 # Python program to print a given number in 
 # words. The program handles numbers 
 # from 0 to 9999 
-
+# TODO: not working
 # A function that prints 
 # given number in words 
 def convert_to_words(num): 
@@ -46,7 +46,8 @@ def convert_to_words(num):
 
 	# For single digit number 
 	if (l == 1): 
-		print(single_digits[ord(num[0]) - '0']) 
+		print(ord(num[0])) 
+		print(single_digits[ord(num[0]) - 0]) 
 		return 
 
 	# Iterate while num is not '\0' 
@@ -96,7 +97,7 @@ def convert_to_words(num):
 		x += 1 
 
 # Driver Code 
-convert_to_words("9923") 
+convert_to_words("9") 
 convert_to_words("523") 
 convert_to_words("89") 
 convert_to_words("8989") 

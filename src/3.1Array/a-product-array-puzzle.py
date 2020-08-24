@@ -31,7 +31,7 @@ def productArray(arr, n):
 
 	# Print the constructed prod array 
 	for i in range(n): 
-		print(prod[i], end = " ") 
+		print(prod[i], ) 
 
 	return
 
