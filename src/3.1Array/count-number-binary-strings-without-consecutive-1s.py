@@ -2,7 +2,7 @@
 # Python program to count 
 # all distinct binary strings 
 # without two consecutive 1's 
-
+# TODO: pending
 def countStrings(n): 
 
 	a=[0 for i in range(n)] 

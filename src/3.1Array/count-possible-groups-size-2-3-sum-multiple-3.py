@@ -2,7 +2,7 @@
 # Python3 Program to Count groups 
 # of size 2 or 3 that have sum 
 # as multiple of 3 
-
+# TODO: pending
 # Returns count of all possible 
 # groups that can be formed 
 # from elements of a[]. 

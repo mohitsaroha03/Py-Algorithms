@@ -3,6 +3,7 @@
 # TODO: https://www.geeksforgeeks.org/maximize-elements-using-another-array/
 # TODO: https://practice.geeksforgeeks.org/problems/rotate-and-delete/0
 # Function to Use Inversion Count 
+# TODO: pending
 def mergeSort(arr, n): 
 	# A temp_arr is created to store 
 	# sorted array in merge function 

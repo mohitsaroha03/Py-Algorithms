@@ -1,48 +1,40 @@
-# Link - https://www.geeksforgeeks.org/distance-nearest-cell-1-binary-matrix/
+# Link - https://leetcode.com/problems/01-matrix/
+# https://www.geeksforgeeks.org/distance-nearest-cell-1-binary-matrix/
 
-# Python3 program to find distance of
-# nearest cell having 1 in a binary matrix.
+from collections import deque
+class Solution:
+    moves = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
-# Prthe distance of nearest cell
-# having 1 for each cell.
-def printDistance(mat):
-    global N, M
-    ans = [[None] * M for i in range(N)]
+    def bfs(self, matrix, i, j):
+        q = deque([(i, j)])
+        dist = 0
+        while q:
+            q_size = len(q)
+            for _ in range(q_size):
+                x, y = q.popleft()
+                if matrix[x][y] == 0:
+                    return dist
 
-    # Initialize the answer matrix
-    # with INT_MAX.
-    for i in range(N):
-        for j in range(M):
-            ans[i][j] = 999999999999
+                for m_x, m_y in self.moves:
+                    next_x = x + m_x
+                    next_y = y + m_y
+                    if self.is_inside(next_x, next_y):
+                        q.append((next_x, next_y))
+            dist += 1
 
-    # For each cell
-    for i in range(N):
-        for j in range(M):
+    def updateMatrix(self, matrix):
+        m, n = len(matrix), len(matrix[0])
 
-            # Traversing the whole matrix
-            # to find the minimum distance.
-            for k in range(N):
-                for l in range(M):
+        self.is_inside = lambda x, y: not(x < 0 or y < 0 or x >= m or y >= n)
 
-                    # If cell contain 1, check
-                    # for minimum distance.
-                    if (mat[k][l] == 1):
-                        ans[i][j] = min(ans[i][j],
-                                        abs(i - k) + abs(j - l))
+        res = [[0] * n for _ in range(m)]
+        for i in range(m):
+            for j in range(n):
+                res[i][j] = self.bfs(matrix, i, j)
 
-                    # Printing the answer.
-    for i in range(N):
-        for j in range(M):
-            print(ans[i][j])
-        print()
-
-    # Driver Code
-
-
-N = 3
-M = 4
-mat = [[0, 0, 0, 1],
-       [0, 0, 1, 1],
-       [0, 1, 1, 0]]
-
-printDistance(mat)
+        return res
+mat = [[0,0,0],
+ [0,1,0],
+ [1,1,1]]
+s = Solution()
+print (s.updateMatrix(mat))
