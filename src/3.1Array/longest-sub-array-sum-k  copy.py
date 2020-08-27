@@ -29,8 +29,7 @@ def subArraySum(arr, n, Sum):
 		# we have found a subarray with target sum 
 		if (curr_sum - Sum) in Map: 
 		
-			print("Sum found between indexes", \ 
-				Map[curr_sum - Sum] + 1, "to", i) 
+			print("Sum found between indexes", Map[curr_sum - Sum] + 1, "to", i) 
 			
 			return
 	

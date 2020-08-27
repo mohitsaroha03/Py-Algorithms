@@ -2,7 +2,7 @@
 # Python 3 program to invert actual 
 # bits of a number. 
 import math 
-
+# TODO: pending
 def invertBits(num): 
 	
 	# calculating number of 

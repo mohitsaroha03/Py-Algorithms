@@ -7,7 +7,7 @@ import math as mt
 
 # Size of given matrix is N X N
 N = 6
-
+# TODO: pending
 
 # A utility function to find minimum
 # of two numbers

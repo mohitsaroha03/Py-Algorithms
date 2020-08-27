@@ -1,4 +1,4 @@
-# Link - https://www.geeksforgeeks.org/given-sorted-array-number-x-find-pair-array-whose-sum-closest-x/
+# Link: https://www.geeksforgeeks.org/given-sorted-array-number-x-find-pair-array-whose-sum-closest-x/
 
 # Python3 program to find the pair
 # with sum

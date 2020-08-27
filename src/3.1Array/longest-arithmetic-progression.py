@@ -3,7 +3,7 @@
 # Longest AP (llap) in a given sorted set. 
 # The code strictly implements the algorithm 
 # provided in the reference 
-
+# TODO: pending
 # Returns length of the longest AP 
 # subset in a given set 
 def lenghtOfLongestAP(set, n): 

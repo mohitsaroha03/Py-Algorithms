@@ -1,7 +1,7 @@
 # Link: https://leetcode.com/problems/valid-sudoku/discuss/805057/Clean-code-Python-(intuitive-solution)
 # https://www.geeksforgeeks.org/check-if-given-sudoku-board-configuration-is-valid-or-not/
 import math
-
+# TODO: pending
 
 class Solution:
     def isValidSudoku(self, arr: List[List[str]]) -> bool:

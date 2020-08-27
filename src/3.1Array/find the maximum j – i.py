@@ -6,7 +6,7 @@ def max(a, b):
 		return a 
 	else: 
 		return b 
-
+# TODO: pending
 def min(a,b): 
 	if(a < b): 
 		return a 

@@ -39,7 +39,7 @@ def maxSumWithK(a, n, k):
 
 		# Include maximum sum till [i-k] also 
 		# if it increases overall max. 
-		result = max(result, sum + maxSum[i-k]) 
+		result = max(result, sum + maxSum[i-k]) # TODO: this line??
 	
 	return result 
 

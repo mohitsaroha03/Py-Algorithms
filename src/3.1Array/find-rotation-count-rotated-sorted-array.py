@@ -1,9 +1,9 @@
-# Link: https://www.geeksforgeeks.org/print-all-subarrays-with-0-sum/
+# Link: https://www.geeksforgeeks.org/find-rotation-count-rotated-sorted-array/
 # Binary Search based Python3 
 # program to find number of 
 # rotations in a sorted and 
 # rotated array. 
-
+# TODO: pending
 # Returns count of rotations for 
 # an array which is first sorted 
 # in ascending order, then rotated 
