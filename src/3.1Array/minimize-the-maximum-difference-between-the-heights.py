@@ -4,7 +4,7 @@
 # possible difference between maximum
 # and minimum elements when we have to
 # add / subtract every number by k
-
+# TODO: pending
 # Modifies the array by subtracting /
 # adding k to every element such that
 # the difference between maximum and

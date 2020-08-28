@@ -1,7 +1,7 @@
 # Link: https://www.geeksforgeeks.org/minimum-number-of-jumps-to-reach-end-of-a-given-array/
 # Python3 program to find Minimum 
 # number of jumps to reach end 
-
+# TODO: pending
 # Returns minimum number of jumps 
 # to reach arr[n-1] from arr[0] 
 def minJumps(arr, n): 
