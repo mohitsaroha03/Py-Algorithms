@@ -1,6 +1,9 @@
 # Link: https://www.geeksforgeeks.org/given-a-number-find-next-smallest-palindrome-larger-than-this-number/
+# https://www.youtube.com/watch?v=hRy6OQ6JKQ4
+# https://www.youtube.com/watch?v=1aKjQ6Tvh2w
 # Returns next palindrome of a given number num[]. 
 # This function is for input type 2 and 3 
+# TODO: pending
 def generateNextPalindromeUtil (num, n) : 
 
 	# find the index of mid digit 
