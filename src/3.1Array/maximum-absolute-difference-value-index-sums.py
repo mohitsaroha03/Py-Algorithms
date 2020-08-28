@@ -20,7 +20,7 @@ def maxDistance(arr, n):
 	# throughout the traversal 
 	# of loops. 
 	result = 0
-
+# TODO: pending
 	# Iterate through all pairs. 
 	for i in range(0,n): 
 		for j in range(i, n): 

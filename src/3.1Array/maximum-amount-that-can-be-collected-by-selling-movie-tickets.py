@@ -1,6 +1,6 @@
 # Link: https://www.geeksforgeeks.org/find-the-maximum-amount-that-can-be-collected-by-selling-movie-tickets/
 # Python 3 implementation of the approach 
-
+# TODO: pending
 # Function to return the maximum amount 
 # that can be collected by selling tickets 
 def maxAmount(M, N, seats): 

@@ -1,6 +1,6 @@
 # Link: https://www.geeksforgeeks.org/maximum-contiguous-circular-sum/
+# https://www.youtube.com/watch?v=Q1TYVUEr-wY
 # Python program for maximum contiguous circular sum problem 
-
 # Standard Kadane's algorithm to find maximum subarray sum 
 def kadane(a): 
 	n = len(a) 
