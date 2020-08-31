@@ -1,38 +1,51 @@
 # Link: https://www.geeksforgeeks.org/trapping-rain-water/
-# Python3 implementation of the approach 
+# Python program to find
+# maximum amount of water that can
+# be trapped within given set of bars.
+# Space Complexity : O(1)
 
-# Function to return the maximum 
-# water that can be stored 
-def maxWater(arr, n) : 
+def findWater(arr, n):
+
+	# initialize output
+	result = 0
 	
-	# To store the maximum water 
-	# that can be stored 
-	res = 0; 
+	# maximum element on left and right
+	left_max = 0
+	right_max = 0
 	
-	# For every element of the array 
-	for i in range(1, n - 1) : 
-		
-		# Find the maximum element on its left 
-		left = arr[i]; 
-		for j in range(i) : 
-			left = max(left, arr[j]); 
-		
-		# Find the maximum element on its right 
-		right = arr[i]; 
-		
-		for j in range(i + 1 , n) : 
-			right = max(right, arr[j]); 
-			
-		# Update the maximum water 
-		res = res + (min(left, right) - arr[i]); 
-
-	return res; 
-
-# Driver code 
-if __name__ == "__main__" : 
-
-	arr = [0, 1, 0, 2, 1, 0, 
-		1, 3, 2, 1, 2, 1]; 
-	n = len(arr); 
+	# indices to traverse the array
+	lo = 0
+	hi = n-1
 	
-	print(maxWater(arr, n)); 
+	while(lo <= hi): 
+	
+		if(arr[lo] < arr[hi]):
+		
+			if(arr[lo] > left_max):
+
+				# update max in left
+				left_max = arr[lo]
+			else:
+
+				# water on curr element = max - curr
+				result += left_max - arr[lo]
+			lo+= 1
+		
+		else:
+		
+			if(arr[hi] > right_max):
+				# update right maximum
+				right_max = arr[hi]
+			else:
+				result += right_max - arr[hi]
+			hi-= 1
+		
+	return result
+
+# Driver program
+
+arr = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+n = len(arr)
+
+print("Maximum water that can be accumulated is ",
+		findWater(arr, n))

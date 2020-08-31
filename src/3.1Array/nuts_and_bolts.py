@@ -1,7 +1,7 @@
 # Link: http://www.geeksforgeeks.org/nuts-bolts-problem-lock-key-problem/
 import sys
 import random
-
+# TODO: pending
 def sort_nuts_and_bolts(nuts, bolts):
     if(len(nuts) <= 0 or len(bolts) <= 0):
         # base case
