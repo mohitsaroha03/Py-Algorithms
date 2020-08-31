@@ -1,42 +1,47 @@
 # Link: https://www.geeksforgeeks.org/the-stock-span-problem/
-# Python3 program for a linear time 
-# solution for stock span problem 
-# without using stack 
+# Python linear time solution for stock span problem 
 
-# An efficient method to calculate 
-# stock span values implementing 
-# the same idea without using stack 
-def calculateSpan(A, n, ans): 
+# A stack based efficient method to calculate s 
+def calculateSpan(price, S): 
 	
-	# Span value of first element 
-	# is always 1 
-	ans[0] = 1
+	n = len(price) 
+	# Create a stack and push index of fist element to it 
+	st = [] 
+	st.append(0) 
 
-	# Calculate span values for rest 
-	# of the elements 
+	# Span value of first element is always 1 
+	S[0] = 1
+
+	# Calculate span values for rest of the elements 
 	for i in range(1, n): 
-		counter = 1
 		
-		while ((i - counter) >= 0 and
-			A[i] >= A[i - counter]): 
-			counter += ans[i - counter] 
-		ans[i] = counter 
+		# Pop elements from stack whlie stack is not 
+		# empty and top of stack is smaller than price[i] 
+		while( len(st) > 0 and price[st[-1]] <= price[i]): 
+			st.pop() 
 
-# A utility function to print elements 
-# of array 
+		# If stack becomes empty, then price[i] is greater 
+		# than all elements on left of it, i.e. price[0], 
+		# price[1], ..price[i-1]. Else the price[i] is 
+		# greater than elements after top of stack 
+		S[i] = i + 1 if len(st) <= 0 else (i - st[-1]) 
+
+		# Push this element to stack 
+		st.append(i) 
+
+
+# A utility function to print elements of array 
 def printArray(arr, n): 
-	
-	for i in range(n): 
-		print(arr[i], end = ' ') 
-	print() 
+	for i in range(0, n): 
+		print (arr[i], end =" ") 
 
-# Driver code 
-price = [ 10, 4, 5, 90, 120, 80 ] 
-n = len(price) 
-S = [0] * (n) 
+
+# Driver program to test above function 
+price = [10, 4, 5, 90, 120, 80] 
+S = [0 for i in range(len(price)+1)] 
 
 # Fill the span values in array S[] 
-calculateSpan(price, n, S) 
+calculateSpan(price, S) 
 
 # Print the calculated span values 
-printArray(S, n) 
+printArray(S, len(price)) 
