@@ -1,22 +1,38 @@
-# Link: 
-# IsDone: 0
-def BubbleSort(A):
-	swapped = 1 
-	for i in range(len(A)):
-		if (swapped == 0):
-			return
+# Link: https://www.geeksforgeeks.org/bubble-sort/
+# IsDone: 1
+# Python3 Optimized implementation 
+# of Bubble sort 
+
+# An optimized version of Bubble Sort 
+def bubbleSort(arr): 
+	n = len(arr) 
+
+	# Traverse through all array elements 
+	for i in range(n): 
+		swapped = False
+
+		# Last i elements are already 
+		# in place 
+		for j in range(0, n-i-1): 
+
+			# traverse the array from 0 to 
+			# n-i-1. Swap if the element 
+			# found is greater than the 
+			# next element 
+			if arr[j] > arr[j+1] : 
+				arr[j], arr[j+1] = arr[j+1], arr[j] 
+				swapped = True
+
+		# IF no two elements were swapped 
+		# by inner loop, then break 
+		if swapped == False: 
+			break
 		
-		for k in range(len(A) - 1, i, -1):
-			if (A[k] < A[k - 1]):
-				swap(A, k, k - 1)
-				swapped = 1
+# Driver code to test above 
+arr = [64, 34, 25, 12, 22, 11, 90] 
 
-def swap(A, x, y):
-	temp = A[x]
-	A[x] = A[y]
-	A[y] = temp
-	
+bubbleSort(arr) 
 
-A = [127, 220, 246, 277, 321, 454, 534, 565, 933]
-BubbleSort(A)
-print(A) 
+print ("Sorted array :") 
+for i in range(len(arr)): 
+	print ("%d" %arr[i],end=" ") 

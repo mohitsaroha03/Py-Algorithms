@@ -1,32 +1,48 @@
-# Link: 
+# Link: https://www.geeksforgeeks.org/merge-two-sorted-arrays-o1-extra-space/
 # IsDone: 0
-def MergeSort(A):
-    if len(A) > 1:
-        mid = len(A) // 2
-        lefthalf = A[:mid]
-        righthalf = A[mid:]
-        MergeSort(lefthalf)
-        MergeSort(righthalf)
-        i = j = k = 0
-        while i < len(lefthalf) and j < len(righthalf):
-            if lefthalf[i] < righthalf[j]:
-                A[k] = lefthalf[i]
-                i = i + 1
-            else:
-                A[k] = righthalf[j]
-                j = j + 1
-            k = k + 1
+# Python program to merge 
+# two sorted arrays 
+# with O(1) extra space. 
 
-        while i < len(lefthalf):
-            A[k] = lefthalf[i]
-            i = i + 1
-            k = k + 1
+# Merge ar1[] and ar2[] 
+# with O(1) extra space 
+def merge(ar1, ar2, m, n): 
 
-        while j < len(righthalf):
-            A[k] = righthalf[j]
-            j = j + 1
-            k = k + 1
+	# Iterate through all 
+	# elements of ar2[] starting from 
+	# the last element 
+	for i in range(n-1, -1, -1): 
+	
+		# Find the smallest element 
+		# greater than ar2[i]. Move all 
+		# elements one position ahead 
+		# till the smallest greater 
+		# element is not found 
+		last = ar1[m-1] 
+		j=m-2
+		while(j >= 0 and ar1[j] > ar2[i]): 
+			ar1[j+1] = ar1[j] 
+			j-=1
 
-A = [534, 246, 933, 127, 277, 321, 454, 565, 220]
-MergeSort(A)
-print(A)
+		# If there was a greater element 
+		if (j != m-2 or last > ar2[i]): 
+		
+			ar1[j+1] = ar2[i] 
+			ar2[i] = last 
+
+# Driver program 
+
+ar1 = [1, 5, 9, 10, 15, 20] 
+ar2 = [2, 3, 8, 13] 
+m = len(ar1) 
+n = len(ar2) 
+
+merge(ar1, ar2, m, n) 
+
+print("After Merging \nFirst Array:", end="") 
+for i in range(m): 
+	print(ar1[i] , " ", end="") 
+
+print("\nSecond Array: ", end="") 
+for i in range(n): 
+	print(ar2[i] , " ", end="") 
