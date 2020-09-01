@@ -11,7 +11,7 @@ def CheckWhoWinsTheElection(A):
 		if(counter > maxCounter):
 			maxCounter = counter
 			candidate = A[i]	
-	print candidate, "appeared ", maxCounter, " times"
+	print (candidate, "appeared ", maxCounter, " times")
 
 A = [3, 2, 1, 2, 2, 3]
 CheckWhoWinsTheElection(A)
