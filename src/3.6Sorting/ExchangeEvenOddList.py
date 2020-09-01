@@ -1,5 +1,6 @@
 # Link: 
 # IsDone: 0
+# TODO: pending
 def exchangeEvenOddList(head):
 	# initializing the odd and even list headers
 	oddList = evenList = None
