@@ -1,28 +1,50 @@
-# Link: 
+# Link: https://www.geeksforgeeks.org/quick-sort/
 # IsDone: 0
-import random
-def QuickSort(A, low, high):
-    if low < high:
-        pivot = Partition(A, low, high)
-        QuickSort(A, low, pivot - 1)
-        QuickSort(A, pivot + 1, high)
- 
-def Partition(A, low, high) :
-    pivot = low + random.randrange(high - low + 1)
-    swap(A, pivot, high)
-    for i in range(low, high):
-        if A[i] <= A[high]:
-            swap(A, i, low)
-            low += 1
- 
-    swap(A, low, high)
-    return low
- 
-def swap(A, x, y):
-    temp = A[x]
-    A[x] = A[y]
-    A[y] = temp
+# Python program for implementation of Quicksort Sort 
 
-A = [534, 246, 933, 127, 277, 321, 454, 565, 220]
-QuickSort(A, 0, len(A) - 1)
-print(A)
+# This function takes last element as pivot, places 
+# the pivot element at its correct position in sorted 
+# array, and places all smaller (smaller than pivot) 
+# to left of pivot and all greater elements to right 
+# of pivot 
+def partition(arr,low,high): 
+	i = ( low-1 )		 # index of smaller element 
+	pivot = arr[high]	 # pivot 
+
+	for j in range(low , high): 
+
+		# If current element is smaller than the pivot 
+		if arr[j] < pivot: 
+		
+			# increment index of smaller element 
+			i = i+1
+			arr[i],arr[j] = arr[j],arr[i] 
+
+	arr[i+1],arr[high] = arr[high],arr[i+1] 
+	return ( i+1 ) 
+
+# The main function that implements QuickSort 
+# arr[] --> Array to be sorted, 
+# low --> Starting index, 
+# high --> Ending index 
+
+# Function to do Quick sort 
+def quickSort(arr,low,high): 
+	if low < high: 
+
+		# pi is partitioning index, arr[p] is now 
+		# at right place 
+		pi = partition(arr,low,high) 
+
+		# Separately sort elements before 
+		# partition and after partition 
+		quickSort(arr, low, pi-1) 
+		quickSort(arr, pi+1, high) 
+
+# Driver code to test above 
+arr = [10, 7, 8, 9, 1, 5] 
+n = len(arr) 
+quickSort(arr,0,n-1) 
+print ("Sorted array is:") 
+for i in range(n): 
+	print ("%d" %arr[i]), 
