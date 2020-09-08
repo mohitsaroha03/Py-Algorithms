@@ -15,7 +15,7 @@ def wildcardMatch(inputString, pattern):
         return len(inputString) > 0 and inputString[0] == pattern[0] and wildcardMatch(inputString[1:], pattern[1:])
     
     return 0
-# TODO: https://practice.geeksforgeeks.org/problems/betting-game/0
+
 print wildcardMatch("cc", "c")
 print wildcardMatch("cc", "cc")
 print wildcardMatch("ccc", "cc")

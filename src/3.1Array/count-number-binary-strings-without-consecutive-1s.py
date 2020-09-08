@@ -1,8 +1,8 @@
 # Link: https://www.geeksforgeeks.org/count-number-binary-strings-without-consecutive-1s/
+# https://www.youtube.com/watch?v=a9-NtLIs1Kk
 # Python program to count 
 # all distinct binary strings 
 # without two consecutive 1's 
-# TODO: pending
 def countStrings(n): 
 
 	a=[0 for i in range(n)] 

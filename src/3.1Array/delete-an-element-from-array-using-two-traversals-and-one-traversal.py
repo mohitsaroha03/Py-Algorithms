@@ -2,7 +2,6 @@
 # https://practice.geeksforgeeks.org/problems/rotate-and-delete/0
 # https://www.geeksforgeeks.org/array-rotation/
 # python program to remove a given element from an array 
-# TODO: pending
 # This function removes an element x from arr[] and 
 # returns new size after removal. 
 # Returned size is n-1 when element is present. 
