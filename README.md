@@ -16,6 +16,19 @@ Topics:
 
 
       array m and hash m subarray ka topic could be more improved check and update
+      
+      GFG status: 
+            array: easy med hard
+            string: med hard
+            tree: med hard
+            matrix: easy med hard
+            queue: med hard
+            stack: med hard
+            recursion: med hard
+            LL: med hard
+            heap: easy med hard
+            sorting: eay med hard
+            hashing: med hard
 
 
 
