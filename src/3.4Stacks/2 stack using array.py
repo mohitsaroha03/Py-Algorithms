@@ -28,8 +28,8 @@ class twoStacks:
 			self.arr[self.top2] = x 
 
 		else : 
-		print("Stack Overflow ") 
-		exit(1) 
+			print("Stack Overflow ") 
+			exit(1) 
 
 	# Method to pop an element from first stack 
 	def pop1(self): 
