@@ -1,47 +1,72 @@
-# Link: 
+# Link: https://www.geeksforgeeks.org/next-greater-element/
+# https://www.youtube.com/watch?v=uFso48YRRao
 # IsDone: 0
-class Stack:
-    def __init__(self):
-        self.items = []
-         
-    # method for pushing an item on a stack
-    def push(self, item):
-        self.items.append(item)
-         
-    # method for popping an item from a stack
-    def pop(self):
-        return self.items.pop()
-     
-    # method to check whether the stack is empty or not
-    def isEmpty(self):
-        return (self.items == [])
-     
-    # method to get the top of the stack
-    def peek(self):
-        return self.items[-1]
-     
-    def __str__(self):
-        return str(self.items)
+# # Python program to print next greater element using stack 
 
-def replaceWithNearestGreaterElementWithStack(A):
-	i = 0
-	S = Stack()
-	S.push(A[0])
-	for i in range(0, len(A)):
-		nextNearestGreater = A[i]
-		if not S.isEmpty():
-			element = S.pop()
-			while (element < nextNearestGreater):
-				print("For the element " + str(element) + ", " + str(nextNearestGreater) + " is the nearest greater element")
-				if S.isEmpty():
+# Stack Functions to be used by printNGE() 
+def createStack(): 
+	stack = [] 
+	return stack 
+
+def isEmpty(stack): 
+	return len(stack) == 0
+
+def push(stack, x): 
+	stack.append(x) 
+
+def pop(stack): 
+	if isEmpty(stack): 
+		print("Error : stack underflow") 
+	else: 
+		return stack.pop() 
+
+'''prints element and NGE pair for all elements of 
+arr[] '''
+def printNGE(arr): 
+	s = createStack() 
+	element = 0
+	next = 0
+
+	# push the first element to stack 
+	push(s, arr[0]) 
+
+	# iterate for rest of the elements 
+	for i in range(1, len(arr), 1): 
+		next = arr[i] 
+
+		if isEmpty(s) == False: 
+
+			# if stack is not empty, then pop an element from stack 
+			element = pop(s) 
+
+			'''If the popped element is smaller than next, then 
+				a) print the pair 
+				b) keep popping while elements are smaller and 
+				stack is not empty '''
+			while element < next : 
+				print(str(element)+ " -- " + str(next)) 
+				if isEmpty(s) == True : 
 					break
-				element = S.pop()
-			if element > nextNearestGreater:
-				S.push(element)
-		S.push(nextNearestGreater)
-	
-	while (not S.isEmpty()):
-		element = S.pop()
-		nextNearestGreater = float("-inf")
-		print("For the element " + str(element) + ", " + str(nextNearestGreater) + " is the nearest greater element")
-replaceWithNearestGreaterElementWithStack([6, 12, 4, 1, 2, 111, 2, 2, 10])
+				element = pop(s) 
+
+			'''If element is greater than next, then push 
+			the element back '''
+			if element > next: 
+				push(s, element) 
+
+		'''push next to stack so that we can find 
+		next greater for it '''
+		push(s, next) 
+
+	'''After iterating over the loop, the remaining 
+	elements in stack do not have the next greater 
+	element, so print -1 for them '''
+
+	while isEmpty(s) == False: 
+			element = pop(s) 
+			next = -1
+			print(str(element) + " -- " + str(next)) 
+
+# Driver program to test above functions 
+arr = [31, 13, 21, 21, 3] 
+printNGE(arr) 

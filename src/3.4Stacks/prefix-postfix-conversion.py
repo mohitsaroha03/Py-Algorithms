@@ -34,4 +34,4 @@ for i in s:
 		stack.append(i) 
 
 # printing final output 
-print(*stack) 
+print(*stack) # learn

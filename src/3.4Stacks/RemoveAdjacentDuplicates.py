@@ -1,19 +1,17 @@
-# Link: 
+# Link: https://www.geeksforgeeks.org/recursively-remove-adjacent-duplicates-given-string/
+# https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/discuss/832545/Python-Solution-using-Stack
 # IsDone: 0
-def removeAdjacentDuplicates(str):
-    stkptr = -1
-    i = 0
-    size = len(str)
-    while i < size:
-        if (stkptr == -1 or str[stkptr] != str[i]):
-            stkptr += 1
-            str[stkptr] = str[i]
-            i += 1
-        else:
-            while i < size and str[stkptr] == str[i]:
-                i += 1
-            stkptr -= 1
-    stkptr += 1
-    str = str[0:stkptr]
-    print str
-removeAdjacentDuplicates(['6', '2', '4', '1', '2', '1', '2', '2', '1'])
+from collections import deque
+class Solution:
+    def removeDuplicates(self, S: str) -> str:
+        if len(S) == 0:
+            return S
+        stack = deque()
+        for element in S:
+            if not stack or stack[-1] != element:
+                stack.append(element)
+            elif stack and stack[-1] == element:
+                stack.pop()
+        return ''.join(stack) # learn
+s = Solution()
+print(s.removeDuplicates(['6', '2', '4', '1', '2', '1', '2', '2', '1']))

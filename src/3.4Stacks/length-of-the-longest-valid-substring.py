@@ -1,36 +1,45 @@
 # Link: https://www.geeksforgeeks.org/length-of-the-longest-valid-substring/
+# Python program to find length of the longest valid 
+# substring 
 
-# Python3 program to find length of 
-# the longest valid substring 
+def findMaxLen(string): 
+	n = len(string) 
 
-def findMaxLen(s): 
-	if (len(s) <= 1): 
-		return 0
+	# Create a stack and push -1 as initial index to it. 
+	stk = [] 
+	stk.append(-1) 
+
+	# Initialize result 
+	result = 0
+
+	# Traverse all characters of given string 
+	for i in xrange(n): 
 	
-	# Initialize curMax to zero 
-	curMax = 0
+		# If opening bracket, push index of it 
+		if string[i] == '(': 
+			stk.append(i) 
 
-	longest = [0] * (len(s)) 
+		else: # If closing bracket, i.e., str[i] = ')' 
+	
+			# Pop the previous opening bracket's index 
+			stk.pop() 
+	
+			# Check if this length formed with base of 
+			# current valid substring is more than max 
+			# so far 
+			if len(stk) != 0: 
+				result = max(result, i - stk[len(stk)-1]) 
 
-	# Iterate over the string starting 
-	# from second index 
-	for i in range(1, len(s)): 
-		if ((s[i] == ')' and
-			i - longest[i - 1] - 1 >= 0 and
-			s[i - longest[i - 1] - 1] == '(')): 
-				longest[i] = longest[i - 1] + 2
-				if (i - longest[i - 1] - 2 >= 0): 
-					longest[i] += (longest[i -
-								longest[i - 1] - 2]) 
-				else: 
-					longest[i] += 0
-				curMax = max(longest[i], curMax) 
-	return curMax 
+			# If stack is empty. push current index as 
+			# base for next valid substring (if any) 
+			else: 
+				stk.append(i) 
 
-# Driver Code 
-if __name__ == '__main__': 
-	Str = "((()()"
-	print(findMaxLen(Str)) 
+	return result 
 
-	Str = "()(()))))"
-	print(findMaxLen(Str)) 
+# Driver program 
+string = "((()()"
+print findMaxLen(string) 
+
+string = "()(()))))"
+print findMaxLen(string) 
