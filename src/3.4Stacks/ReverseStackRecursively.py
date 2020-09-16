@@ -23,8 +23,15 @@ def reverseStack(stack):
             reverseStackRecursive(stack, newStack)
         return newStack
     return reverseStackRecursive(stack)
-
+def reverseStackRecursive(stack, newStack=Stack()):
+    if not stack.is_empty():
+        newStack.push(stack.pop())
+        reverseStackRecursive(stack, newStack)
+    return newStack
 
 s = Stack(range(10))
 print s
-print reverseStack(s)
+# print reverseStack(s)
+print reverseStackRecursive(s)
+
+
