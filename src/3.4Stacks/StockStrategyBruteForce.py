@@ -1,5 +1,6 @@
 # Link: 
 # IsDone: 0
+# TODO: pending
 def calculateProfitWhenBuyingNow(A, index):
     buyingPrice = A[index]
     maxProfit = 0

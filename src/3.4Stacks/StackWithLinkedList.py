@@ -1,57 +1,105 @@
 # Link: 
 # IsDone: 0
 # Node of a Singly Linked List
-class Node:
-    # constructor
-    def __init__(self):
-        self.data = None
-        self.next = None
-        # method for setting the data field of the node    
-    def set_data(self, data):
-        self.data = data
-    # method for getting the data field of the node   
-    def get_data(self):
-        return self.data
-      # method for setting the next field of the node
-    def set_next(self, next):
-        self.next = next
-       # method for getting the next field of the node    
-    def get_next(self):
-        return self.next
-    # returns true if the node points to another node
-    def has_next(self):
-            return self.next != None
-	    
-class Stack(object):
-    def __init__(self, data=None):
-        self.head = None
-        if data:
-            for data in data:
-                self.push(data)
+'''Python supports automatic garbage collection so deallocation of memory 
+is done implicitly. However to force it to deallocate each node after use, 
+add the following code: 
 
-    def push(self, data):
-        temp = Node()
-        temp.set_data(data)
-        temp.set_next(self.head)
-        self.head = temp
+	import gc		 #added at the start of program 
+	gc.collect()	 #to be added wherever memory is to be deallocated 
+'''
 
-    def pop(self):
-        if self.head is None:
-            raise IndexError
-        temp = self.head.get_data()
-        self.head = self.head.get_next()
-        return temp
+class Node: 
 	
-    def peek(self):
-        if self.head is None:
-            raise IndexError
-        return self.head.get_data()
+	# Class to create nodes of linked list 
+	# constructor initializes node automatically 
+	def __init__(self,data): 
+		self.data = data 
+		self.next = None
+	
+class Stack: 
+	
+	# head is default NULL 
+	def __init__(self): 
+		self.head = None
+	
+	# Checks if stack is empty 
+	def isempty(self): 
+		if self.head == None: 
+			return True
+		else: 
+			return False
+	
+	# Method to add data to the stack 
+	# adds to the start of the stack 
+	def push(self,data): 
+		
+		if self.head == None: 
+			self.head=Node(data) 
+			
+		else: 
+			newnode = Node(data) 
+			newnode.next = self.head 
+			self.head = newnode 
+	
+	# Remove element that is the current head (start of the stack) 
+	def pop(self): 
+		
+		if self.isempty(): 
+			return None
+			
+		else: 
+			# Removes the head node and makes 
+			#the preceeding one the new head 
+			poppednode = self.head 
+			self.head = self.head.next
+			poppednode.next = None
+			return poppednode.data 
+	
+	# Returns the head node data 
+	def peek(self): 
+		
+		if self.isempty(): 
+			return None
+			
+		else: 
+			return self.head.data 
+	
+	# Prints out the stack	 
+	def display(self): 
+		
+		iternode = self.head 
+		if self.isempty(): 
+			print("Stack Underflow") 
+		
+		else: 
+			
+			while(iternode != None): 
+				
+				print(iternode.data,"->",end = " ") 
+				iternode = iternode.next
+			return
+		
+# Driver code 
+MyStack = Stack() 
 
+MyStack.push(11) 
+MyStack.push(22) 
+MyStack.push(33) 
+MyStack.push(44) 
 
-our_list = ["first", "second", "third", "fourth"]
-our_stack = Stack(our_list)
-print our_stack.pop()
-print our_stack.peek()
-print our_stack.pop()
-print our_stack.peek()
-print our_stack.pop()
+# Display stack elements 
+MyStack.display() 
+
+# Print top element of stack 
+print("\nTop element is ",MyStack.peek()) 
+
+# Delete top elements of stack 
+MyStack.pop() 
+MyStack.pop() 
+
+# Display stack elements 
+MyStack.display() 
+
+# Print top element of stack 
+print("\nTop element is ", MyStack.peek()) 
