@@ -8,7 +8,7 @@ def isvalid(r,c,n,m):
     if (0<=r<n and 0<=c<m):
         return True
     return False
-
+# TODO: pending
 def bfs(a,u,m):
     res = {}
     visited = [[False for i in range(m)] for j in range(u)]
@@ -51,4 +51,4 @@ while t>0:
 3 5
 2 1 0 2 1 1 0 1 2 1 1 0 0 2 1 
 4 7
-0 1 2 2 2 1 1 1 0 0 2 1 1 0 0 1 2 1 1 1 0 1 0 1 0 2 0 2
+0 1 2 2 2 1 1 1 0 0 2 1 1 0 0 1 2 1 1 1 0 1 0 1 0 2 0 2 '''

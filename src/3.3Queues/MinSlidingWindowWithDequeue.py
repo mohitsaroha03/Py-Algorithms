@@ -1,7 +1,7 @@
 # Link: 
 # IsDone: 0
 from collections import deque
- 
+#  TODO: pending
 def MinSlidingWindow(A, k):
     D = deque()
     res, i = [], 0

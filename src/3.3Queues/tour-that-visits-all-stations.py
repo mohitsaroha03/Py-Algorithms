@@ -5,7 +5,7 @@
 
 # A petrol pump has petrol and distance to next petrol pimp 
 class PetrolPump: 
-	
+# TODO: pending : doable and important
 	# Constructor to create a new node 
 	def __init__(self,petrol, distance): 
 		self.petrol = petrol 

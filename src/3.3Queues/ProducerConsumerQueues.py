@@ -8,13 +8,13 @@ from Queue import Queue
 from myThread import MyThread
 
 def writeQ(queue):
-	print 'producing object for Q...',
+	print ('producing object for Q...',)
 	queue.put('MONK', 1)
-	print "size now", queue.qsize()
+	print ("size now", queue.qsize())
 
 def readQ(queue):
 	val = queue.get(1)
-	print 'consumed object from Q... size now', queue.qsize()
+	print ('consumed object from Q... size now', queue.qsize())
 
 def producer(queue, loops):
 	for i in range(loops):
@@ -44,4 +44,4 @@ for i in nfuncs:
 for i in nfuncs:
    threads[i].join()
 
-print 'all DONE'
+print ('all DONE')

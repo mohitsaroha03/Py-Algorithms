@@ -1,7 +1,6 @@
 # Link: https://www.geeksforgeeks.org/queue-linked-list-implementation/
 # IsDone: 1
 
-
 # A linked list (LL) node 
 # to store a queue entry 
 class Node: 

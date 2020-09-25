@@ -74,8 +74,8 @@ def printFirstNegativeInteger1(arr, k):
 if __name__ == "__main__": 
 	arr = [-12, 1, 7, 8, 15, 30, 16, -28] 
 	k = 3
-	# printFirstNegativeInteger(arr, k) 
-	printFirstNegativeInteger1(arr, k) 
+	printFirstNegativeInteger(arr, len(arr), k) 
+	# printFirstNegativeInteger1(arr, k) 
 
 	
 # Driver Code 
@@ -84,6 +84,3 @@ if __name__ == "__main__":
 # 	n = len(arr) 
 # 	k = 3
 # 	printFirstNegativeInteger(arr, n, k); 
-
-# This code is contributed by 
-# chaudhary_19 (Mayank Chaudhary) 
