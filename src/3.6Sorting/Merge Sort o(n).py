@@ -36,14 +36,13 @@ def mergeSort(arr):
 # Code to print the list 
 def printList(arr): 
 	for i in range(len(arr)):		 
-		print(arr[i], end =" ") 
-	print() 
+		print(arr[i], end =" ")
 
 # driver code to test the above code 
 if __name__ == '__main__': 
 	arr = [12, 11, 13, 5, 6, 7] 
-	print ("Given array is", end ="\n") 
-	printList(arr) 
+	print("Given array is")
+	printList(arr)
 	mergeSort(arr) 
-	print("Sorted array is: ", end ="\n") 
-	printList(arr) 
+	print("Sorted array is: ")
+	printList(arr)

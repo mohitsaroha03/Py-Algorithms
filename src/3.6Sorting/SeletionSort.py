@@ -1,5 +1,5 @@
-# Link: 
-# IsDone: 0
+# Link: https://www.geeksforgeeks.org/selection-sort/
+# IsDone: 1
 def SelectionSort(A):
   for i in range(len(A)):
     least = i

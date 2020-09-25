@@ -1,4 +1,4 @@
-# Link: 
+# Link: https://www.geeksforgeeks.org/find-winner-election-votes-represented-candidate-names/
 # IsDone: 0
 def CheckWhoWinsTheElection(A):
 	A.sort()

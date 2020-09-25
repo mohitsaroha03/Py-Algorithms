@@ -9,6 +9,7 @@ def bubbleSort(arr):
 
 	# Traverse through all array elements 
 	for i in range(n): 
+		# remove this for normal version
 		swapped = False
 
 		# Last i elements are already 
