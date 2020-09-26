@@ -23,7 +23,7 @@ def shellSort(arr):
 			# shift earlier gap-sorted elements up until the correct 
 			# location for a[i] is found 
 			j = i 
-			while j >= gap and arr[j-gap] >temp: 
+			while j >= gap and arr[j-gap] > temp: 
 				arr[j] = arr[j-gap] 
 				j -= gap 
 
