@@ -51,9 +51,9 @@ def CountSubarrays(arr, n, k):
 
 		# Calculate the sum of rest of 
 		# the windows of size len 
-		for i in range(length, n): 
+		for i in range(length, n): # TODO: how it is working
 			sum = sum + arr[i] 
-			sum = sum + arr[i - length] 
+			sum = sum - arr[i - length] # i think it should sum - arr to keep it length size window
 			if (sum % k != 0): 
 				count += 1
 
@@ -62,9 +62,9 @@ def CountSubarrays(arr, n, k):
 # Driver Code 
 if __name__ == '__main__': 
 
-	arr = [ 4,5,0,-2,-3,1 ] 
+	arr = [2, 4, 3, 5, 1] 
 	n = len(arr) 
-	k = 5
+	k = 3
 
 	print(CountSubarrays(arr, n, k)) 
 	

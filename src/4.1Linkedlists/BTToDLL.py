@@ -1,5 +1,5 @@
 # Link: https://www.javatpoint.com/python-program-to-convert-a-given-binary-tree-to-doubly-linked-list
-#Represent a node of binary tree    
+# Represent a node of binary tree    
 class Node:    
     def __init__(self,data):    
         self.data = data;    

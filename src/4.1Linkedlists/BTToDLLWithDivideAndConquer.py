@@ -97,6 +97,6 @@ if __name__ == "__main__":
  c.right = f
 
  printBST(root)
- print "\ncreating to double linked list"
+ print "\n creating to double linked list"
  head = BSTToDLL(root);
  printList(head)
