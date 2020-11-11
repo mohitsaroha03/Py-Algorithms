@@ -36,17 +36,17 @@ class LinkedList:
 			self.reverseRecursive(right)
 			
     def findMiddleNode(self) :
-	fastPtr = self.head
-	slowPtr = self.head
-	 
-	while (fastPtr != None):
-	    fastPtr = fastPtr.get_next()
-	    if (fastPtr == None):
-		return slowPtr
-	     
-	    fastPtr = fastPtr.get_next()   
-	    slowPtr = slowPtr.get_next()
-	return slowPtr
+        fastPtr = self.head
+        slowPtr = self.head
+        
+        while (fastPtr != None):
+            fastPtr = fastPtr.get_next()
+            if (fastPtr == None):
+                return slowPtr
+            
+            fastPtr = fastPtr.get_next()   
+            slowPtr = slowPtr.get_next()
+        return slowPtr
 		
     def insertAtEnd(self, item):
         current = self.head

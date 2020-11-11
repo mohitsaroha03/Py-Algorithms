@@ -24,22 +24,23 @@ class LinkedList:
         self.head = None
 	
     def fractionalNode(self, k):
-	fractionalNode = None
-	currentNode = self.head
-	i = 0
-	if k <= 0:
-		return None;
-	
-	while currentNode != None:
-		if i % k == 0:
-			if fractionalNode == None:
-				fractionalNode = self.head
-			else:
-				fractionalNode = fractionalNode.get_next()		
-		i = i + 1
-		currentNode = currentNode.get_next()
-		
-	print (fractionalNode.get_data())
+        fractionalNode = None
+        currentNode = self.head
+        i = 0
+        if k <= 0:
+            return None;
+        
+        while currentNode != None:
+            if i % k == 0:
+                # For every k jumps of the currentNode pointer, make one jump of the fractionalNode pointer.
+                if fractionalNode == None:
+                    fractionalNode = self.head
+                else:
+                    fractionalNode = fractionalNode.get_next()		
+            i = i + 1
+            currentNode = currentNode.get_next()
+            
+        print (fractionalNode.get_data())
 			
     def insertAtEnd(self, item):
         current = self.head

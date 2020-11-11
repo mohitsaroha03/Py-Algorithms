@@ -33,11 +33,9 @@ class LRUCache:
 		if len(self.cache) > self.capacity: 
 			self.cache.popitem(last = False) 
 
-
 # RUNNER 
 # initializing our cache with the capacity of 2 
 cache = LRUCache(2) 
-
 
 cache.put(1, 1) 
 print(cache.cache) 

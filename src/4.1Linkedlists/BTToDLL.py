@@ -52,7 +52,7 @@ class BinaryTreeToDLL:
             print(current.data),    
             current = current.right;    
             
-           
+
 bt = BinaryTreeToDLL();    
 #Add nodes to the binary tree    
 bt.root = Node(1);    
@@ -62,9 +62,9 @@ bt.root.left.left = Node(4);
 bt.root.left.right = Node(5);    
 bt.root.right.left = Node(6);    
 bt.root.right.right = Node(7);    
-     
+
 #Converts the given binary tree to doubly linked list    
 bt.convertbtToDLL(bt.root);    
-     
+
 #Displays the nodes present in the list    
 bt.display();    

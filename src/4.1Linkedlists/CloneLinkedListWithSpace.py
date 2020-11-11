@@ -5,7 +5,6 @@ class Node:
 		self.data = data
 		self.next = next
 
-
 # Helper function to print given linked list
 def printList(head):
 
@@ -15,7 +14,6 @@ def printList(head):
 		ptr = ptr.next
 
 	print("None")
-
 
 # Function that takes a linked list and returns a complete copy of that
 # list using dummy node
@@ -33,7 +31,6 @@ def copyList(head):
 		current = current.next
 
 	return dummy.next
-
 
 if __name__ == '__main__':
 
