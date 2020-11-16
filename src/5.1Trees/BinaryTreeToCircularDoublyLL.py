@@ -29,6 +29,7 @@ def concatenate(leftList, rightList):
 
 	# Connect the last node of Left List 
 	# with the first Node of the right List 
+	# leftList.left.right = rightList
 	leftLast.right = rightList 
 	rightList.left = leftLast 
 
@@ -48,7 +49,9 @@ def concatenate(leftList, rightList):
 def bTreeToCList(root): 
 	if (root == None): 
 		return None
-
+# 		10
+# 	12        15
+# 25     30 36
 	# Recursively convert left and 
 	# right subtrees 
 	left = bTreeToCList(root.left) 
@@ -80,6 +83,9 @@ def displayCList(head):
 
 # Driver Code 
 if __name__ == '__main__': 
+# 		10
+# 	12        15
+# 25     30 36
 	root = newNode(10) 
 	root.left = newNode(12) 
 	root.right = newNode(15) 

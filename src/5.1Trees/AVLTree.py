@@ -131,7 +131,8 @@ root = myTree.insert(root, 25)
 		/ \ 
 		20 40 
 		/ \	 \ 
-	10 25 50"""
+	10 25 50
+	"""
 
 # Preorder Traversal 
 print("Preorder traversal of the", 
