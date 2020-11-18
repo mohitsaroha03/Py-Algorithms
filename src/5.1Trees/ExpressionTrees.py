@@ -5,7 +5,6 @@
 
 # An expression tree node 
 class Et: 
-
 	# Constructor to create a node 
 	def __init__(self , value): 
 		self.value = value 
@@ -32,7 +31,6 @@ def inorder(t):
 # given postfix expression 
 def constructTree(postfix): 
 	stack = [] 
-
 	# Traverse through every character of input expression 
 	for char in postfix : 
 
@@ -40,10 +38,8 @@ def constructTree(postfix):
 		if not isOperator(char): 
 			t = Et(char) 
 			stack.append(t) 
-
 		# Operator 
 		else: 
-
 			# Pop two top nodes 
 			t = Et(char) 
 			t1 = stack.pop() 
@@ -52,7 +48,6 @@ def constructTree(postfix):
 			# make them children 
 			t.right = t1 
 			t.left = t2 
-			
 			# Add this subexpression to stack 
 			stack.append(t) 
 

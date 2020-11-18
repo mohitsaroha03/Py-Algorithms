@@ -76,6 +76,10 @@ def printBoundary(root):
 
 
 # Driver program to test above function 
+#           20
+#     8           22
+# 4      12            25
+#      10  14 
 root = Node(20) 
 root.left = Node(8) 
 root.left.left = Node(4) 

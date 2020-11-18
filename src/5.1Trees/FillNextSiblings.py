@@ -7,7 +7,7 @@ def fillNextSiblings(root):
 	if root.left: 
 		root.left.nextSibling = root.right
 
-	if roo.tright:
+	if root.right:
 		if root.nextSibling:
 			root.right.nextSibling = root.nextSibling.left 
 		else:
