@@ -26,10 +26,8 @@ def removeOutsideRange(root, Min, Max):
 	
 	# First fix the left and right 
 	# subtrees of root 
-	root.left = removeOutsideRange(root.left, 
-								Min, Max) 
-	root.right = removeOutsideRange(root.right, 
-									Min, Max) 
+	root.left = removeOutsideRange(root.left, Min, Max) 
+	root.right = removeOutsideRange(root.right,	Min, Max) 
 	
 	# Now fix the root. There are 2 
 	# possible cases for toot 
@@ -86,5 +84,3 @@ if __name__ == '__main__':
 	print() 
 	print("Inorder traversal of the modified tree is:", ) 
 	inorderTraversal(root) 
-
-# This code is contributed by PranchalK 

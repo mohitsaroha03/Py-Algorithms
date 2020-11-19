@@ -15,6 +15,7 @@ class Solution:
         queue.append((root, 1))
         while queue:
             current, depth = queue.pop(0)
+            #  first leaf is min depth
             if current.left is None and current.right is None:
                 return depth
             if current.left:

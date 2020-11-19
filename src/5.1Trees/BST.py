@@ -122,18 +122,18 @@ def LowestCommonAncestor(root, n1, n2):
 
 # Driver program to test above functions 
 """ Let us create following BST 
-			50 
+		  50 
 		/	 \ 
-	  30	 70 
+	  48	 61 
 	  / \   / \ 
-	20  40 60 80 """
+	20  49 60 80 """
 
 root = None
 root = insert(root, 50)
-root = insert(root, 30)
+root = insert(root, 48)
 root = insert(root, 20)
-root = insert(root, 40)
-root = insert(root, 70)
+root = insert(root, 49)
+root = insert(root, 61)
 root = insert(root, 60)
 root = insert(root, 80)
 
@@ -150,7 +150,7 @@ print "Inorder traversal of the modified tree"
 inorder(root)
 
 print "\n Find LowestCommonAncestor: "
-print LowestCommonAncestor(root, 70, 20).key
+print LowestCommonAncestor(root, 60, 20).key
 
 print "\nDelete 20: "
 root = deleteNode(root, 30)

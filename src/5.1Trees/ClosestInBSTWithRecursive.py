@@ -179,49 +179,7 @@ def findMin(root, parent):
     else:
         return [parent, root]
 
-
-def inOrderTraversal(root):
-    if not root:
-        return
-    inOrderTraversal(root.left)
-    print root.data
-    inOrderTraversal(root.right)
-
-
-def preOrderTraversal(root):
-    if not root:
-        return
-    print root.data
-    preOrderTraversal(root.left)
-    preOrderTraversal(root.right)
-
-
 prev = None
-
-
-def FloorInBST(root, data):
-    global prev
-    return FloorInBSTUtil(root, data)
-
-
-def FloorInBSTUtil(root, data):
-    if (not root):
-        return sys.maxint
-
-    if (root.data == data):
-        return root.data
-
-    if (data < root.data):
-        return FloorInBSTUtil(root.left, data)
-
-    floor = FloorInBSTUtil(root.right, data)
-    if floor <= data:
-        return floor
-    else:
-        return root.data
-
-
-
 
 def ClosestInBST(root, data):
     if (root == None):

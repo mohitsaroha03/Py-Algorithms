@@ -12,11 +12,11 @@ def maxDepth(self, root):
 	q.append([root, 1])
 	temp = 0
 	while len(q) != 0:
-	    node, depth = q.pop()
+	    node, dep = q.pop()
 	    depth = max(temp, dep)
 	    if node.getLeft() != None:
-		q.append([node.getLeft(), depth + 1])
+			q.append([node.getLeft(), depth + 1])
 	    if node.getRight() != None:
-		q.append([node.getRight(), depth + 1])
+			q.append([node.getRight(), depth + 1])
 	return temp
 	

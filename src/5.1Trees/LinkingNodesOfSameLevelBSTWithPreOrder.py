@@ -12,6 +12,16 @@ class newnode:
 # connectRecur() for other nodes 
 def connect (p): 
 	
+	# This approach works only for Complete Binary Trees. 
+	# In this method we set nextRight in Pre Order fashion 
+	# to make sure that the nextRight of parent is set before its children. 
+	# When we are at node p, we set the nextRight of its left and right children. 
+	# Since the tree is complete tree, nextRight of p’s left child (p->left->nextRight) 
+	# will always be p’s right child, and nextRight of p’s right child (p->right->nextRight) 
+	# will always be left child of p’s nextRight (if p is not the rightmost node at its level). 
+	# If p is the rightmost node, then nextRight of p’s right child will be NULL.
+	
+	
 	# Set the nextRight for root 
 	p.nextRight = None
 
