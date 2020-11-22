@@ -1,128 +1,61 @@
-# Link: 
+# Link: https://www.geeksforgeeks.org/connected-components-in-an-undirected-graph/
 # IsDone: 0
-import sys
-class Vertex:
-    def __init__(self, node):
-        self.id = node
-        self.adjacent = {}
-        # Set distance to infinity for all nodes
-        self.distance = sys.maxint
-        # Mark all nodes unvisited        
-        self.visited = False  
-        # Predecessor
-        self.previous = None
+# Python program to print connected
+# components in an undirected graph
 
-    def addNeighbor(self, neighbor, weight=0):
-        self.adjacent[neighbor] = weight
-
-    def getConnections(self):
-        return self.adjacent.keys()  
-
-    def getVertexID(self):
-        return self.id
-
-    def getWeight(self, neighbor):
-        return self.adjacent[neighbor]
-
-    def setDistance(self, dist):
-        self.distance = dist
-
-    def getDistance(self):
-        return self.distance
-
-    def setPrevious(self, prev):
-        self.previous = prev
-
-    def setVisited(self):
-        self.visited = True
-
-    def __str__(self):
-        return str(self.id) + ' adjacent: ' + str([x.id for x in self.adjacent])
 
 class Graph:
-    def __init__(self):
-        self.vertDictionary = {}
-        self.numVertices = 0
 
-    def __iter__(self):
-        return iter(self.vertDictionary.values())
+	# init function to declare class variables
+	def __init__(self, V):
+		self.V = V
+		self.adj = [[] for i in range(V)]
 
-    def addVertex(self, node):
-        self.numVertices = self.numVertices + 1
-        newVertex = Vertex(node)
-        self.vertDictionary[node] = newVertex
-        return newVertex
+	def DFSUtil(self, temp, v, visited):
 
-    def getVertex(self, n):
-        if n in self.vertDictionary:
-            return self.vertDictionary[n]
-        else:
-            return None
+		# Mark the current vertex as visited
+		visited[v] = True
 
-    def addEdge(self, frm, to, cost=0):
-        if frm not in self.vertDictionary:
-            self.addVertex(frm)
-        if to not in self.vertDictionary:
-            self.addVertex(to)
+		# Store the vertex to list
+		temp.append(v)
 
-        self.vertDictionary[frm].addNeighbor(self.vertDictionary[to], cost)
-	# For directed graph do not add this
-        self.vertDictionary[to].addNeighbor(self.vertDictionary[frm], cost)
+		# Repeat for all vertices adjacent
+		# to this vertex v
+		for i in self.adj[v]:
+			if visited[i] == False:
 
-    def getVertices(self):
-        return self.vertDictionary.keys()
+				# Update the list
+				temp = self.DFSUtil(temp, i, visited)
+		return temp
 
-    def setPrevious(self, current):
-        self.previous = current
+	# method to add an undirected edge
+	def addEdge(self, v, w):
+		self.adj[v].append(w)
+		self.adj[w].append(v)
 
-    def getPrevious(self, current):
-        return self.previous
-	
-    def getEdges(self):
-        edges = []
-	for currentVert in G:
-		for nbr in currentVert.getConnections():
-		    currentVertID = currentVert.getVertexID()
-		    nbrID = nbr.getVertexID()
-		    edges.append((currentVertID, nbrID, currentVert.getWeight(nbr)))
-	return edges
+	# Method to retrieve connected components
+	# in an undirected graph
+	def connectedComponents(self):
+		visited = []
+		cc = []
+		for i in range(self.V):
+			visited.append(False)
+		for v in range(self.V):
+			if visited[v] == False:
+				temp = []
+				cc.append(self.DFSUtil(temp, v, visited))
+		return cc
 
-def dfs(G, currentVert, visited):
-	visited[currentVert] = True  # mark the visited node 
-	print "traversal: " + currentVert.getVertexID()
-	for nbr in currentVert.getConnections():  # take a neighbouring node 
-		if nbr not in visited:  # condition to check whether the neighbour node is already visited
-			dfs(G, nbr, visited)  # recursively traverse the neighbouring node 
- 
-def countConnectedComponentsWithDFS(G):
-	visited = {}  # Dictionary to mark the visited nodes 
-	count = 0
-	for currentVert in G:  # G contains vertex objects
-		if currentVert not in visited:  # Start traversing from the root node only if its not visited 
-			count += 1
-			dfs(G, currentVert, visited)  # For a connected graph this is called only once 
-	return count
-	
-if __name__ == '__main__':
 
-    G = Graph()
-    G.addVertex('a')
-    G.addVertex('b')
-    G.addVertex('c')
-    G.addVertex('d')
-    G.addVertex('e')
-    G.addVertex('f')
-    G.addVertex('g')
-    G.addVertex('h')   
-    G.addEdge('a', 'b', 1)  
-    G.addEdge('a', 'c', 1)
-    G.addEdge('b', 'd', 1)
-    G.addEdge('b', 'e', 1)
-    G.addEdge('c', 'd', 1)
-    G.addEdge('c', 'e', 1)
-    G.addEdge('d', 'e', 1)
-    G.addEdge('e', 'a', 1)
-    print 'Graph data:'
-    print G.getEdges()
- 
-    print countConnectedComponentsWithDFS(G)
+# Driver Code
+if __name__ == "__main__":
+
+	# Create a graph given in the above diagram
+	# 5 vertices numbered from 0 to 4
+	g = Graph(5)
+	g.addEdge(1, 0)
+	g.addEdge(2, 3)
+	g.addEdge(3, 4)
+	cc = g.connectedComponents()
+	print("Following are connected components")
+	print(cc)

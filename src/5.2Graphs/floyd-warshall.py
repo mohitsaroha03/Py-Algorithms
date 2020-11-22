@@ -18,7 +18,7 @@ def floydWarshall(graph):
 	OR we can say that the initial values of shortest distances 
 	are based on shortest paths considering no 
 	intermediate vertices """
-	dist = map(lambda i : map(lambda j : j , i) , graph) 
+	dist = map(lambda i : map(lambda j : j , i) , graph) # copy graph to dist
 	
 	""" Add all vertices one by one to the set of intermediate 
 	vertices. 
@@ -49,8 +49,7 @@ def floydWarshall(graph):
 
 # A utility function to print the solution 
 def printSolution(dist): 
-	print "Following matrix shows the shortest distances\ 
-between every pair of vertices" 
+	print "Following matrix shows the shortest distances between every pair of vertices" 
 	for i in range(V): 
 		for j in range(V): 
 			if(dist[i][j] == INF): 
