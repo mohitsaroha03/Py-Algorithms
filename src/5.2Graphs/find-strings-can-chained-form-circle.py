@@ -23,6 +23,8 @@ class Graph(object):
 		# Find the first vertex with non-zero degree 
 		n = 0
 		for n in xrange(self.V): 
+			# adj is an array(vertex) of array(other vertex from parent vertex)
+			# here we are finding a vertex which has degree(in degree and out degree) more than 0
 			if len(self.adj[n]) > 0: 
 				break
 

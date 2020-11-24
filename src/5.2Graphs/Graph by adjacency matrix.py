@@ -19,13 +19,13 @@ class Graph:
 				self.__g[i][j]= 0
 
 	def displayAdjacencyMatrix(self): 
-		print("\n\n Adjacency Matrix:", end ="") 
+		print("\n\n Adjacency Matrix:") 
 		
 		# displaying the 2D array 
 		for i in range(0, self.__n): 
 			print() 
 			for j in range(0, self.__n): 
-				print("", self.__g[i][j], end ="") 
+				print("", self.__g[i][j]) 
 	def addEdge(self, x, y): 
 
 		# checks if the vertex exists in the graph 

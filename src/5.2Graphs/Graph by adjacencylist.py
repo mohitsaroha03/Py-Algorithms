@@ -36,10 +36,10 @@ class Graph:
 	# Function to print the graph 
 	def print_graph(self): 
 		for i in range(self.V): 
-			print("Adjacency list of vertex {}\n head".format(i), end="") 
+			print("Adjacency list of vertex {}\n head".format(i)) 
 			temp = self.graph[i] 
 			while temp: 
-				print(" -> {}".format(temp.vertex), end="") 
+				print(" -> {}".format(temp.vertex)) 
 				temp = temp.next
 			print(" \n") 
 

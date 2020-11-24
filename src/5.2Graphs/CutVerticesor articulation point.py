@@ -1,4 +1,5 @@
 # Link: https://www.geeksforgeeks.org/articulation-points-or-cut-vertices-in-a-graph/
+# https://www.youtube.com/watch?v=jFZsDDB0-vo&t=443s
 # IsDone: 0
 # Python program to find articulation points in an undirected graph 
 
@@ -57,7 +58,12 @@ class Graph:
 					ap[u] = True
 
 				#(2) If u is not root and low value of one of its child is more 
-				# than discovery value of u. 
+				# than discovery value of u.  
+				# We maintain an array disc[] to store discovery time of vertices. 
+				# For every node u, we need to find out the earliest visited vertex 
+				# (the vertex with minimum discovery time) that can be reached from subtree rooted 
+				# with u. So we maintain an additional array low[] which is defined as follows.
+				# low[u] = min(disc[u], disc[w]) 
 				if parent[u] != -1 and low[v] >= disc[u]: 
 					ap[u] = True	
 					

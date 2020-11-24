@@ -69,8 +69,7 @@ class Graph:
 			# Don't recur for u if it 
 			# is already visited 
 			if visited[i] ==False: 
-				if(self.isCyclicUtil 
-					(i,visited,-1)) == True: 
+				if(self.isCyclicUtil(i,visited,-1)) == True: 
 					return True
 		
 		return False

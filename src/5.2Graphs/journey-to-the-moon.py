@@ -1,5 +1,6 @@
 # Link - https://www.hackerrank.com/challenges/journey-to-the-moon/
 # Solution - https://www.hackerrank.com/rest/contests/master/challenges/journey-to-the-moon/hackers/jven/download_solution?primary=true
+# https://www.youtube.com/watch?v=IeZs94EFCTk
 
 class Node:
     def __init__(self, data):
