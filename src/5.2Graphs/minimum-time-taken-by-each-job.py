@@ -75,7 +75,7 @@ class Graph:
 		# Print the time to complete 
 		# the job 
 		for i in range(1, n + 1):
-			print(job[i], end = " ")
+			print(job[i],)
 			
 		print()
 

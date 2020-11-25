@@ -46,8 +46,6 @@ class Graph:
 				g.addEdge(j,i) 
 		return g 
 
-
-
 	# The main function that finds and prints all strongly 
 	# connected components 
 	def printSCCs(self): 

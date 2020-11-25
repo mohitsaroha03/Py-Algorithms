@@ -11,7 +11,7 @@ def printSolution( sol ):
 	
 	for i in sol: 
 		for j in i: 
-			print(str(j) + " ", end ="") 
+			print(str(j) + " ", ) 
 		print("") 
 
 # A utility function to check if x, y is valid 

@@ -15,9 +15,9 @@ def minCost(graph, n):
 	end = [False]*(n + 1); 
 
 	for i in range(n): 
-		a = graph[i][0]; 
-		b = graph[i][1]; 
-		c = graph[i][2]; 
+		a = graph[i][0]; # v1 vertex
+		b = graph[i][1]; # v2 vertex 
+		c = graph[i][2]; # cost from v1 to v2
 
 		# This edge must start from b 
 		# and end at a 

@@ -1,11 +1,13 @@
 # Link: https://www.geeksforgeeks.org/snake-ladder-problem-2/
 # IsDone: 0
+
 # Python3 program to find minimum number 
 # of dice throws required to reach last 
 # cell from first cell of a given 
 # snake and ladder board 
 
 # An entry in queue used in BFS 
+
 class QueueEntry(object): 
 	def __init__(self, v = 0, dist = 0): 
 		self.v = v 
@@ -19,6 +21,7 @@ no. of cells on board. If there is no
 snake or ladder from cell i, then move[i] 
 is -1. Otherwise move[i] contains cell to 
 which snake or ladder at i takes to.'''
+
 def getMinDiceThrows(move, N): 
 	
 	# The graph has N vertices. Mark all 
