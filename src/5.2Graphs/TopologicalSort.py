@@ -1,162 +1,61 @@
-# Link: 
+# Link: https://www.geeksforgeeks.org/topological-sorting/
 # IsDone: 0
-import sys
-class Vertex:
-    def __init__(self, node):
-        self.id = node
-        self.adjacent = {}
-        # Set distance to infinity for all nodes
-        self.distance = sys.maxint
-        # Mark all nodes unvisited        
-        self.visited = False  
-        # Predecessor
-        self.previous = None
-        # InDegree Count
-        self.inDegree = 0	
-        # OutDegree Count
-        self.outDegree = 0	
-
-    def addNeighbor(self, neighbor, weight=0):
-        self.adjacent[neighbor] = weight
-
-    def getConnections(self):
-        return self.adjacent.keys()  
-	
-    def setInDegree(self, inDegree):
-        self.inDegree = inDegree
-    def getInDegree(self):
-        return self.inDegree
-
-    def getVertexID(self):
-        return self.id
-
-    def getWeight(self, neighbor):
-        return self.adjacent[neighbor]
-
-    def setDistance(self, dist):
-        self.distance = dist
-
-    def getDistance(self):
-        return self.distance
-
-    def setPrevious(self, prev):
-        self.previous = prev
-
-    def setVisited(self):
-        self.visited = True
-
-    def __str__(self):
-        return str(self.id) + ' adjacent: ' + str([x.id for x in self.adjacent])
-
-class Graph:
-    def __init__(self):
-        self.vertDictionary = {}
-        self.numVertices = 0
-
-    def __iter__(self):
-        return iter(self.vertDictionary.values())
-
-    def addVertex(self, node):
-        self.numVertices = self.numVertices + 1
-        newVertex = Vertex(node)
-        self.vertDictionary[node] = newVertex
-        return newVertex
-
-    def getVertex(self, n):
-        if n in self.vertDictionary:
-            return self.vertDictionary[n]
-        else:
-            return None
-
-    def addEdge(self, frm, to, cost=1):
-        if frm not in self.vertDictionary:
-            self.addVertex(frm)
-        if to not in self.vertDictionary:
-            self.addVertex(to)
-
-        self.vertDictionary[frm].addNeighbor(self.vertDictionary[to], cost)
-	self.vertDictionary[to].inDegree += 1
-
-    def getVertices(self):
-        return self.vertDictionary
-
-    def setPrevious(self, current):
-        self.previous = current
-
-    def getPrevious(self, current):
-        return self.previous
-	
-    def getEdges(self):
-        edges = []
-	for v in G:
-		for w in v.getConnections():
-		    vid = v.getVertexID()
-		    wid = w.getVertexID()
-		    edges.append((vid, wid, v.getWeight(w)))
-	return edges
-
-def topologicalSort(G):
-	"""Perform a topological sort of the nodes. If the graph has a cycle,
-	throw a GraphTopologicalException with the list of successfully
-	ordered nodes."""
-	# topologically sorted list of the nodes (result)
-	topologicalList = []
-	# queue (fifo list) of the nodes with inDegree 0
-	topologicalQueue = []
-	# {node: inDegree} for the remaining nodes (those with inDegree>0)
-	remainingInDegree = {}
-	
-	nodes = G.getVertices()
-	for v in G:
-		indegree = v.getInDegree()
-		if indegree == 0:
-			topologicalQueue.append(v)
-		else:
-			remainingInDegree[v] = indegree
-
-	# remove nodes with inDegree 0 and decrease the inDegree of their sons
-	while len(topologicalQueue):
-	    # remove the first node with degree 0
-	    node = topologicalQueue.pop(0)
-	    topologicalList.append(node)
-	    # decrease the inDegree of the sons
-	    for son in node.getConnections():
-		son.setInDegree(son.getInDegree() - 1)
-		if son.getInDegree() == 0:
-		    topologicalQueue.append(son)
-
-	# if not all nodes were covered, the graph must have a cycle
-	# raise a GraphTopographicalException
-	if len(topologicalList) != len(nodes):
-	    raise GraphTopologicalException(topologicalList)
-	    
-	# Printing the topological order    
-	while len(topologicalList):
-		 node = topologicalList.pop(0)
-		 print node.getVertexID()
-		 
-if __name__ == '__main__':
-    G = Graph()
-    G.addVertex('A')
-    G.addVertex('B')
-    G.addVertex('C')
-    G.addVertex('D')
-    G.addVertex('E')
-    G.addVertex('F')
-    G.addVertex('G')
-    G.addVertex('H')
-    G.addVertex('I')
-    G.addEdge('A', 'B')   
-    G.addEdge('A', 'C')   
-    G.addEdge('A', 'G')  
-    G.addEdge('A', 'E')  
-    G.addEdge('B', 'C')       
-    G.addEdge('C', 'G')   
-    G.addEdge('D', 'E')  
-    G.addEdge('D', 'F')  
-    G.addEdge('F', 'H')       
-    G.addEdge('E', 'H')    
-    G.addEdge('H', 'I')      
-    print 'Graph data:'
-    print G.getEdges()	    
-    topologicalSort(G)
+# Python program to print topological sorting of a DAG 
+from collections import defaultdict 
+  
+# Class to represent a graph 
+  
+  
+class Graph: 
+    def __init__(self, vertices): 
+        self.graph = defaultdict(list)  # dictionary containing adjacency List 
+        self.V = vertices  # No. of vertices 
+  
+    # function to add an edge to graph 
+    def addEdge(self, u, v): 
+        self.graph[u].append(v) 
+  
+    # A recursive function used by topologicalSort 
+    def topologicalSortUtil(self, v, visited, stack): 
+  
+        # Mark the current node as visited. 
+        visited[v] = True
+  
+        # Recur for all the vertices adjacent to this vertex 
+        for i in self.graph[v]: 
+            if visited[i] == False: 
+                self.topologicalSortUtil(i, visited, stack) 
+  
+        # Push current vertex to stack which stores result 
+        stack.append(v) 
+  
+    # The function to do Topological Sort. It uses recursive 
+    # topologicalSortUtil() 
+    def topologicalSort(self): 
+        # Mark all the vertices as not visited 
+        visited = [False]*self.V 
+        stack = [] 
+  
+        # Call the recursive helper function to store Topological 
+        # Sort starting from all vertices one by one 
+        for i in range(self.V): 
+            if visited[i] == False: 
+                self.topologicalSortUtil(i, visited, stack) 
+  
+        # Print contents of the stack 
+        print stack[::-1]  # return list in reverse order 
+  
+# Driver Code 
+g = Graph(6) 
+g.addEdge(5, 2) 
+g.addEdge(5, 0) 
+g.addEdge(4, 0) 
+g.addEdge(4, 1) 
+g.addEdge(2, 3) 
+g.addEdge(3, 1) 
+  
+print "Following is a Topological Sort of the given graph"
+  
+# Function Call 
+g.topologicalSort() 
+  

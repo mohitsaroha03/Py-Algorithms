@@ -30,7 +30,8 @@ Topics:
             sorting: eay med hard
             hashing: med hard
 
-
+immp links:
+https://www.geeksforgeeks.org/difference-between-np-hard-and-np-complete-problem/
 
 
 

@@ -1,4 +1,7 @@
 # Link: https://www.geeksforgeeks.org/union-find-algorithm-set-2-union-by-rank/
+# both videos are imp
+# https://www.youtube.com/watch?v=eTaWFhPXPz4
+# https://www.youtube.com/watch?v=kaBX2s3pYO4
 # A union by rank and path compression based
 # program to detect cycle in a graph
 from collections import defaultdict

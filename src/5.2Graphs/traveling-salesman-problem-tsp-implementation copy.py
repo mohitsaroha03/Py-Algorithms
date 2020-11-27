@@ -1,47 +1,59 @@
 # Link: https://www.geeksforgeeks.org/traveling-salesman-problem-tsp-implementation/
 # https://www.geeksforgeeks.org/travelling-salesman-problem-set-1/
 # IsDone: 0
-# Python3 program to implement traveling salesman 
-# problem using naive approach. 
-from sys import maxsize 
-from itertools import permutations
+# Python3 implementation of the approach 
 V = 4
+answer = [] 
 
-# implementation of traveling Salesman Problem 
-def travellingSalesmanProblem(graph, s): 
+# Function to find the minimum weight 
+# Hamiltonian Cycle 
+def tsp(graph, v, currPos, n, count, cost): 
 
-	# store all vertex apart from source vertex 
-	vertex = [] 
-	for i in range(V): 
-		if i != s: 
-			vertex.append(i) 
+	# If last node is reached and it has 
+	# a link to the starting node i.e 
+	# the source then keep the minimum 
+	# value out of the total cost of 
+	# traversal and "ans" 
+	# Finally return to check for 
+	# more possible values 
+	if (count == n and graph[currPos][0]): 
+		answer.append(cost + graph[currPos][0]) 
+		return
 
-	# store minimum weight Hamiltonian Cycle 
-	min_path = maxsize 
-	next_permutation=permutations(vertex)
-	for i in next_permutation:
+	# BACKTRACKING STEP 
+	# Loop to traverse the adjacency list 
+	# of currPos node and increasing the count 
+	# by 1 and cost by graph[currPos][i] value 
+	for i in range(n): 
+		if (v[i] == False and graph[currPos][i]): 
+			
+			# Mark as visited 
+			v[i] = True
+			tsp(graph, v, i, n, count + 1, 
+				cost + graph[currPos][i]) 
+			
+			# Mark ith node as unvisited 
+			v[i] = False
 
-		# store current Path weight(cost) 
-		current_pathweight = 0
+# Driver code 
 
-		# compute current path weight 
-		k = s 
-		for j in i: 
-			current_pathweight += graph[k][j] 
-			k = j 
-		current_pathweight += graph[k][s] 
+# n is the number of nodes i.e. V 
+if __name__ == '__main__': 
+	n = 4
+	graph= [[ 0, 10, 15, 20 ], 
+			[ 10, 0, 35, 25 ], 
+			[ 15, 35, 0, 30 ], 
+			[ 20, 25, 30, 0 ]] 
 
-		# update minimum 
-		min_path = min(min_path, current_pathweight) 
-		
-	return min_path 
+	# Boolean array to check if a node 
+	# has been visited or not 
+	v = [False for i in range(n)] 
+	
+	# Mark 0th node as visited 
+	v[0] = True
 
+	# Find the minimum weight Hamiltonian Cycle 
+	tsp(graph, v, 0, n, 1, 0) 
 
-# Driver Code 
-if __name__ == "__main__": 
-
-	# matrix representation of graph 
-	graph = [[0, 10, 15, 20], [10, 0, 35, 25], 
-			[15, 35, 0, 30], [20, 25, 30, 0]] 
-	s = 0
-	print(travellingSalesmanProblem(graph, s))
+	# ans is the minimum weight Hamiltonian Cycle 
+	print(min(answer)) 

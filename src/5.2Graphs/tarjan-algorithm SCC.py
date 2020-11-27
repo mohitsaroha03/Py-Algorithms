@@ -1,5 +1,7 @@
 # Link: https://www.geeksforgeeks.org/tarjan-algorithm-find-strongly-connected-components/
+# https://www.youtube.com/watch?v=ZeDNSeilf-Y
 # IsDone: 0
+
 # Python program to find strongly connected components in a given 
 # directed graph using Tarjan's algorithm (single DFS) 
 #Complexity : O(V+E) 
@@ -24,7 +26,8 @@ class Graph:
 		self.graph[u].append(v) 
 		
 
-	'''A recursive function that find finds and prints strongly connected 
+	'''
+	A recursive function that find finds and prints strongly connected 
 	components using DFS traversal 
 	u --> The vertex to be visited next 
 	disc[] --> Stores discovery times of visited vertices 
