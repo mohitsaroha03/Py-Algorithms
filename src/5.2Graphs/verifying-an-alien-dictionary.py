@@ -1,4 +1,5 @@
 # Link - https://leetcode.com/problems/verifying-an-alien-dictionary/
+# https://www.youtube.com/watch?v=KvachM5i6-Q
 # Link2 - https://www.geeksforgeeks.org/given-sorted-dictionary-find-precedence-characters/
 
 def isAlienSorted(self, words: list[str], order: str) -> bool:

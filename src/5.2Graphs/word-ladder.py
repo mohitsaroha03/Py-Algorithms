@@ -1,5 +1,6 @@
 # Link: https://leetcode.com/problems/word-ladder/discuss/905779/python-solution.-Simple.-Readable-code
 # IsDone: 0
+# https://www.youtube.com/watch?v=ZVJ3asMoZ18&list=PLEJXowNB4kPzByLnnFYNSCoqtFz0VKLk5&index=32
 def bucket(newList):
     	hold = {}
 	for word in newList:

@@ -53,7 +53,7 @@ class Graph:
 		# Print the vertex cover 
 		for j in range(self.V):
 			if visited[j]:
-				print(j, end = ' ')
+				print(j)
 				
 		print()
 
