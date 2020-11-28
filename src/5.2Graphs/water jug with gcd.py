@@ -1,6 +1,6 @@
 # Link: https://leetcode.com/problems/water-and-jug-problem/discuss/426730/Very-Simple-Python-Solution
 # IsDone: 0
-def canMeasureWater(self, x: int, y: int, z: int) -> bool:
+def canMeasureWater(self, x, y, z):
     if z == 0:
         return True
     if x+y<z:
