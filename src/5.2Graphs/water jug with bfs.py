@@ -1,5 +1,5 @@
 # Link: https://leetcode.com/problems/water-and-jug-problem/discuss/318231/Python-solution-using-BFS
-def canMeasureWater(self, x: int, y: int, z: int) -> bool:
+def canMeasureWater(x, y, z):
     
     if (x + y < z):
         return False
@@ -39,6 +39,9 @@ def canMeasureWater(self, x: int, y: int, z: int) -> bool:
             visited[current - y] = True
         
         if current == z:
+            print queue
             return True
     
     return False
+
+canMeasureWater(5,4,2)
