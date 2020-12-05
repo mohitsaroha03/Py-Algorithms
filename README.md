@@ -38,6 +38,9 @@ https://www.geeksforgeeks.org/difference-between-np-hard-and-np-complete-problem
 Why DFS can't be used for shortest distance on graph, but works on tree
 https://codeforces.com/blog/entry/16479
 
+reccurence relation 
+https://www.youtube.com/watch?v=4V30R3I1vLI
+
 
 
 
